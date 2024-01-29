@@ -9,14 +9,26 @@ order: 0
 
 ## Summary
 
-Replace this paragraph with one or more paragraphs summarizing the purpose and operation of the Android app you propose to develop in this project.
+The app I intend to build will be a guessing game, where the goal is to guess a professional sports organization. After each guess you send in, you will be given back a response showing you how close your guesses were for each category on the board. The categories that will be shown are location, division, conference, overall sport (if playing with multiple sports as options), and number of championships won. I'm still brainstorming on additional categories based on how many leagues you have selected. 
 
 ## Intended users & user stories
 {: menu="Users" }
 
-Write a bullet list here, including at least 2 different types of intended users. Make it reasonably specific; simply saying "Anyone who likes games" (for example) is not sufficiently specific.
+  fans of the NFL
+    As a fan of the NFL, i want to use the NFL teams only option to test my knowledge of NFL franchises and see if i can figure out which team is the correct answer.
 
-For each type of intended user, include at least 1 _user story_. A user story is usually just 1 simple sentence (no more than 2 sentences), in the voice of the intended user, stating a specific task that the user performs using the app, and the benefit that will be obtained. The simplest user stories take the form 
+  fans of the NBA
+    As a fan of the NBA, i want to use the NBA teams only option to see if i can figure out which NBA team is the correct answer given the context given back after my guesses.
+
+  fans of the MLB
+    As a MLB fan, i want use the MLB teams only option to see if im able to determine the right franchise when given context clues.
+
+  fans of the NHL
+    As a fan of the NHL, i want to use the NHL only option to learn more about NHL franchises by playing this game and seeing the correct answers in each category for the different teams.
+
+  fans of multiple of above listed leagues
+    As a sports fan in general, i want to use the all leagues option to truly put my sports knowledge to the test, and see if i can narrow it down to the right leagues and ultimately, right team.
+
 
 > As a <type of intended user (_who_)> I want to <use of specific feature or functionality (_what_)> so that <benefit (_why_).
 
@@ -30,12 +42,24 @@ Here is one (silly) example of an intended user, along with a user story. Please
 
 ## Functionality
 
-List (using a bullet list---or ordered list, if order is relevant) the key functional aspects that will be provided by the app---i.e., tell us what the user will be able to do using the app. This should not simply be a re-statement of the [summary](#summary), but should instead provide a more specific articulation of the functionality and user experience. 
+The user will be able to select from which leagues they would like the list of teams to be from.
+They will then submit there first guess.
+the result given back will have all categories for the team they sent as the guess.
+If the team they guessed and the team that is the correct answer are the same in one of those categories, the answer for the team they sent in that category will be green. If its close, but not quite right, it will be yellow. If its not close or right, it will be white.
+Given those clues the user will submit another guess, and the same result will occur for the new team they submitted.
+This continues until the user gets the team right, or until they ruin out of guesses, then the correct team will be shown to them 
+The user will be given the option to play again, or to return home to select a new league/leagues.
 
 ## Persistent data
 {: menu="Persistence" }
 
-Using a bullet list, list what content will be stored on the Android device. This should include any information that users of your app would expect to be maintained (i.e., without connection to a server) across multiple sessions of use.
+*USER 
+  *Display name
+  * percentage of games completed with correct guess 
+  * which league last game was played on 
+  * time stamp of last game played 
+  * time stamp of last guess sent in a game if game was not completed before app was closed, so the game can be continued 
+  * list of professional sports teams, broken up into leagues 
 
 For example, this starter app already includes the necessary data model elements and data-access code to store & retrieve the following 
 
@@ -47,9 +71,13 @@ For example, this starter app already includes the necessary data model elements
 ## Device/external services
 {: menu="Services" }
 
-If the client component will need to access special services of the device (e.g., sensors, contacts, messaging), list them here using a bullet list. Also, if the client component will need to access already-existing external services (e.g., real-time weather data, Open Movie Database, Open Trivia Database), those should also be listed here; any such references to external services should include links to the main page or API description page for the service.
+*External services 
+  *keyboard 
+  *contacts
+  *messages 
+  *https://api-sports.io/
 
 ## Stretch goals and possible enhancements 
 {: menu="Stretch goals" }
 
-If you can identify functional elements of the software that you think might not be achievable in the scope of the project, but which would nonetheless add significant value if you were able to include them, list them here. For now, we recommend listing them in order of complexity/amount of work, from the least to the most.
+none i can think of at this time. 
