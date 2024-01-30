@@ -13,14 +13,13 @@ The app I intend to build will be a guessing game, where the goal is to guess a 
 
 ## Intended users & user stories
 {: menu="Users" }
+* fans of the NFL
 
-  fans of the NFL
+    > As a fan of the NFL, i want to use the NFL teams only option to test my knowledge of NFL franchises and see if i can figure out which team is the correct answer.
 
-    As a fan of the NFL, i want to use the NFL teams only option to test my knowledge of NFL franchises and see if i can figure out which team is the correct answer.
+* fans of the NBA
 
-  fans of the NBA
-
-    As a fan of the NBA, i want to use the NBA teams only option to see if i can figure out which NBA team is the correct answer given the context given back after my guesses.
+    > As a fan of the NBA, i want to use the NBA teams only option to see if i can figure out which NBA team is the correct answer given the context given back after my guesses.
 
   fans of the MLB
 
