@@ -15,30 +15,26 @@ The app I intend to build will be a guessing game, where the goal is to guess a 
 {: menu="Users" }
 
   fans of the NFL
+
     As a fan of the NFL, i want to use the NFL teams only option to test my knowledge of NFL franchises and see if i can figure out which team is the correct answer.
 
   fans of the NBA
+
     As a fan of the NBA, i want to use the NBA teams only option to see if i can figure out which NBA team is the correct answer given the context given back after my guesses.
 
   fans of the MLB
+
     As a MLB fan, i want use the MLB teams only option to see if im able to determine the right franchise when given context clues.
 
   fans of the NHL
+
     As a fan of the NHL, i want to use the NHL only option to learn more about NHL franchises by playing this game and seeing the correct answers in each category for the different teams.
 
   fans of multiple of above listed leagues
+
     As a sports fan in general, i want to use the all leagues option to truly put my sports knowledge to the test, and see if i can narrow it down to the right leagues and ultimately, right team.
 
 
-> As a <type of intended user (_who_)> I want to <use of specific feature or functionality (_what_)> so that <benefit (_why_).
-
-Please avoid writing too much for the user story. In particular, if the way the user story is written makes it difficult to see the _who_, _what_, and _why_, then you probably need to re-write it more directly. (On the other hand, a user story should not simply be a re-statement of the intended user description.)
-
-Here is one (silly) example of an intended user, along with a user story. Please note not only the conceptual structure, but the Markdown syntax used.
-
-* People who like to use randomness in their decision-making.
-
-    > As someone who enjoys randomness in my life, I use this app to flip a virtual coin or roll one or more virtual dice, so that I can base my decisions on randomness without having to carry coins or dice in my pockets.
 
 ## Functionality
 
@@ -61,12 +57,7 @@ The user will be given the option to play again, or to return home to select a n
   * time stamp of last guess sent in a game if game was not completed before app was closed, so the game can be continued 
   * list of professional sports teams, broken up into leagues 
 
-For example, this starter app already includes the necessary data model elements and data-access code to store & retrieve the following 
 
-* User
-    * Display name
-    * OAuth2.0 identifier
-    * Timestamp of first login to the app
     
 ## Device/external services
 {: menu="Services" }
