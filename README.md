@@ -2,11 +2,11 @@
 
 ## Summary
 
-This is a project template for all phases&mdash;from proposal to final delivery&mdash;of the personal Android project in the [Deep Dive Coding](https://deepdivecoding.com/) [Java + Android bootcamp](https://deepdivecoding.com/java-android/).
+This is a Wordle-like guessing game, where the objective is to guess the correct sports organization from the selected league(s) using the hints returned from previous guesses.
 
 ## Credits, copyrights, and license information
 
-Written by Nicholas Bennett and Todd Nordquist.
+Written by Timothy Wyatt Arlet.
 
 &copy; 2024 CNM Ingenuity, Inc.
 
