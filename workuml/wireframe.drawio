@@ -1,0 +1,85 @@
+<mxfile host="app.diagrams.net" modified="2024-02-11T05:08:41.688Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36 Edg/121.0.0.0" etag="Q-0R7m9X49LTCAna7qGl" version="23.1.2" type="device">
+  <diagram name="Page-1" id="Ity0bdre5pDZpc1G7dg2">
+    <mxGraphModel dx="1042" dy="1669" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="qRgKyZx6B3KWVO3zU2cP-1" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shadow=0;dashed=0;strokeWidth=1;shape=mxgraph.android.phone2;strokeColor=#c0c0c0;" vertex="1" parent="1">
+          <mxGeometry x="50" y="70" width="210" height="430" as="geometry" />
+        </mxCell>
+        <mxCell id="qRgKyZx6B3KWVO3zU2cP-2" value="game screen" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.text.textBox;fontColor=#666666;align=left;fontSize=17;spacingLeft=4;spacingTop=-3;whiteSpace=wrap;strokeColor=#666666;mainText=" vertex="1" parent="1">
+          <mxGeometry x="90" y="-30" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="qRgKyZx6B3KWVO3zU2cP-3" value="Teamle" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.text.textBox;fontColor=#666666;align=left;fontSize=17;spacingLeft=4;spacingTop=-3;whiteSpace=wrap;strokeColor=#666666;mainText=" vertex="1" parent="1">
+          <mxGeometry x="120" y="160" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="qRgKyZx6B3KWVO3zU2cP-4" value="&lt;font size=&quot;3&quot;&gt;;&lt;br&gt;&lt;/font&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="210" y="110" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="qRgKyZx6B3KWVO3zU2cP-5" value="settings button" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.text.textBox;fontColor=#666666;align=left;fontSize=17;spacingLeft=4;spacingTop=-3;whiteSpace=wrap;strokeColor=#666666;mainText=" vertex="1" parent="1">
+          <mxGeometry x="190" y="30" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="qRgKyZx6B3KWVO3zU2cP-6" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" target="qRgKyZx6B3KWVO3zU2cP-12">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="240" y="110" as="sourcePoint" />
+            <mxPoint x="290" y="60" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qRgKyZx6B3KWVO3zU2cP-7" value="guess-list drop box" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="200" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="qRgKyZx6B3KWVO3zU2cP-9" value="list of guesses/ answers for each category" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="240" width="170" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="qRgKyZx6B3KWVO3zU2cP-10" value="where keyboard would pop up" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="390" width="190" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qRgKyZx6B3KWVO3zU2cP-11" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shadow=0;dashed=0;strokeWidth=1;shape=mxgraph.android.phone2;strokeColor=#c0c0c0;" vertex="1" parent="1">
+          <mxGeometry x="310" y="80" width="200" height="390" as="geometry" />
+        </mxCell>
+        <mxCell id="qRgKyZx6B3KWVO3zU2cP-12" value="settings screen" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.text.textBox;fontColor=#666666;align=left;fontSize=17;spacingLeft=4;spacingTop=-3;whiteSpace=wrap;strokeColor=#666666;mainText=" vertex="1" parent="1">
+          <mxGeometry x="335" y="-30" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="qRgKyZx6B3KWVO3zU2cP-13" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.75;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="qRgKyZx6B3KWVO3zU2cP-4">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="160" as="sourcePoint" />
+            <mxPoint x="310" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qRgKyZx6B3KWVO3zU2cP-14" value="your profile/ sign in option" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="120" width="180" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="qRgKyZx6B3KWVO3zU2cP-15" value="select leagues option" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="210" width="180" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="qRgKyZx6B3KWVO3zU2cP-16" value="career stats based on league selected" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="270" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="qRgKyZx6B3KWVO3zU2cP-17" value="leave current game option" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="370" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="qRgKyZx6B3KWVO3zU2cP-18" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shadow=0;dashed=0;strokeWidth=1;shape=mxgraph.android.phone2;strokeColor=#c0c0c0;" vertex="1" parent="1">
+          <mxGeometry x="600" y="80" width="200" height="390" as="geometry" />
+        </mxCell>
+        <mxCell id="qRgKyZx6B3KWVO3zU2cP-20" value="end of game screen" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.text.textBox;fontColor=#666666;align=left;fontSize=17;spacingLeft=4;spacingTop=-3;whiteSpace=wrap;strokeColor=#666666;mainText=" vertex="1" parent="1">
+          <mxGeometry x="620" y="-30" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="qRgKyZx6B3KWVO3zU2cP-21" value="correct answer displayed" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="610" y="125" width="180" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="qRgKyZx6B3KWVO3zU2cP-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.682;entryY=0.07;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="qRgKyZx6B3KWVO3zU2cP-16" target="qRgKyZx6B3KWVO3zU2cP-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qRgKyZx6B3KWVO3zU2cP-23" value="number of guesses taken/stats" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="610" y="200" width="180" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="qRgKyZx6B3KWVO3zU2cP-24" value="new game with new league option" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="610" y="270" width="180" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="qRgKyZx6B3KWVO3zU2cP-25" value="play again option" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="610" y="330" width="180" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
