@@ -33,6 +33,7 @@
   <string name="access_fine_location_explanation" tools:keep="@string/access_fine_location_explanation">This app uses location information for …</string>
   <string name="access_coarse_location_explanation" tools:keep="@string/access_coarse_location_explanation">This app uses location information for …</string>
   <string name="post_notifications_explanation" tools:keep="@string/access_post_notifications_explanation">This app uses notifications for …</string>
+  <string name="foreground_service_remote_messaging_explanation" tools:keep="@string/foreground_service_remote_messaging_explanation">This app uses messaging to add the ability to challenge friends to beat your scores!</string>
   <string name="selectable_text_pref_key">selectable_text_pref</string>
   <string name="selectable_text_pref_title">Selectable text</string>
   <string name="selectable_text_pref_summary_on">Uneditable text is selectable.</string>
