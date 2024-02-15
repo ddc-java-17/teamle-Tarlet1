@@ -15,10 +15,9 @@ public class Guess {
   private final int correct;
 
   @Expose(serialize = false, deserialize = true)
-  private final int close;
-
-  @Expose(serialize = false, deserialize = true)
   private final Date timestamp;
+
+  private final Team team;
 
   public Guess(String id, String content, int correct, int close, Date timestamp) {
     this.id = id;

@@ -4,8 +4,9 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
-public class Game<League> {
+public class Game {
 
   @Expose(serialize = false, deserialize = true)
   private final String id;
@@ -16,13 +17,14 @@ public class Game<League> {
   @Expose(serialize = false, deserialize = true)
   private final List<Guess> guesses;
 
+  private final Team correctAnswer;
+
   @Expose(serialize = false, deserialize = true)
   @SerializedName("created")
   private final Date start;
 
   @Expose
   private final List<League> leagues;
-
 
   public Game(String id, String pool, List<Guess> guesses, Date start, List<League> leagues) {
     this.id = id;
