@@ -10,6 +10,7 @@ order: 0
 ## Summary
 
 The app I intend to build will be a guessing game, where the goal is to guess a professional sports organization. After each guess you send in, you will be given back a response showing you how close your guesses were for each category on the board. The categories that will be shown are location, division, conference, overall sport (if playing with multiple sports as options), and number of championships won. I'm still brainstorming on additional categories based on how many leagues you have selected. 
+The functionality of the app would include picking a league or multiple leagues for the pool to include. The game would consist of a drop-down list of all teams in the selected leagues, and would narrow itself down to match the characters typed by the user. There would be a result screen showing you how many guesses you took or what the correct answer is if you run out of guesses. The game will also track stats that you could check from the profile screen. It will also include a messaging feature, where you can challenge friends of family to beat your score. 
 
 ## Intended users & user stories
 {: menu="Users" }
