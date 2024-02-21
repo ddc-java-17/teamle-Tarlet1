@@ -21,17 +21,17 @@ The app I intend to build will be a guessing game, where the goal is to guess a 
 
     > As a fan of the NBA, i want to use the NBA teams only option to see if i can figure out which NBA team is the correct answer given the context given back after my guesses.
 
-  fans of the MLB
+ * fans of the MLB
 
-    As a MLB fan, i want use the MLB teams only option to see if im able to determine the right franchise when given context clues.
+    > As a MLB fan, i want use the MLB teams only option to see if im able to determine the right franchise when given context clues.
 
-  fans of the NHL
+ * fans of the NHL
 
-    As a fan of the NHL, i want to use the NHL only option to learn more about NHL franchises by playing this game and seeing the correct answers in each category for the different teams.
+  >  As a fan of the NHL, i want to use the NHL only option to learn more about NHL franchises by playing this game and seeing the correct answers in each category for the different teams.
 
-  fans of multiple of above listed leagues
+ * fans of multiple of above listed leagues
 
-    As a sports fan in general, i want to use the all leagues option to truly put my sports knowledge to the test, and see if i can narrow it down to the right leagues and ultimately, right team.
+  >  As a sports fan in general, i want to use the all leagues option to truly put my sports knowledge to the test, and see if i can narrow it down to the right leagues and ultimately, right team.
 
 
 
@@ -48,7 +48,7 @@ The user will be given the option to play again, or to return home to select a n
 ## Persistent data
 {: menu="Persistence" }
 
-*USER 
+  *User
   *Display name
   * percentage of games completed with correct guess 
   * which league last game was played on 
@@ -61,13 +61,13 @@ The user will be given the option to play again, or to return home to select a n
 ## Device/external services
 {: menu="Services" }
 
-*External services 
+  *External services 
   *keyboard 
   *contacts
   *messages 
-  *https://api-sports.io/
+  *https://www.thesportsdb.com/free_sports_api
 
 ## Stretch goals and possible enhancements 
 {: menu="Stretch goals" }
 
-none i can think of at this time. 
+Add in more leagues/ and Country as a guess category for certain leagues. 
