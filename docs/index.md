@@ -10,6 +10,7 @@ order: 0
 ## Summary
 
 The app I intend to build will be a guessing game, where the goal is to guess a professional sports organization. After each guess you send in, you will be given back a response showing you how close your guesses were for each category on the board. The categories that will be shown are location, division, conference, overall sport (if playing with multiple sports as options), and number of championships won. I'm still brainstorming on additional categories based on how many leagues you have selected. 
+
 The functionality of the app would include picking a league or multiple leagues for the pool to include. The game would consist of a drop-down list of all teams in the selected leagues, and would narrow itself down to match the characters typed by the user. There would be a result screen showing you how many guesses you took or what the correct answer is if you run out of guesses. The game will also track stats that you could check from the profile screen. It will also include a messaging feature, where you can challenge friends of family to beat your score. 
 
 ## Intended users & user stories
@@ -28,11 +29,11 @@ The functionality of the app would include picking a league or multiple leagues 
 
  * fans of the NHL
 
-  >  As a fan of the NHL, i want to use the NHL only option to learn more about NHL franchises by playing this game and seeing the correct answers in each category for the different teams.
+    >  As a fan of the NHL, i want to use the NHL only option to learn more about NHL franchises by playing this game and seeing the correct answers in each category for the different teams.
 
  * fans of multiple of above listed leagues
 
-  >  As a sports fan in general, i want to use the all leagues option to truly put my sports knowledge to the test, and see if i can narrow it down to the right leagues and ultimately, right team.
+    >  As a sports fan in general, i want to use the all leagues option to truly put my sports knowledge to the test, and see if i can narrow it down to the right leagues and ultimately, right team.
 
 
 
@@ -49,8 +50,8 @@ The user will be given the option to play again, or to return home to select a n
 ## Persistent data
 {: menu="Persistence" }
 
-  *User
-  *Display name
+  * User
+  * Display name
   * percentage of games completed with correct guess 
   * which league last game was played on 
   * time stamp of last game played 
@@ -62,11 +63,11 @@ The user will be given the option to play again, or to return home to select a n
 ## Device/external services
 {: menu="Services" }
 
-  *External services 
-  *keyboard 
-  *contacts
-  *messages 
-  *https://www.thesportsdb.com/free_sports_api
+  * External services 
+  * keyboard 
+  * contacts
+  * messages 
+  * https://www.thesportsdb.com/free_sports_api
 
 ## Stretch goals and possible enhancements 
 {: menu="Stretch goals" }
