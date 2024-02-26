@@ -18,13 +18,15 @@ public class Guess {
   private final Date timestamp;
 
   private final Team team;
+  private final int close;
 
-  public Guess(String id, String content, int correct, int close, Date timestamp) {
+  public Guess(String id, String content, int correct, int close, Date timestamp, Team team) {
     this.id = id;
     this.content = content;
     this.correct = correct;
     this.close = close;
     this.timestamp = timestamp;
+    this.team = team;
   }
 
   public String getId() {

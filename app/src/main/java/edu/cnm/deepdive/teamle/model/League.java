@@ -8,4 +8,7 @@ public class League {
 
   private final List<Team> teams;
 
+  public League(List<Team> teams) {
+    this.teams = teams;
+  }
 }

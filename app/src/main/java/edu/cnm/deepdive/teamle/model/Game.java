@@ -26,10 +26,11 @@ public class Game {
   @Expose
   private final List<League> leagues;
 
-  public Game(String id, String pool, List<Guess> guesses, Date start, List<League> leagues) {
+  public Game(String id, String pool, List<Guess> guesses, Team correctAnswer, Date start, List<League> leagues) {
     this.id = id;
     this.pool = pool;
     this.guesses = guesses;
+    this.correctAnswer = correctAnswer;
     this.start = start;
     this.leagues = leagues;
   }
