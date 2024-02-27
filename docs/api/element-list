@@ -1,0 +1,9 @@
+edu.cnm.deepdive.teamle
+edu.cnm.deepdive.teamle.controller
+edu.cnm.deepdive.teamle.hilt
+edu.cnm.deepdive.teamle.model
+edu.cnm.deepdive.teamle.model.dao
+edu.cnm.deepdive.teamle.model.dto
+edu.cnm.deepdive.teamle.model.entity
+edu.cnm.deepdive.teamle.service
+edu.cnm.deepdive.teamle.viewmodel
