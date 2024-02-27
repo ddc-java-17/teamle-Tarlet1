@@ -26,8 +26,8 @@ import java.time.Instant;
     @ColumnInfo(index = true)
     private Instant timestamp = Instant.now();
 
-    @ColumnInfo(name = "code_length", index = true)
-    private int codeLength;
+    @ColumnInfo(name = "length", index = true)
+    private int length;
 
     @ColumnInfo(name = "guess_count", index = true)
     private int guessCount;
@@ -39,4 +39,53 @@ import java.time.Instant;
     @ColumnInfo(name = "user_id", index = true)
     private long userId;
 
-}
+    public long getId() {
+      return id;
+    }
+
+    public void setId(long id) {
+      this.id = id;
+    }
+
+    @NonNull
+    public Instant getTimestamp() {
+      return timestamp;
+    }
+
+    public void setTimestamp(@NonNull Instant timestamp) {
+      this.timestamp = timestamp;
+    }
+
+    public int getLength() {
+      return length;
+    }
+
+    public void setLength(int length) {
+      this.length = length;
+    }
+
+    public int getGuessCount() {
+      return guessCount;
+    }
+
+    public void setGuessCount(int guessCount) {
+      this.guessCount = guessCount;
+    }
+
+    @NonNull
+    public Duration getDuration() {
+      return duration;
+    }
+
+    public void setDuration(@NonNull Duration duration) {
+      this.duration = duration;
+    }
+
+    public long getUserId() {
+      return userId;
+    }
+
+    public void setUserId(long userId) {
+      this.userId = userId;
+    }
+  }

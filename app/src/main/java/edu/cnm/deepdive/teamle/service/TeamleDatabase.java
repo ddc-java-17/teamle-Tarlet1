@@ -22,9 +22,12 @@ import androidx.room.RoomDatabase;
 import androidx.room.TypeConverter;
 import androidx.room.TypeConverters;
 import androidx.sqlite.db.SupportSQLiteDatabase;
+import edu.cnm.deepdive.teamle.model.dao.GameResultDao;
 import edu.cnm.deepdive.teamle.model.dao.UserDao;
+import edu.cnm.deepdive.teamle.model.entity.GameResult;
 import edu.cnm.deepdive.teamle.model.entity.User;
-import edu.cnm.deepdive.teamle.service.LocalDatabase.Converters;
+import edu.cnm.deepdive.teamle.service.TeamleDatabase.Converters;
+import java.time.Duration;
 import java.time.Instant;
 
 /**
@@ -32,25 +35,29 @@ import java.time.Instant;
  * using data-access object (DAO) instances obtained from the singleton instance of this class.
  */
 @Database(
-    entities = {User.class},
+    entities = {User.class, GameResult.class},
     version = 1
 )
 @TypeConverters({Converters.class})
-public abstract class LocalDatabase extends RoomDatabase { // TODO Change to more app-specific name.
+public abstract class TeamleDatabase extends RoomDatabase { // TODO Change to more app-specific name.
 
   /**  Name of SQLite database file. */
-  public static final String NAME = "starter"; // TODO Change to more app-specific value.
+  private static final String NAME = "Teamle"; // TODO Change to more app-specific value.
 
-  LocalDatabase() {
+  TeamleDatabase() {
     // Package-private constructor to avoid automatic HTML generation for Javadocs.
   }
 
+  public static String getName() {
+    return NAME;
+  }
   /**
    * Returns an instance of a {@link UserDao} implementation, providing persistence operations on
    * instances of the {@link User} entity class.
    */
   public abstract UserDao getUserDao();
 
+  public abstract GameResultDao getGameResultDao();
   // TODO Declare abstract accessors (aka getters) for other DAOs used in this project.
 
   /**
@@ -88,7 +95,20 @@ public abstract class LocalDatabase extends RoomDatabase { // TODO Change to mor
       return (value != null) ? Instant.ofEpochMilli(value) : null;
     }
 
+    @TypeConverter
+    @Nullable
+    public static Long toLong(@Nullable Duration value) {
+      return (value !=null) ? value.toMillis() : null;
+    }
+
+    @TypeConverter
+    @Nullable
+    public static Duration toDuration(@Nullable Long value) {
+      return (value != null) ? Duration.ofMillis(value) : null;
+    }
+
   }
+
 
   /**
    * Implements methods to be invoked on key database events.
