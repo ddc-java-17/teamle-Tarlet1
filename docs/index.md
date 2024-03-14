@@ -70,7 +70,7 @@ The user will be given the option to play again, or to return home to select a n
 
     > This service will allow users to send friends/family texts messages inviting them to beat there score for a played game.
 
-    > If this service is interrupted or not allowed, users won’t be able to use texts as a means of inviting other users to a game.
+    > If this service is interrupted or not allowed, users won’t be able to use texts as a means of inviting other users to play a game.
 
   * https://www.thesportsdb.com/free_sports_api
 
