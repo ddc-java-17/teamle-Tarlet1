@@ -61,14 +61,14 @@ The user will be given the option to play again, or to return home to select a n
   > If the service is interrupted, players will not be able to access there accounts.
 
   * Internet access (Mandatory)
-    > This service will connect our app to the internet, allowing you to find other players for a game.
+    > This service will connect our app to the internet, allowing you to sign-in to your account and track stats.
 
     > If this service is interrupted, the user will not be able to get into a game.
 
   * Messaging services (optional) (stretch goal)
     > Send simple data to other apps  |  Android Developers
 
-    > This service will allow users to send friends/family texts messages inviting them to a game they have created.
+    > This service will allow users to send friends/family texts messages inviting them to beat there score for a played game.
 
     > If this service is interrupted or not allowed, users won’t be able to use texts as a means of inviting other users to a game.
 
