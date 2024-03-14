@@ -19,21 +19,13 @@ The functionality of the app would include picking a league or multiple leagues 
 
     > As a fan of the NFL, i want to use the NFL teams only option to test my knowledge of NFL franchises and see if i can figure out which team is the correct answer.
 
-* fans of the NBA
+* People who enjoy puzzles
 
-    > As a fan of the NBA, i want to use the NBA teams only option to see if i can figure out which NBA team is the correct answer given the context given back after my guesses.
+    > As a person who likes to push myself mentally, I want to use this app to push my sports knowledge to the limit and see the fewest amount of guesses i'd need to solve a game.
+  
+* Overall sports fans 
 
- * fans of the MLB
-
-    > As a MLB fan, i want use the MLB teams only option to see if im able to determine the right franchise when given context clues.
-
- * fans of the NHL
-
-    >  As a fan of the NHL, i want to use the NHL only option to learn more about NHL franchises by playing this game and seeing the correct answers in each category for the different teams.
-
- * fans of multiple of above listed leagues
-
-    >  As a sports fan in general, i want to use the all leagues option to truly put my sports knowledge to the test, and see if i can narrow it down to the right leagues and ultimately, right team.
+    > As a sports fan in general, i want to use the all leagues option to truly put my sports knowledge to the test, and see if i can narrow it down to the right leagues and ultimately, right team as quickly as possible.
 
 
 
@@ -63,10 +55,23 @@ The user will be given the option to play again, or to return home to select a n
 ## Device/external services
 {: menu="Services" }
 
-  * External services 
-  * keyboard 
-  * contacts
-  * messages 
+  * Google sign-in service (Mandatory)
+  > This service will be used to sign-in/out of your account on our app.
+
+  > If the service is interrupted, players will not be able to access there accounts.
+
+  * Internet access (Mandatory)
+    > This service will connect our app to the internet, allowing you to find other players for a game.
+
+    > If this service is interrupted, the user will not be able to get into a game.
+
+  * Messaging services (optional) (stretch goal)
+    > Send simple data to other apps  |  Android Developers
+
+    > This service will allow users to send friends/family texts messages inviting them to a game they have created.
+
+    > If this service is interrupted or not allowed, users won’t be able to use texts as a means of inviting other users to a game.
+
   * https://www.thesportsdb.com/free_sports_api
 
 ## Stretch goals and possible enhancements 

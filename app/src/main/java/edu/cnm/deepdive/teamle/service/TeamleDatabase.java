@@ -39,10 +39,10 @@ import java.time.Instant;
     version = 1
 )
 @TypeConverters({Converters.class})
-public abstract class TeamleDatabase extends RoomDatabase { // TODO Change to more app-specific name.
+public abstract class TeamleDatabase extends RoomDatabase {
 
   /**  Name of SQLite database file. */
-  private static final String NAME = "Teamle"; // TODO Change to more app-specific value.
+  private static final String NAME = "Teamle";
 
   TeamleDatabase() {
     // Package-private constructor to avoid automatic HTML generation for Javadocs.
