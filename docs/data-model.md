@@ -9,7 +9,7 @@ erd:
   pdf: pdf/erd.pdf
 uml:
   image: img/teamle uml.svg
-  pdf: pdf/teamle teamle uml.pdf
+  pdf: pdf/teamle uml.pdf
 ---
 
 {% include ddc-abbreviations.md %}
