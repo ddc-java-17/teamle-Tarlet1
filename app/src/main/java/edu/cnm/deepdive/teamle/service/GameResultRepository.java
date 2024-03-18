@@ -26,10 +26,10 @@ public class GameResultRepository {
         .subscribeOn(Schedulers.single());
   }
 
-  public LiveData<List<GameResult>> getAll(int codeLength, User user) {
+  public LiveData<List<GameResult>> getAll(int correctTeam, User user) {
     return (user !=null)
-        ? gameResultDao.getRankedResults(codeLength, user.getId())
-        : gameResultDao.getRankedResults(codeLength);
+        ? gameResultDao.getRankedResults(correctTeam, user.getId())
+        : gameResultDao.getRankedResults(correctTeam);
   }
 
   public Completable clear() {
