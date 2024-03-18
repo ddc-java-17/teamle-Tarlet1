@@ -17,6 +17,26 @@ public class Team {
     this.division = division;
   }
 
+  public League getLeague() {
+    return league;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public int getLocation() {
+    return Location;
+  }
+
+  public int getNumberOfChampionships() {
+    return numberOfChampionships;
+  }
+
+  public String getDivision() {
+    return division;
+  }
+
   public enum Result {
     CLOSE,
     CORRECT,
