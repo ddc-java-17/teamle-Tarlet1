@@ -24,9 +24,10 @@ public class SportsDBModule {
 
   SportsDBModule() {
   }
+
   @Provides
   @Singleton
-  SportsDBProxy getServiceProxy(@ApplicationContext Context context){
+  SportsDBProxy getServiceProxy(@ApplicationContext Context context) {
 
     Gson gson = new GsonBuilder()
         .excludeFieldsWithoutExposeAnnotation()

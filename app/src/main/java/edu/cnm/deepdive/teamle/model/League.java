@@ -9,27 +9,19 @@ public class League {
 
   @Expose
   @SerializedName("idLeague")
-  private final int id;
+  private final String id = null;
 
   @Expose
   @SerializedName("strSport")
-  private final String sport;
+  private final String sport = null;
 
   @Expose
   @SerializedName("strLeague")
-  private final String name;
+  private final String name = null;
 
   private final List<Team> teams = new ArrayList<>();
 
-
-  public League() {
-    id = 0;
-    sport = null;
-    name = null;
-
-  }
-
-  public int getId() {
+  public String getId() {
     return id;
   }
 

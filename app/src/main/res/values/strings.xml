@@ -38,5 +38,9 @@
   <string name="selectable_text_pref_title">Selectable text</string>
   <string name="selectable_text_pref_summary_on">Uneditable text is selectable.</string>
   <string name="selectable_text_pref_summary_off">Uneditable text is not selectable.</string>
+  <string name="league_key">preferred_league</string>
+  <string name="league_title">Preferred league</string>
+  <string name="teamle">Teamle</string>
+  <string name="settings">Settings</string>
 
 </resources>

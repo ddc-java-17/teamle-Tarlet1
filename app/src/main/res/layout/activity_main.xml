@@ -14,23 +14,16 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<androidx.constraintlayout.widget.ConstraintLayout
+
+<androidx.fragment.app.FragmentContainerView
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/nav_host_fragment"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  android:padding="@dimen/half_dynamic_spacing"
-  tools:viewBindingIgnore="true"
-  tools:context=".controller.MainActivity">
+  android:name="androidx.navigation.fragment.NavHostFragment"
+  app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+  app:defaultNavHost="true"
+  app:navGraph="@navigation/navigation_graph"/>
 
-  <androidx.fragment.app.FragmentContainerView
-    android:id="@+id/nav_host_fragment"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:name="androidx.navigation.fragment.NavHostFragment"
-    app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
-    app:defaultNavHost="true"
-    app:navGraph="@navigation/navigation_graph"/>
-
-</androidx.constraintlayout.widget.ConstraintLayout>

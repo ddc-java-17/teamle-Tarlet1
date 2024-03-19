@@ -22,7 +22,10 @@ import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import dagger.hilt.android.AndroidEntryPoint;
 import edu.cnm.deepdive.teamle.NavigationGraphDirections;
@@ -32,34 +35,28 @@ import edu.cnm.deepdive.teamle.viewmodel.PermissionsViewModel;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Serves as a basic container activity&mdash;that is, it presents no UI elements of its own (apart
- * from an options menu), but hosts a {@link androidx.navigation.fragment.NavHostFragment} for
- * presentation of one or more {@link androidx.fragment.app.Fragment} instances, associated with a
- * navigation graph.
- * <p>In addition to the navigation host role, this activity demonstrates the
- * handling of:</p>
- * <ul><li><p>user sign-out (initiated by selection of an options menu item), with automatic
- * navigation back to {@link LoginActivity} on completion of the sign-out;</p></li>
- * <li><p>user-initiated navigation to {@link SettingsActivity};</p></li>
- * <li><p>updates of UI {@link android.view.View} widget properties based on preference values
- * (obtained from {@link edu.cnm.deepdive.teamle.viewmodel.PreferencesViewModel});</p></li>
- * <li><p>key events in the permissions request flow.</p></li></ul>
- */
+
 @AndroidEntryPoint
-public class MainActivity extends AppCompatActivity implements
-    PermissionsExplanationFragment.OnAcknowledgeListener {
+public class MainActivity extends AppCompatActivity {
 
   private static final int PERMISSIONS_REQUEST_CODE = 128158634;
 
   private LoginViewModel loginViewModel;
-  private PermissionsViewModel permissionsViewModel;
+  private NavController navController;
+  private AppBarConfiguration appBarConfiguration;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
+    setupNavigation();
     setupViewModels();
+  }
+
+  @Override
+  public boolean onSupportNavigateUp() {
+    getOnBackPressedDispatcher().onBackPressed();
+    return true;
   }
 
   @Override
@@ -74,8 +71,7 @@ public class MainActivity extends AppCompatActivity implements
     boolean handled = true;
     int itemId = item.getItemId();
     if (itemId == R.id.settings) {
-      Intent intent = new Intent(this, SettingsActivity.class);
-      startActivity(intent);
+      navController.navigate(NavigationGraphDirections.navigateToSettings());
     } else if (itemId == R.id.sign_out) {
       loginViewModel.signOut();
     } else {
@@ -84,19 +80,13 @@ public class MainActivity extends AppCompatActivity implements
     return handled;
   }
 
-  @Override
-  public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
-      @NonNull int[] grantResults) {
-    if (requestCode == PERMISSIONS_REQUEST_CODE) {
-      permissionsViewModel.handlePermissionsRequestResult(permissions, grantResults);
-    } else {
-      super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-    }
-  }
-
-  @Override
-  public void onAcknowledge(String[] permissions) {
-    requestPermissions(permissions, PERMISSIONS_REQUEST_CODE);
+  private void setupNavigation() {
+    appBarConfiguration = new AppBarConfiguration.Builder(R.id.demo_fragment)
+        .build();
+    //noinspection DataFlowIssue
+    navController = ((NavHostFragment) getSupportFragmentManager()
+        .findFragmentById(R.id.nav_host_fragment)).getNavController();
+    NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
   }
 
   private void setupViewModels() {
@@ -104,21 +94,6 @@ public class MainActivity extends AppCompatActivity implements
     loginViewModel
         .getAccount()
         .observe(this, this::handleAccount);
-    permissionsViewModel = new ViewModelProvider(this).get(PermissionsViewModel.class);
-    Set<String> permissionsToRequest = new HashSet<>();
-    Set<String> permissionsToExplain = new HashSet<>();
-    permissionsViewModel.checkPermissions(this, permissionsToRequest, permissionsToExplain);
-    if (!permissionsToExplain.isEmpty()) {
-      //noinspection DataFlowIssue
-      ((NavHostFragment) getSupportFragmentManager()
-          .findFragmentById(R.id.nav_host_fragment))
-          .getNavController()
-          .navigate(NavigationGraphDirections.explainPermissions(
-              permissionsToExplain.toArray(new String[0]),
-              permissionsToRequest.toArray(new String[0])));
-    } else if (!permissionsToRequest.isEmpty()) {
-      requestPermissions(permissionsToRequest.toArray(new String[0]), PERMISSIONS_REQUEST_CODE);
-    }
   }
 
   private void handleAccount(GoogleSignInAccount account) {

@@ -47,11 +47,6 @@
       android:name=".controller.MainActivity"
       android:launchMode="singleTop"/>
 
-    <activity
-      android:name=".controller.SettingsActivity"
-      android:parentActivityName=".controller.MainActivity"
-      android:label="@string/settings_label"/>
-
   </application>
 
 

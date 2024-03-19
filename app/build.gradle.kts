@@ -44,6 +44,7 @@ android {
 
         resValue("string", "app_name", project.property("appName") as String)
         resValue("string", "client_id", getLocalProperty("client_id") ?: "")
+        resValue("string", "api_key", getLocalProperty("apiKey") ?: "")
         resValue("string", "service_base_url", project.property("serviceBaseUrl") as String)
 
         javaCompileOptions {

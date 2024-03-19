@@ -19,37 +19,21 @@
   xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
   android:id="@+id/navigation_graph"
-  app:startDestination="@id/navigation_sign_in_demo">
+  app:startDestination="@id/demo_fragment">
 
   <action
-    android:id="@+id/explain_permissions"
-    app:destination="@id/navigation_permissions_explanation">
-
-    <argument
-      android:name="permissions_to_explain"
-      app:argType="string[]"/>
-    <argument
-      android:name="permissions_to_request"
-      app:argType="string[]"/>
-
-  </action>
+    android:id="@+id/navigate_to_settings"
+    app:destination="@id/settings_fragment"/>
 
   <fragment
-    android:id="@+id/navigation_sign_in_demo"
+    android:id="@+id/demo_fragment"
     android:name="edu.cnm.deepdive.teamle.controller.DemoFragment"
-    tools:layout="@layout/fragment_demo"/>
+    android:label="@string/teamle"
+    tools:layout="@layout/fragment_game"/>
 
-  <dialog
-    android:id="@+id/navigation_permissions_explanation"
-    android:name="edu.cnm.deepdive.teamle.controller.PermissionsExplanationFragment">
-
-    <argument
-      android:name="permissions_to_explain"
-      app:argType="string[]"/>
-    <argument
-      android:name="permissions_to_request"
-      app:argType="string[]"/>
-
-  </dialog>
+  <fragment
+    android:id="@+id/settings_fragment"
+    android:name="edu.cnm.deepdive.teamle.controller.SettingsFragment"
+    android:label="@string/settings"/>
 
 </navigation>
