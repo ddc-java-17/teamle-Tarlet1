@@ -19,15 +19,15 @@
   xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
   android:id="@+id/navigation_graph"
-  app:startDestination="@id/demo_fragment">
+  app:startDestination="@id/fragment_game">
 
   <action
     android:id="@+id/navigate_to_settings"
     app:destination="@id/settings_fragment"/>
 
   <fragment
-    android:id="@+id/demo_fragment"
-    android:name="edu.cnm.deepdive.teamle.controller.DemoFragment"
+    android:id="@+id/fragment_game"
+    android:name="edu.cnm.deepdive.teamle.controller.GameFragment"
     android:label="@string/teamle"
     tools:layout="@layout/fragment_game"/>
 

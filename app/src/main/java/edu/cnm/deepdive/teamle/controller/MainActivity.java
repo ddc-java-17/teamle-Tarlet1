@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
   }
 
   private void setupNavigation() {
-    appBarConfiguration = new AppBarConfiguration.Builder(R.id.demo_fragment)
+    appBarConfiguration = new AppBarConfiguration.Builder(R.id.fragment_game)
         .build();
     //noinspection DataFlowIssue
     navController = ((NavHostFragment) getSupportFragmentManager()
