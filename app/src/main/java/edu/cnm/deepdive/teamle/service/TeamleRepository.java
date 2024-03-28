@@ -42,6 +42,8 @@ public class TeamleRepository {
     apiKey= context.getString(R.string.api_key);
   }
 
+  // TODO: 3/28/2024 get all sports, get all leagues in a specific sport.
+
   public Single<List<League>> getAllLeagues() {
     return proxy.getAllLeagues(apiKey)
         .map(LeagueResponse::getLeagues)

@@ -44,6 +44,6 @@ public final class DatabaseModule {
   GameResultDao provideResultDao(TeamleDatabase database) {
     return database.getGameResultDao();
   }
-  // TODO Add additional methods so satisfy dependencies on other DAO interface implementations.
+  // TODO Add additional methods to satisfy dependencies on other DAO interface implementations.
 
 }

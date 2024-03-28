@@ -33,4 +33,6 @@ import edu.cnm.deepdive.teamle.viewmodel.UserViewModel;
 @AndroidEntryPoint
 public class GameFragment extends Fragment {
 
+
+
 }
