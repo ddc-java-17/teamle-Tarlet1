@@ -18,6 +18,10 @@
   xmlns:android="http://schemas.android.com/apk/res/android">
 
  <DropDownPreference
+  android:key="@string/sport_key"
+  android:title="@string/sport_title"/>
+
+ <DropDownPreference
    android:key="@string/league_key"
    android:title="@string/league_title"/>
 

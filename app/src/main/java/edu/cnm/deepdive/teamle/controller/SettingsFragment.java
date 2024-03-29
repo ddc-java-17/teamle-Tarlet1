@@ -7,12 +7,13 @@ import androidx.preference.DropDownPreference;
 import androidx.preference.PreferenceFragmentCompat;
 import dagger.hilt.android.AndroidEntryPoint;
 import edu.cnm.deepdive.teamle.R;
-import edu.cnm.deepdive.teamle.hilt.SportsDBModule;
-import edu.cnm.deepdive.teamle.hilt.SportsDBModule_Proxy;
 import edu.cnm.deepdive.teamle.model.League;
-import edu.cnm.deepdive.teamle.service.SportsDBProxy;
 import edu.cnm.deepdive.teamle.viewmodel.SportsDBViewModel;
-import hilt_aggregated_deps._edu_cnm_deepdive_teamle_hilt_SportsDBModule;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
 
 /**
  * Presents a standard settings screen, populated from the
@@ -21,29 +22,49 @@ import hilt_aggregated_deps._edu_cnm_deepdive_teamle_hilt_SportsDBModule;
 @AndroidEntryPoint
 public class SettingsFragment extends PreferenceFragmentCompat {
 
+  private DropDownPreference sportPreference;
+  private DropDownPreference leaguePreference;
+  private Map<String, List<League>> leaguesBySport;
+  private Map<String, League> leagueMap;
+
+  /**
+   * @noinspection DataFlowIssue
+   */
   @Override
   public void onCreatePreferences(@Nullable Bundle savedInstanceState, @Nullable String rootKey) {
     setPreferencesFromResource(R.xml.settings, rootKey);
-    DropDownPreference preference = findPreference(getString(R.string.league_key));
-    SportsDBViewModel viewModel = new ViewModelProvider(this).get(SportsDBViewModel.class);
-    viewModel.getLeagues()
-        .observe(this, (leagues) -> {
-          preference.setEntries(
-              leagues.stream()
-                  .map(League::getName)
-                  .toArray(String[]::new)
-          );
-          preference.setEntryValues(
-              leagues.stream()
-                  .map(League::getId)
-                  .toArray(String[]::new)
-          );
-        });
-    // TODO: 3/19/2024 Populate the array from sportsDB league query.
-    //noinspection DataFlowIssue
-    //preference.setValue("F");
+    leaguePreference = findPreference(getString(R.string.league_key));
+    sportPreference = findPreference(getString(R.string.sport_key));
+    sportPreference.setOnPreferenceChangeListener((preference, value) -> {
+      String sport = (String) value;
+      preference.setSummary(sport);
+      List<League> leagues = leaguesBySport.getOrDefault(sport, List.of());
+      leagueMap = leagues.stream()
+              .collect(Collectors.toMap(League::getId, Function.identity()));
+      leaguePreference.setEntries(leagues.stream().map(League::getName).toArray(String[]::new));
+      leaguePreference.setEntryValues(leagues.stream().map(League::getId).toArray(String[]::new));
+      return true;
+    });
+    leaguePreference.setOnPreferenceChangeListener((preference, value) -> {
+      String leagueId = (String) value;
+      preference.setSummary(leagueMap.get(leagueId).getName());
+      return true;
+    });
   }
 
-
+  @Override
+  public void onStart() {
+    super.onStart();
+    SportsDBViewModel viewModel = new ViewModelProvider(requireActivity()).get(SportsDBViewModel.class);
+    viewModel.getLeaguesBySport()
+        .observe(getViewLifecycleOwner(), (leaguesBySport) -> {
+          this.leaguesBySport = leaguesBySport;
+          String[] sports = leaguesBySport.keySet()
+              .stream()
+              .toArray(String[]::new);
+          sportPreference.setEntries(sports);
+          sportPreference.setEntryValues(sports);
+        });
+  }
 
 }

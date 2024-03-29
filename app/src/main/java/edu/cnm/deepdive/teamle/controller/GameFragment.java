@@ -15,8 +15,15 @@
  */
 package edu.cnm.deepdive.teamle.controller;
 
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import dagger.hilt.android.AndroidEntryPoint;
+import edu.cnm.deepdive.teamle.databinding.FragmentGameBinding;
 import edu.cnm.deepdive.teamle.viewmodel.LoginViewModel;
 import edu.cnm.deepdive.teamle.viewmodel.PermissionsViewModel;
 import edu.cnm.deepdive.teamle.viewmodel.PreferencesViewModel;
@@ -33,6 +40,18 @@ import edu.cnm.deepdive.teamle.viewmodel.UserViewModel;
 @AndroidEntryPoint
 public class GameFragment extends Fragment {
 
+  private FragmentGameBinding binding;
 
+  @Nullable
+  @Override
+  public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+      @Nullable Bundle savedInstanceState) {
+    binding = FragmentGameBinding.inflate(inflater, container, false);
+    return binding.getRoot();
+  }
 
+  @Override
+  public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+    super.onViewCreated(view, savedInstanceState);
+  }
 }

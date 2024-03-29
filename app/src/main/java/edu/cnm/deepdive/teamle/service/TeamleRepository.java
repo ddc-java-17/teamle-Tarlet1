@@ -5,7 +5,6 @@ import android.content.Context;
 import dagger.hilt.android.qualifiers.ApplicationContext;
 import edu.cnm.deepdive.teamle.R;
 import edu.cnm.deepdive.teamle.model.Game;
-import edu.cnm.deepdive.teamle.model.Guess;
 import edu.cnm.deepdive.teamle.model.League;
 import edu.cnm.deepdive.teamle.model.Team;
 import edu.cnm.deepdive.teamle.model.dto.LeagueResponse;
@@ -15,8 +14,12 @@ import edu.cnm.deepdive.teamle.model.entity.User;
 import io.reactivex.rxjava3.core.Scheduler;
 import io.reactivex.rxjava3.core.Single;
 import io.reactivex.rxjava3.schedulers.Schedulers;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 import java.util.concurrent.Executors;
+import java.util.stream.Collectors;
 import javax.inject.Inject;
 
 public class TeamleRepository {
@@ -28,7 +31,7 @@ public class TeamleRepository {
   private final String apiKey;
 
   private List<Team> teams;
-  private List<League> leagues;
+  private Map<String, List<League>> leaguesBySport;
   private Game game;
 
   // TODO: 3/19/2024 Register as preferences listener so when league pref changes we can get list of teams for that league.
@@ -44,10 +47,13 @@ public class TeamleRepository {
 
   // TODO: 3/28/2024 get all sports, get all leagues in a specific sport.
 
-  public Single<List<League>> getAllLeagues() {
+  public Single< ? extends Map<String, List<League>>> getAllLeaguesBySport() {
     return proxy.getAllLeagues(apiKey)
         .map(LeagueResponse::getLeagues)
-        .doOnSuccess((leagues) -> this.leagues = leagues)
+        .map((leagues) -> leagues.stream()
+                .collect(Collectors.groupingBy(League::getSport, TreeMap::new, Collectors.toList())))
+        .doOnSuccess((map) -> map.values().forEach((leagues) -> leagues.sort(Comparator.comparing(League::getName))))
+        .doOnSuccess((map) -> leaguesBySport = map)
         .subscribeOn(scheduler);
   }
 

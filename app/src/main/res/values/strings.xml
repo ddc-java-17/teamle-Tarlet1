@@ -42,5 +42,7 @@
   <string name="league_title">Preferred league</string>
   <string name="teamle">Teamle</string>
   <string name="settings">Settings</string>
+  <string name="sport_key">preferred_sport</string>
+  <string name="sport_title">Preferred sport</string>
 
 </resources>
