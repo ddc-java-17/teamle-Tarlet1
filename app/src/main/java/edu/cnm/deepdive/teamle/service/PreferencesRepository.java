@@ -19,8 +19,10 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Transformations;
 import androidx.preference.PreferenceManager;
 import dagger.hilt.android.qualifiers.ApplicationContext;
+import edu.cnm.deepdive.teamle.R;
 import edu.cnm.deepdive.teamle.controller.SettingsFragment;
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -36,12 +38,18 @@ import kotlin.jvm.functions.Function1;
 public class PreferencesRepository {
 
   private final MutableLiveData<SharedPreferences> preferences;
+  private final LiveData<String> sportPreference;
+  private final LiveData<String> leaguePreference;
   private final SharedPreferences prefs;
 
   @Inject
   PreferencesRepository(@ApplicationContext Context context) {
     prefs = PreferenceManager.getDefaultSharedPreferences(context);
     preferences = new MutableLiveData<>(prefs);
+    String sportKey = context.getString(R.string.sport_key);
+    String leagueKey = context.getString(R.string.league_key);
+    sportPreference = Transformations.map(preferences, (prefs) -> this.prefs.getString(sportKey, ""));
+    leaguePreference = Transformations.map(preferences, (prefs) -> this.prefs.getString(leagueKey, ""));
     prefs.registerOnSharedPreferenceChangeListener((prefs, key) -> preferences.postValue(prefs));
   }
 
@@ -55,6 +63,14 @@ public class PreferencesRepository {
    */
   public LiveData<SharedPreferences> getPreferences() {
     return preferences;
+  }
+
+  public LiveData<String> getSportPreference() {
+    return sportPreference;
+  }
+
+  public LiveData<String> getLeaguePreference() {
+    return leaguePreference;
   }
 
   /**
@@ -72,5 +88,6 @@ public class PreferencesRepository {
     T result = (T) prefs.getAll().get(key);
     return (result != null) ? result : defaultValue;
   }
+
 
 }

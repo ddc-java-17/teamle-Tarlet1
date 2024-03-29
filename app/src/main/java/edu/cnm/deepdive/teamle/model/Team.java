@@ -1,32 +1,36 @@
 package edu.cnm.deepdive.teamle.model;
 
+import androidx.annotation.NonNull;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class Team {
 
-  private final League league;
+  @Expose
+  @SerializedName("strTeam")
   private final String name;
-  private final int Location;
+  @Expose
+  @SerializedName("strStadiumLocation")
+  private final String location;
   private final int numberOfChampionships;
+  @Expose
   private final String division;
 
-  public Team(League league, String name, int location, int numberOfChampionships,
+  public Team(String name, String location, int numberOfChampionships,
       String division) {
-    this.league = league;
     this.name = name;
-    Location = location;
+    this.location = location;
     this.numberOfChampionships = numberOfChampionships;
     this.division = division;
   }
 
-  public League getLeague() {
-    return league;
-  }
 
   public String getName() {
     return name;
   }
 
-  public int getLocation() {
-    return Location;
+  public String getLocation() {
+    return location;
   }
 
   public int getNumberOfChampionships() {
@@ -35,6 +39,12 @@ public class Team {
 
   public String getDivision() {
     return division;
+  }
+
+  @NonNull
+  @Override
+  public String toString() {
+    return name;
   }
 
   public enum Result {

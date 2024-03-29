@@ -1,6 +1,7 @@
 package edu.cnm.deepdive.teamle.controller;
 
 import android.os.Bundle;
+import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.DropDownPreference;
@@ -24,8 +25,6 @@ public class SettingsFragment extends PreferenceFragmentCompat {
 
   private DropDownPreference sportPreference;
   private DropDownPreference leaguePreference;
-  private Map<String, List<League>> leaguesBySport;
-  private Map<String, League> leagueMap;
 
   /**
    * @noinspection DataFlowIssue
@@ -35,35 +34,28 @@ public class SettingsFragment extends PreferenceFragmentCompat {
     setPreferencesFromResource(R.xml.settings, rootKey);
     leaguePreference = findPreference(getString(R.string.league_key));
     sportPreference = findPreference(getString(R.string.sport_key));
-    sportPreference.setOnPreferenceChangeListener((preference, value) -> {
-      String sport = (String) value;
-      preference.setSummary(sport);
-      List<League> leagues = leaguesBySport.getOrDefault(sport, List.of());
-      leagueMap = leagues.stream()
-              .collect(Collectors.toMap(League::getId, Function.identity()));
-      leaguePreference.setEntries(leagues.stream().map(League::getName).toArray(String[]::new));
-      leaguePreference.setEntryValues(leagues.stream().map(League::getId).toArray(String[]::new));
-      return true;
-    });
-    leaguePreference.setOnPreferenceChangeListener((preference, value) -> {
-      String leagueId = (String) value;
-      preference.setSummary(leagueMap.get(leagueId).getName());
-      return true;
-    });
   }
 
   @Override
   public void onStart() {
     super.onStart();
     SportsDBViewModel viewModel = new ViewModelProvider(requireActivity()).get(SportsDBViewModel.class);
-    viewModel.getLeaguesBySport()
-        .observe(getViewLifecycleOwner(), (leaguesBySport) -> {
-          this.leaguesBySport = leaguesBySport;
-          String[] sports = leaguesBySport.keySet()
+    viewModel.getSports()
+        .observe(getViewLifecycleOwner(), (sports) -> {
+          String[] sportNames = sports
               .stream()
               .toArray(String[]::new);
-          sportPreference.setEntries(sports);
-          sportPreference.setEntryValues(sports);
+          sportPreference.setEntries(sportNames);
+          sportPreference.setEntryValues(sportNames);
+        });
+    viewModel.getLeagues()
+        .observe(getViewLifecycleOwner(), (leagues) -> {
+          leaguePreference.setEntries(leagues.stream().map(League::getName).toArray(String[]::new));
+          leaguePreference.setEntryValues(leagues.stream().map(League::getId).toArray(String[]::new));
+        });
+    viewModel.getTeams()
+        .observe(getViewLifecycleOwner(), (teams) -> {
+          Log.d(getClass().getSimpleName(), String.valueOf(teams.size()));
         });
   }
 

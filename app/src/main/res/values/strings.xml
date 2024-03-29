@@ -44,5 +44,6 @@
   <string name="settings">Settings</string>
   <string name="sport_key">preferred_sport</string>
   <string name="sport_title">Preferred sport</string>
+  <string name="guess_the_team">guess the team</string>
 
 </resources>

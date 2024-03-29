@@ -16,17 +16,23 @@
 package edu.cnm.deepdive.teamle.controller;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import dagger.hilt.android.AndroidEntryPoint;
 import edu.cnm.deepdive.teamle.databinding.FragmentGameBinding;
+import edu.cnm.deepdive.teamle.model.Team;
 import edu.cnm.deepdive.teamle.viewmodel.LoginViewModel;
 import edu.cnm.deepdive.teamle.viewmodel.PermissionsViewModel;
 import edu.cnm.deepdive.teamle.viewmodel.PreferencesViewModel;
+import edu.cnm.deepdive.teamle.viewmodel.SportsDBViewModel;
+import edu.cnm.deepdive.teamle.viewmodel.SportsDBViewModel_Factory;
 import edu.cnm.deepdive.teamle.viewmodel.UserViewModel;
 
 /**
@@ -53,5 +59,12 @@ public class GameFragment extends Fragment {
   @Override
   public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
+    SportsDBViewModel viewModel = new ViewModelProvider(requireActivity()).get(
+        SportsDBViewModel.class);
+    viewModel.getTeams()
+        .observe(getViewLifecycleOwner(), (teams) -> {
+          ArrayAdapter<Team> adapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_dropdown_item_1line, teams);
+          binding.guessText.setAdapter(adapter);
+        });
   }
 }
