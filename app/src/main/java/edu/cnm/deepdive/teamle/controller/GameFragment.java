@@ -18,6 +18,9 @@ package edu.cnm.deepdive.teamle.controller;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -26,9 +29,13 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.MenuProvider;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Lifecycle.State;
 import androidx.lifecycle.ViewModelProvider;
 import dagger.hilt.android.AndroidEntryPoint;
+import edu.cnm.deepdive.teamle.R;
+import edu.cnm.deepdive.teamle.adapter.GuessesAdapter;
 import edu.cnm.deepdive.teamle.databinding.FragmentGameBinding;
 import edu.cnm.deepdive.teamle.model.Team;
 import edu.cnm.deepdive.teamle.viewmodel.LoginViewModel;
@@ -47,7 +54,7 @@ import edu.cnm.deepdive.teamle.viewmodel.UserViewModel;
  * altogether.
  */
 @AndroidEntryPoint
-public class GameFragment extends Fragment {
+public class GameFragment extends Fragment implements MenuProvider {
 
   private FragmentGameBinding binding;
   private SportsDBViewModel viewModel;
@@ -90,5 +97,37 @@ public class GameFragment extends Fragment {
           ArrayAdapter<Team> adapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_dropdown_item_1line, teams);
           binding.guessText.setAdapter(adapter);
         });
+    viewModel.getGame()
+            .observe(getViewLifecycleOwner(), (game) -> {
+              binding.guessText.setText("");
+              GuessesAdapter adapter = new GuessesAdapter(requireContext(), game.getGuesses());
+              binding.guesses.setAdapter(adapter);
+              if (game.isSolved()) {
+                // TODO: 3/30/2024 display a pop up saying something.
+                binding.guessText.setEnabled(false);
+              } else {
+                binding.guessText.setEnabled(true);
+                if (!game.getGuesses().isEmpty()) {
+              // TODO: 3/30/2024 display info about how close guess was.
+                }
+              }
+            });
+    requireActivity().addMenuProvider(this, getViewLifecycleOwner(), State.RESUMED);
   }
+
+  @Override
+  public void onCreateMenu(@NonNull Menu menu, @NonNull MenuInflater menuInflater) {
+    menuInflater.inflate(R.menu.game_options, menu);
+  }
+
+  @Override
+  public boolean onMenuItemSelected(@NonNull MenuItem menuItem) {
+    boolean handled = false;
+    if (menuItem.getItemId() == R.id.new_game) {
+      viewModel.startGame();
+      handled = true;
+    }
+   return handled;
+  }
+
 }

@@ -37,7 +37,6 @@ public class TeamleRepository {
   private final Random rng;
 
   private List<Team> teams;
-  private Team secretTeam;
   private Map<String, List<League>> leaguesBySport;
   private Game game;
 
@@ -70,32 +69,29 @@ public class TeamleRepository {
     return proxy.getAllTeams(apiKey, leagueId)
         .map(TeamResponse::getTeams)
         .doOnSuccess((teams) -> this.teams = teams)
-        .doOnSuccess((teams) -> pick())
         .subscribeOn(scheduler);
   }
 
-  public void pick() {
-    secretTeam = teams.get(rng.nextInt(teams.size()));
+  public Team pick() {
+    return teams.get(rng.nextInt(teams.size()));
 
   }
 
   public Game startGame() {
-    pick();
-    Game game = new Game(secretTeam);
+    Game game = new Game(pick());
     this.game = game;
     return game;
   }
 
   @SuppressLint("checkResult")
   public Guess submitGuess(Team pick) {
-    // TODO: 3/30/2024 if game solved, throw exception.
-//    if (game.isSolved()) {
-//      throw new IllegalArgumentException();
-//    }
-    Guess guess = new Guess(pick, secretTeam);
+    if (game.isSolved()) {
+      throw new IllegalStateException();
+    }
+    Guess guess = new Guess(pick, game.getCorrectAnswer());
     game.getGuesses().add(guess);
     if (guess.isCorrect()) {
-      // TODO: 3/30/2024 create a game result instance and store in database.
+       // TODO: 3/30/2024 create a game result instance and store in database.
 
     }
     return guess;

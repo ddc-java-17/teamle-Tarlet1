@@ -28,6 +28,10 @@ public class Game {
     return start;
   }
 
+  public Team getCorrectAnswer() {
+    return correctAnswer;
+  }
+
   public boolean isSolved() {
     return guesses.stream().anyMatch((Guess::isCorrect));
 

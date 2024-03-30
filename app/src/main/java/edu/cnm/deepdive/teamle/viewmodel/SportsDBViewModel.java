@@ -72,6 +72,7 @@ public class SportsDBViewModel  extends ViewModel implements DefaultLifecycleObs
       return (game != null) ? guesses.get(guesses.size() - 1) : null;
     });
     fetchLeagues();
+    // TODO: 3/30/2024 read preference for league key, fetch teams for that league.
   }
 
   public void fetchLeagues() {
@@ -127,6 +128,13 @@ public class SportsDBViewModel  extends ViewModel implements DefaultLifecycleObs
     return teams;
   }
 
+  public LiveData<Game> getGame() {
+    return game;
+  }
+
+  public LiveData<Guess> getGuess() {
+    return guess;
+  }
 
   public LiveData<Throwable> getThrowable() {
     return throwable;
