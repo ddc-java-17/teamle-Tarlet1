@@ -9,20 +9,26 @@ import androidx.lifecycle.DefaultLifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Transformations;
 import androidx.lifecycle.ViewModel;
 import androidx.preference.PreferenceManager;
 import dagger.hilt.android.lifecycle.HiltViewModel;
 import dagger.hilt.android.qualifiers.ApplicationContext;
 import edu.cnm.deepdive.teamle.R;
+import edu.cnm.deepdive.teamle.model.Game;
+import edu.cnm.deepdive.teamle.model.Guess;
 import edu.cnm.deepdive.teamle.model.League;
 import edu.cnm.deepdive.teamle.model.Team;
 import edu.cnm.deepdive.teamle.service.PreferencesRepository;
 import edu.cnm.deepdive.teamle.service.TeamleRepository;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 import javax.inject.Inject;
 import org.jetbrains.annotations.NotNull;
 
@@ -34,10 +40,13 @@ public class SportsDBViewModel  extends ViewModel implements DefaultLifecycleObs
 
   private final TeamleRepository teamleRepository;
   private final Map<String, List<League>> leaguesBySport;
+  private final Map<String, League> idToLeague;
   private final MutableLiveData<Set<String>> sports;
   private final MutableLiveData<List<League>> leagues;
   private final MutableLiveData<List<Team>> teams;
   private final MutableLiveData<Throwable> throwable;
+  private final MutableLiveData<Game> game;
+  private final LiveData<Guess> guess;
   private final CompositeDisposable pending;
   private final SharedPreferences prefs;
   private final String sportKey;
@@ -48,6 +57,7 @@ public class SportsDBViewModel  extends ViewModel implements DefaultLifecycleObs
   public SportsDBViewModel(@ApplicationContext Context context, TeamleRepository teamleRepository) {
     this.teamleRepository = teamleRepository;
     leaguesBySport = new TreeMap<>();
+    idToLeague = new HashMap<>();
     teams = new MutableLiveData<>();
     sports = new MutableLiveData<>();
     leagues = new MutableLiveData<>();
@@ -56,6 +66,11 @@ public class SportsDBViewModel  extends ViewModel implements DefaultLifecycleObs
     prefs = PreferenceManager.getDefaultSharedPreferences(context);
     sportKey = context.getString(R.string.sport_key);
     leagueKey = context.getString(R.string.league_key);
+    game = new MutableLiveData<>();
+    guess = Transformations.map(game, (game) -> {
+      List<Guess> guesses = game.getGuesses();
+      return (game != null) ? guesses.get(guesses.size() - 1) : null;
+    });
     fetchLeagues();
   }
 
@@ -84,6 +99,20 @@ public class SportsDBViewModel  extends ViewModel implements DefaultLifecycleObs
     }
 
     // TODO: 3/29/2024 invoke the appropiate method in teamle repository to get teams, subscribe to result, populate live data.
+  }
+
+  public League getLeagueById(String id) {
+    return idToLeague.get(id);
+  }
+
+  public void startGame() {
+    game.postValue(teamleRepository.startGame());
+  }
+
+  public void submitGuess(Team team) {
+    Log.d(TAG, team.toString());
+    teamleRepository.submitGuess(team);
+    game.postValue(game.getValue());
   }
 
   public LiveData<Set<String>> getSports() {
@@ -116,8 +145,13 @@ public class SportsDBViewModel  extends ViewModel implements DefaultLifecycleObs
 
   @Override
   public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, @Nullable String key) {
+    //noinspection DataFlowIssue
     if (key.equals(sportKey)) {
-      leagues.postValue(leaguesBySport.getOrDefault(prefs.getString(key, ""), List.of()));
+      List<League> leagues = leaguesBySport.getOrDefault(prefs.getString(key, ""), List.of());
+      idToLeague.clear();
+      //noinspection DataFlowIssue
+      idToLeague.putAll(leagues.stream().collect(Collectors.toMap(League::getId, Function.identity())));
+      this.leagues.postValue(leagues);
     } else if (key.equals(leagueKey)) {
       fetchTeams(prefs.getString(leagueKey, "0"));
     }

@@ -20,6 +20,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -47,19 +50,40 @@ import edu.cnm.deepdive.teamle.viewmodel.UserViewModel;
 public class GameFragment extends Fragment {
 
   private FragmentGameBinding binding;
+  private SportsDBViewModel viewModel;
 
   @Nullable
   @Override
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
       @Nullable Bundle savedInstanceState) {
     binding = FragmentGameBinding.inflate(inflater, container, false);
+    binding.guessText.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+      @Override
+      public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        Team selectedTeam = (Team) parent.getSelectedItem();
+        viewModel.submitGuess(selectedTeam);
+      }
+
+      @Override
+      public void onNothingSelected(AdapterView<?> parent) {
+      }
+    });
+
+    binding.guessText.setOnItemClickListener(new OnItemClickListener() {
+      @Override
+      public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Team selectedTeam = (Team) parent.getItemAtPosition(position);
+        viewModel.submitGuess(selectedTeam);
+      }
+    });
     return binding.getRoot();
   }
 
   @Override
   public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
-    SportsDBViewModel viewModel = new ViewModelProvider(requireActivity()).get(
+    viewModel = new ViewModelProvider(requireActivity()).get(
         SportsDBViewModel.class);
     viewModel.getTeams()
         .observe(getViewLifecycleOwner(), (teams) -> {

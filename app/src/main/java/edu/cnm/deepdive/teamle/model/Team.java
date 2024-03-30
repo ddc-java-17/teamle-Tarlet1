@@ -12,16 +12,23 @@ public class Team {
   @Expose
   @SerializedName("strStadiumLocation")
   private final String location;
-  private final int numberOfChampionships;
   @Expose
-  private final String division;
+  @SerializedName("intFormedYear")
+  private final int yearCreated;
+  @Expose
+  @SerializedName("strKitColour1")
+  private final String primaryColor;
+  @Expose
+  @SerializedName("idTeam")
+private final String id;
 
-  public Team(String name, String location, int numberOfChampionships,
-      String division) {
+  public Team(String name, String location, int yearCreated,
+      String primaryColor, String id) {
     this.name = name;
     this.location = location;
-    this.numberOfChampionships = numberOfChampionships;
-    this.division = division;
+    this.primaryColor = primaryColor;
+    this.yearCreated = yearCreated;
+    this.id = id;
   }
 
 
@@ -33,12 +40,16 @@ public class Team {
     return location;
   }
 
-  public int getNumberOfChampionships() {
-    return numberOfChampionships;
+  public int getYearCreated() {
+    return yearCreated;
   }
 
-  public String getDivision() {
-    return division;
+  public String getPrimaryColor() {
+    return primaryColor;
+  }
+
+  public String getId() {
+    return id;
   }
 
   @NonNull
@@ -46,6 +57,7 @@ public class Team {
   public String toString() {
     return name;
   }
+
 
   public enum Result {
     CLOSE,

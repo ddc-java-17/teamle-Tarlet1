@@ -25,21 +25,34 @@ public class SettingsFragment extends PreferenceFragmentCompat {
 
   private DropDownPreference sportPreference;
   private DropDownPreference leaguePreference;
+  private SportsDBViewModel viewModel;
 
   /**
    * @noinspection DataFlowIssue
    */
   @Override
   public void onCreatePreferences(@Nullable Bundle savedInstanceState, @Nullable String rootKey) {
+    // TODO: 3/30/2024 Grab current preferences.
     setPreferencesFromResource(R.xml.settings, rootKey);
-    leaguePreference = findPreference(getString(R.string.league_key));
     sportPreference = findPreference(getString(R.string.sport_key));
+    sportPreference.setOnPreferenceChangeListener((prefs, value) -> {
+      prefs.setSummary(value.toString());
+      return true;
+    }) ;
+    leaguePreference = findPreference(getString(R.string.league_key));
+    leaguePreference.setOnPreferenceChangeListener((prefs, value) -> {
+      String id = (String) value;
+      League league = viewModel.getLeagueById(id);
+      prefs.setSummary(league.getName());
+      return true;
+    });
+
   }
 
   @Override
   public void onStart() {
     super.onStart();
-    SportsDBViewModel viewModel = new ViewModelProvider(requireActivity()).get(SportsDBViewModel.class);
+    viewModel = new ViewModelProvider(requireActivity()).get(SportsDBViewModel.class);
     viewModel.getSports()
         .observe(getViewLifecycleOwner(), (sports) -> {
           String[] sportNames = sports
