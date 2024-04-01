@@ -19,7 +19,6 @@ import edu.cnm.deepdive.teamle.model.Game;
 import edu.cnm.deepdive.teamle.model.Guess;
 import edu.cnm.deepdive.teamle.model.League;
 import edu.cnm.deepdive.teamle.model.Team;
-import edu.cnm.deepdive.teamle.service.PreferencesRepository;
 import edu.cnm.deepdive.teamle.service.TeamleRepository;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import java.util.HashMap;
@@ -33,7 +32,7 @@ import javax.inject.Inject;
 import org.jetbrains.annotations.NotNull;
 
 @HiltViewModel
-public class SportsDBViewModel  extends ViewModel implements DefaultLifecycleObserver,
+public class SportsDBViewModel extends ViewModel implements DefaultLifecycleObserver,
     OnSharedPreferenceChangeListener {
 
   private static final String TAG = SportsDBViewModel.class.getSimpleName();
@@ -66,13 +65,17 @@ public class SportsDBViewModel  extends ViewModel implements DefaultLifecycleObs
     prefs = PreferenceManager.getDefaultSharedPreferences(context);
     sportKey = context.getString(R.string.sport_key);
     leagueKey = context.getString(R.string.league_key);
+    String preferredLeague = prefs.getString(context.getString(R.string.league_key), "");
     game = new MutableLiveData<>();
     guess = Transformations.map(game, (game) -> {
       List<Guess> guesses = game.getGuesses();
       return (game != null) ? guesses.get(guesses.size() - 1) : null;
     });
     fetchLeagues();
-    // TODO: 3/30/2024 read preference for league key, fetch teams for that league.
+    if (!preferredLeague.isEmpty()) {
+      fetchTeams(preferredLeague);
+    }
+
   }
 
   public void fetchLeagues() {
@@ -158,7 +161,8 @@ public class SportsDBViewModel  extends ViewModel implements DefaultLifecycleObs
       List<League> leagues = leaguesBySport.getOrDefault(prefs.getString(key, ""), List.of());
       idToLeague.clear();
       //noinspection DataFlowIssue
-      idToLeague.putAll(leagues.stream().collect(Collectors.toMap(League::getId, Function.identity())));
+      idToLeague.putAll(
+          leagues.stream().collect(Collectors.toMap(League::getId, Function.identity())));
       this.leagues.postValue(leagues);
     } else if (key.equals(leagueKey)) {
       fetchTeams(prefs.getString(leagueKey, "0"));

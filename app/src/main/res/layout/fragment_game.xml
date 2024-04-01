@@ -42,6 +42,52 @@
       android:hint="@string/guess_the_team"/>
 
   </com.google.android.material.textfield.TextInputLayout>
+
+  <LinearLayout
+    android:id="@+id/column_headers"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="@dimen/half_dynamic_spacing"
+    app:layout_constraintTop_toBottomOf="@id/guess_layout">
+
+    <TextView
+      android:id="@+id/team_name_header"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="4"
+      android:text="@string/team_name"
+      android:padding="@dimen/half_dynamic_spacing"
+      style="@style/AppTheme.GuessText.Title"/>
+
+    <TextView
+      android:id="@+id/team_location_header"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="4"
+      android:text="@string/team_location"
+      android:padding="@dimen/half_dynamic_spacing"
+      style="@style/AppTheme.GuessText.Title"/>
+
+    <TextView
+      android:id="@+id/year_formed_header"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="2"
+      android:text="@string/year_formed"
+      android:padding="@dimen/half_dynamic_spacing"
+      style="@style/AppTheme.GuessText.Centered.Title"/>
+
+    <TextView
+      android:id="@+id/kit_color_header"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="2"
+      android:text="@string/kit_color"
+      android:padding="@dimen/half_dynamic_spacing"
+      style="@style/AppTheme.GuessText.Centered.Title"/>
+
+  </LinearLayout>
 <!--  TODO add widgets to display how good last guess was -->
 <!--  TODO add column headers -->
 
@@ -50,7 +96,7 @@
     android:layout_width="match_parent"
     android:layout_height="0dp"
     android:orientation="vertical"
-    app:layout_constraintTop_toBottomOf="@id/guess_layout"
+    app:layout_constraintTop_toBottomOf="@id/column_headers"
     app:layout_constraintBottom_toBottomOf="parent"
     tools:listitem="@layout/item_guesses"/>
 

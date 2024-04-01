@@ -1,17 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="match_parent"
   android:layout_height="wrap_content"
+  android:orientation="horizontal"
   xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
   android:padding="@dimen/half_dynamic_spacing">
 
   <TextView
     android:id="@+id/team_name"
-    android:layout_width="match_parent"
+    android:layout_width="0dp"
     android:layout_height="wrap_content"
+    android:layout_weight="4"
     android:layout_margin="@dimen/half_static_spacing"
     app:layout_constraintTop_toTopOf="parent"
     tools:text="dallas cowboys"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+  <TextView
+    android:id="@+id/team_location"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="4"
+    android:layout_margin="@dimen/half_static_spacing"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:text="Dallas, Texas"/>
+
+  <TextView
+    android:id="@+id/year_formed"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="2"
+    android:layout_margin="@dimen/half_static_spacing"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:text="1947"/>
+
+  <TextView
+    android:id="@+id/kit_color"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="2"
+    android:layout_margin="@dimen/half_static_spacing"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:text="Blue"/>
+
+
+</LinearLayout>

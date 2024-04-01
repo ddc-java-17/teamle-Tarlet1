@@ -5,8 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import com.google.android.material.color.MaterialColors;
 import edu.cnm.deepdive.teamle.R;
 import edu.cnm.deepdive.teamle.databinding.ItemGuessesBinding;
 import edu.cnm.deepdive.teamle.model.Guess;
@@ -15,10 +18,16 @@ import java.util.List;
 public class GuessesAdapter extends ArrayAdapter<Guess> {
 
   private final LayoutInflater inflater;
+  @ColorInt
+  private final int correct;
+  @ColorInt
+  private final int incorrect;
 
   public GuessesAdapter(@NonNull Context context, @NonNull List<Guess> guesses) {
     super(context, R.layout.item_guesses, guesses);
     inflater = LayoutInflater.from(context);
+    correct = ContextCompat.getColor(context, R.color.correct);
+    incorrect = ContextCompat.getColor(context, R.color.incorrect);
   }
 
   @NonNull
@@ -29,6 +38,17 @@ public class GuessesAdapter extends ArrayAdapter<Guess> {
         ? ItemGuessesBinding.bind(convertView)
         : ItemGuessesBinding.inflate(inflater, parent, false);
     binding.teamName.setText(guess.pick().getName());
+    binding.teamName.setBackgroundColor(
+        guess.pick().getName().equals(guess.secret().getName()) ? correct : incorrect);
+    binding.teamLocation.setText(guess.pick().getLocation());
+    binding.teamLocation.setBackgroundColor(
+        guess.pick().getLocation().equals(guess.secret().getLocation()) ? correct : incorrect);
+    binding.yearFormed.setText(String.valueOf(guess.pick().getYearCreated()));
+    binding.yearFormed.setBackgroundColor(
+        guess.pick().getYearCreated() == guess.secret().getYearCreated() ? correct : incorrect);
+    binding.kitColor.setText(guess.pick().getPrimaryColor());
+    binding.kitColor.setBackgroundColor(
+        guess.pick().getPrimaryColor().equals(guess.secret().getPrimaryColor()) ? correct : incorrect);
     // TODO: 3/30/2024 populate other widgets as necessary.
     return binding.getRoot();
   }

@@ -109,6 +109,7 @@ public class GameFragment extends Fragment implements MenuProvider {
                 binding.guessText.setEnabled(true);
                 if (!game.getGuesses().isEmpty()) {
               // TODO: 3/30/2024 display info about how close guess was.
+
                 }
               }
             });
