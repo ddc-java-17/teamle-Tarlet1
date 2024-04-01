@@ -19,12 +19,20 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.util.List;
 
+/**
+ * This class is an adapter for scores and extends ArrayAdapter
+ */
 public class ScoresAdapter extends ArrayAdapter<GameResult> {
 
   private final LayoutInflater inflater;
   private final String durationFormat;
   private final DateTimeFormatter timeStampFormat;
 
+  /**
+   * This adapter inflates and formats the duration and timestamp on the scores page.
+   * @param context context
+   * @param scores List<GameResult> scores
+   */
   public ScoresAdapter(@NonNull Context context, List<GameResult> scores) {
     super(context, R.layout.fragment_scores, scores);
     inflater = LayoutInflater.from(context);

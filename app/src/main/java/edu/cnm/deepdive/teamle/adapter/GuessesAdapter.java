@@ -15,6 +15,9 @@ import edu.cnm.deepdive.teamle.databinding.ItemGuessesBinding;
 import edu.cnm.deepdive.teamle.model.Guess;
 import java.util.List;
 
+/**
+ * Public class that extends ArrayAdapter and works as a GuessesAdapter.
+ */
 public class GuessesAdapter extends ArrayAdapter<Guess> {
 
   private final LayoutInflater inflater;
@@ -23,6 +26,11 @@ public class GuessesAdapter extends ArrayAdapter<Guess> {
   @ColorInt
   private final int incorrect;
 
+  /**
+   * This adapter is used to change the background color of the hints for the team you guessed in a game.
+   * @param context context
+   * @param guesses List<guesses>
+   */
   public GuessesAdapter(@NonNull Context context, @NonNull List<Guess> guesses) {
     super(context, R.layout.item_guesses, guesses);
     inflater = LayoutInflater.from(context);
