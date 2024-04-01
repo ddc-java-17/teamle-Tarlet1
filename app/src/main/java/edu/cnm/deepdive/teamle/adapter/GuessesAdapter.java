@@ -49,7 +49,6 @@ public class GuessesAdapter extends ArrayAdapter<Guess> {
     binding.kitColor.setText(guess.pick().getPrimaryColor());
     binding.kitColor.setBackgroundColor(
         guess.pick().getPrimaryColor().equals(guess.secret().getPrimaryColor()) ? correct : incorrect);
-    // TODO: 3/30/2024 populate other widgets as necessary.
     return binding.getRoot();
   }
 }

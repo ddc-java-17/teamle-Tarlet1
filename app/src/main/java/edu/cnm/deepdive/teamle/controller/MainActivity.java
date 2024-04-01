@@ -31,9 +31,6 @@ import dagger.hilt.android.AndroidEntryPoint;
 import edu.cnm.deepdive.teamle.NavigationGraphDirections;
 import edu.cnm.deepdive.teamle.R;
 import edu.cnm.deepdive.teamle.viewmodel.LoginViewModel;
-import edu.cnm.deepdive.teamle.viewmodel.PermissionsViewModel;
-import java.util.HashSet;
-import java.util.Set;
 
 
 @AndroidEntryPoint
@@ -55,8 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
   @Override
   public boolean onSupportNavigateUp() {
-    getOnBackPressedDispatcher().onBackPressed();
-    return true;
+    return navController.navigateUp() || super.onSupportNavigateUp();
   }
 
   @Override
@@ -81,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
   }
 
   private void setupNavigation() {
-    appBarConfiguration = new AppBarConfiguration.Builder(R.id.fragment_game)
+    appBarConfiguration = new AppBarConfiguration.Builder(R.id.game_fragment)
         .build();
     //noinspection DataFlowIssue
     navController = ((NavHostFragment) getSupportFragmentManager()

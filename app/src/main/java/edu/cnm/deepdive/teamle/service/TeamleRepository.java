@@ -17,6 +17,7 @@ import edu.cnm.deepdive.teamle.model.entity.User;
 import io.reactivex.rxjava3.core.Scheduler;
 import io.reactivex.rxjava3.core.Single;
 import io.reactivex.rxjava3.schedulers.Schedulers;
+import java.time.Duration;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
@@ -40,7 +41,7 @@ public class TeamleRepository {
   private Map<String, List<League>> leaguesBySport;
   private Game game;
 
-  // TODO: 3/19/2024 Register as preferences listener so when league pref changes we can get list of teams for that league.
+
   @Inject
   public TeamleRepository(SportsDBProxy proxy, GameResultRepository resultRepository,
       UserRepository userRepository, @ApplicationContext Context context, Random rng) {
@@ -51,8 +52,6 @@ public class TeamleRepository {
     this.scheduler = Schedulers.from(Executors.newFixedThreadPool(4));
     apiKey = context.getString(R.string.api_key);
   }
-
-  // TODO: 3/28/2024 get all sports, get all leagues in a specific sport.
 
   public Single<? extends Map<String, List<League>>> getAllLeaguesBySport() {
     return proxy.getAllLeagues(apiKey)
@@ -89,8 +88,14 @@ public class TeamleRepository {
       throw new IllegalStateException();
     }
     Guess guess = new Guess(pick, game.getCorrectAnswer());
-    game.getGuesses().add(guess);
+    List<Guess> guesses = game.getGuesses();
+    guesses.add(guess);
     if (guess.isCorrect()) {
+      GameResult result = new GameResult();
+      result.setSize(teams.size());
+      result.setGuessCount(guesses.size());
+      result.setDuration(Duration.between(guesses.get(0).created(), guesses.get(guesses.size() - 1).created()));
+      resultRepository.add(result).subscribe();
        // TODO: 3/30/2024 create a game result instance and store in database.
 
     }

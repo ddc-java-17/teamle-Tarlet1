@@ -33,7 +33,10 @@ import androidx.core.view.MenuProvider;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle.State;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import dagger.hilt.android.AndroidEntryPoint;
+import edu.cnm.deepdive.teamle.NavigationGraphDirections;
 import edu.cnm.deepdive.teamle.R;
 import edu.cnm.deepdive.teamle.adapter.GuessesAdapter;
 import edu.cnm.deepdive.teamle.databinding.FragmentGameBinding;
@@ -103,14 +106,11 @@ public class GameFragment extends Fragment implements MenuProvider {
               GuessesAdapter adapter = new GuessesAdapter(requireContext(), game.getGuesses());
               binding.guesses.setAdapter(adapter);
               if (game.isSolved()) {
-                // TODO: 3/30/2024 display a pop up saying something.
                 binding.guessText.setEnabled(false);
+                NavController controller = Navigation.findNavController(binding.getRoot());
+                controller.navigate(GameFragmentDirections.navigateToEndGame());
               } else {
                 binding.guessText.setEnabled(true);
-                if (!game.getGuesses().isEmpty()) {
-              // TODO: 3/30/2024 display info about how close guess was.
-
-                }
               }
             });
     requireActivity().addMenuProvider(this, getViewLifecycleOwner(), State.RESUMED);

@@ -26,8 +26,8 @@ import java.time.Instant;
     @ColumnInfo(index = true)
     private Instant timestamp = Instant.now();
 
-    @ColumnInfo(name = "length", index = true)
-    private int length;
+    @ColumnInfo(name = "size", index = true)
+    private int size;
 
     @ColumnInfo(name = "guess_count", index = true)
     private int guessCount;
@@ -37,7 +37,7 @@ import java.time.Instant;
     private Duration duration = Duration.ZERO;
 
     @ColumnInfo(name = "user_id", index = true)
-    private long userId;
+    private Long userId;
 
     public long getId() {
       return id;
@@ -56,12 +56,12 @@ import java.time.Instant;
       this.timestamp = timestamp;
     }
 
-    public int getLength() {
-      return length;
+    public int getSize() {
+      return size;
     }
 
-    public void setLength(int length) {
-      this.length = length;
+    public void setSize(int size) {
+      this.size = size;
     }
 
     public int getGuessCount() {
@@ -81,11 +81,11 @@ import java.time.Instant;
       this.duration = duration;
     }
 
-    public long getUserId() {
+    public Long getUserId() {
       return userId;
     }
 
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
       this.userId = userId;
     }
   }

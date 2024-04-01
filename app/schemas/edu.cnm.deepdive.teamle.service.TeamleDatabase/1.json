@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "8be7b8cd7f1b2a9a5aa10d861e5fe31a",
+    "identityHash": "8a37f649db64ef1460a3e10668aef1a2",
     "entities": [
       {
         "tableName": "user",
@@ -63,7 +63,7 @@
       },
       {
         "tableName": "game_result",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`game_result_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `timestamp` INTEGER NOT NULL, `length` INTEGER NOT NULL, `guess_count` INTEGER NOT NULL, `duration` INTEGER NOT NULL, `user_id` INTEGER NOT NULL, FOREIGN KEY(`user_id`) REFERENCES `user`(`user_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`game_result_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `timestamp` INTEGER NOT NULL, `size` INTEGER NOT NULL, `guess_count` INTEGER NOT NULL, `duration` INTEGER NOT NULL, `user_id` INTEGER, FOREIGN KEY(`user_id`) REFERENCES `user`(`user_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "id",
@@ -78,8 +78,8 @@
             "notNull": true
           },
           {
-            "fieldPath": "length",
-            "columnName": "length",
+            "fieldPath": "size",
+            "columnName": "size",
             "affinity": "INTEGER",
             "notNull": true
           },
@@ -99,7 +99,7 @@
             "fieldPath": "userId",
             "columnName": "user_id",
             "affinity": "INTEGER",
-            "notNull": true
+            "notNull": false
           }
         ],
         "primaryKey": {
@@ -129,13 +129,13 @@
             "createSql": "CREATE INDEX IF NOT EXISTS `index_game_result_timestamp` ON `${TABLE_NAME}` (`timestamp`)"
           },
           {
-            "name": "index_game_result_length",
+            "name": "index_game_result_size",
             "unique": false,
             "columnNames": [
-              "length"
+              "size"
             ],
             "orders": [],
-            "createSql": "CREATE INDEX IF NOT EXISTS `index_game_result_length` ON `${TABLE_NAME}` (`length`)"
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_game_result_size` ON `${TABLE_NAME}` (`size`)"
           },
           {
             "name": "index_game_result_guess_count",
@@ -183,7 +183,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '8be7b8cd7f1b2a9a5aa10d861e5fe31a')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '8a37f649db64ef1460a3e10668aef1a2')"
     ]
   }
 }

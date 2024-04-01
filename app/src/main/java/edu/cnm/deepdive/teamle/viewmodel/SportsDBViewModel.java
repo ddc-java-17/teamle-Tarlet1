@@ -102,7 +102,6 @@ public class SportsDBViewModel extends ViewModel implements DefaultLifecycleObse
           );
     }
 
-    // TODO: 3/29/2024 invoke the appropiate method in teamle repository to get teams, subscribe to result, populate live data.
   }
 
   public League getLeagueById(String id) {

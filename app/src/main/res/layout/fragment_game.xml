@@ -88,8 +88,6 @@
       style="@style/AppTheme.GuessText.Centered.Title"/>
 
   </LinearLayout>
-<!--  TODO add widgets to display how good last guess was -->
-<!--  TODO add column headers -->
 
   <ListView
     android:id="@+id/guesses"

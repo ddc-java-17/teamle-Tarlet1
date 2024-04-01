@@ -39,7 +39,6 @@ public class SettingsFragment extends PreferenceFragmentCompat {
     SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
     preferredSport = preferences.getString(requireContext().getString(R.string.sport_key), "");
     preferredLeague = preferences.getString(requireContext().getString(R.string.league_key), "");
-    // TODO: 3/30/2024 Grab current preferences.
     setPreferencesFromResource(R.xml.settings, rootKey);
     sportPreference = findPreference(getString(R.string.sport_key));
     sportPreference.setOnPreferenceChangeListener((prefs, value) -> {

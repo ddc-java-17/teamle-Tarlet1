@@ -15,11 +15,11 @@ public interface GameResultDao {
 
   String RANKING_QUERY = "SELECT * "
       + "FROM game_result "
-      + "WHERE length = :length "
+      + "WHERE size = :size "
       + "ORDER BY guess_count ASC, duration ASC";
   String RANKING_QUERY_FOR_RESULT = "SELECT * "
       + "FROM game_result "
-      + "WHERE length = :length "
+      + "WHERE size = :size "
       + "AND user_id = :userId "
       + "ORDER BY guess_count ASC, duration ASC";
   String TRUNCATION_QUERY = "DELETE FROM game_result";
@@ -28,10 +28,10 @@ public interface GameResultDao {
   Single<Long> insert(GameResult gameResult);
 
   @Query(RANKING_QUERY)
-  LiveData<List<GameResult>> getRankedResults(int length);
+  LiveData<List<GameResult>> getRankedResults(int size);
 
   @Query(RANKING_QUERY_FOR_RESULT)
-  LiveData<List<GameResult>> getRankedResults(int length, long userId);
+  LiveData<List<GameResult>> getRankedResults(int size, long userId);
 
   @Query(TRUNCATION_QUERY)
   Completable truncateResults();

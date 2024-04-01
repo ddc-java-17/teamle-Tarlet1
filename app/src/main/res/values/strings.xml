@@ -50,5 +50,8 @@
   <string name="year_formed">Year formed</string>
   <string name="kit_color">Primary team color</string>
   <string name="team_name">Team name</string>
+  <string name="congratulations">Congratulations!</string>
+  <string name="new_game">New game</string>
+  <string name="success_label">Success</string>
 
 </resources>
