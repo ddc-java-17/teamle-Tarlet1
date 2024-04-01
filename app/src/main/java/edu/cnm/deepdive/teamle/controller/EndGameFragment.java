@@ -6,8 +6,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
+import dagger.hilt.android.AndroidEntryPoint;
 import edu.cnm.deepdive.teamle.R;
 
+@AndroidEntryPoint
 public class EndGameFragment extends DialogFragment {
 
   @NonNull

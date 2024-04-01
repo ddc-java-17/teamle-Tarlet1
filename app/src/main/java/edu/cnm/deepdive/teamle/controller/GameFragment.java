@@ -87,6 +87,8 @@ public class GameFragment extends Fragment implements MenuProvider {
         viewModel.submitGuess(selectedTeam);
       }
     });
+    binding.showScores.setOnClickListener((v) ->
+        Navigation.findNavController(binding.getRoot()).navigate(GameFragmentDirections.navigateToFragmentScores()));
     return binding.getRoot();
   }
 
@@ -97,22 +99,23 @@ public class GameFragment extends Fragment implements MenuProvider {
         SportsDBViewModel.class);
     viewModel.getTeams()
         .observe(getViewLifecycleOwner(), (teams) -> {
-          ArrayAdapter<Team> adapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_dropdown_item_1line, teams);
+          ArrayAdapter<Team> adapter = new ArrayAdapter<>(requireContext(),
+              android.R.layout.simple_dropdown_item_1line, teams);
           binding.guessText.setAdapter(adapter);
         });
     viewModel.getGame()
-            .observe(getViewLifecycleOwner(), (game) -> {
-              binding.guessText.setText("");
-              GuessesAdapter adapter = new GuessesAdapter(requireContext(), game.getGuesses());
-              binding.guesses.setAdapter(adapter);
-              if (game.isSolved()) {
-                binding.guessText.setEnabled(false);
-                NavController controller = Navigation.findNavController(binding.getRoot());
-                controller.navigate(GameFragmentDirections.navigateToEndGame());
-              } else {
-                binding.guessText.setEnabled(true);
-              }
-            });
+        .observe(getViewLifecycleOwner(), (game) -> {
+          binding.guessText.setText("");
+          GuessesAdapter adapter = new GuessesAdapter(requireContext(), game.getGuesses());
+          binding.guesses.setAdapter(adapter);
+          if (game.isSolved()) {
+            binding.guessText.setEnabled(false);
+            NavController controller = Navigation.findNavController(binding.getRoot());
+            controller.navigate(GameFragmentDirections.navigateToEndGame());
+          } else {
+            binding.guessText.setEnabled(true);
+          }
+        });
     requireActivity().addMenuProvider(this, getViewLifecycleOwner(), State.RESUMED);
   }
 
@@ -128,7 +131,7 @@ public class GameFragment extends Fragment implements MenuProvider {
       viewModel.startGame();
       handled = true;
     }
-   return handled;
+    return handled;
   }
 
 }

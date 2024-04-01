@@ -11,7 +11,6 @@ import java.util.List;
 
 @Dao
 public interface GameResultDao {
-// TODO: 2/27/2024 define persistence operations for the game result entity.
 
   String RANKING_QUERY = "SELECT * "
       + "FROM game_result "
@@ -29,6 +28,9 @@ public interface GameResultDao {
 
   @Query(RANKING_QUERY)
   LiveData<List<GameResult>> getRankedResults(int size);
+
+  @Query("SELECT * FROM game_result ORDER BY size DESC, guess_count ASC, duration ASC")
+  LiveData<List<GameResult>> getAllRankedResults();
 
   @Query(RANKING_QUERY_FOR_RESULT)
   LiveData<List<GameResult>> getRankedResults(int size, long userId);

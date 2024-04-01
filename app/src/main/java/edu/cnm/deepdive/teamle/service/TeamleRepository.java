@@ -96,8 +96,6 @@ public class TeamleRepository {
       result.setGuessCount(guesses.size());
       result.setDuration(Duration.between(guesses.get(0).created(), guesses.get(guesses.size() - 1).created()));
       resultRepository.add(result).subscribe();
-       // TODO: 3/30/2024 create a game result instance and store in database.
-
     }
     return guess;
   }

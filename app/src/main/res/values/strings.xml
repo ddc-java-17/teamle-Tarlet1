@@ -53,5 +53,12 @@
   <string name="congratulations">Congratulations!</string>
   <string name="new_game">New game</string>
   <string name="success_label">Success</string>
+  <string name="scores_label">Scores</string>
+  <string name="navigate_label">Navigate to high scores</string>
+  <string name="duration_format">%1$d:%2$02d:%3$04.1f</string>
+  <string name="league_size">league size</string>
+  <string name="number_of_guesses">guess count</string>
+  <string name="game_duration">game duration</string>
+  <string name="timestamp">timestamp</string>
 
 </resources>

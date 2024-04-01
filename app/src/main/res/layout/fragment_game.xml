@@ -98,4 +98,14 @@
     app:layout_constraintBottom_toBottomOf="parent"
     tools:listitem="@layout/item_guesses"/>
 
+  <com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/show_scores"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:useCompatPadding="true"
+    android:contentDescription="@string/navigate_label"
+    android:src="@drawable/scoreboard"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

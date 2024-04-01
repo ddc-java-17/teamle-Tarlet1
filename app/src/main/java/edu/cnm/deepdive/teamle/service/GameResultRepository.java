@@ -38,4 +38,9 @@ public class GameResultRepository {
         .subscribeOn(Schedulers.io());
   }
 
+  public LiveData<List<GameResult>> getall() {
+    return gameResultDao
+        .getAllRankedResults();
+  }
+
 }

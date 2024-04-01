@@ -33,8 +33,12 @@
     tools:layout="@layout/fragment_game">
 
     <action
+      android:id="@+id/navigate_to_fragment_scores"
+      app:destination="@id/scores_fragment"/>
+    <action
       android:id="@+id/navigate_to_end_game"
       app:destination="@id/end_game_fragment"/>
+
 
   </fragment>
 
@@ -47,5 +51,10 @@
     android:id="@+id/end_game_fragment"
     android:name="edu.cnm.deepdive.teamle.controller.EndGameFragment"
     android:label="@string/success_label"/>
+
+  <fragment
+    android:id="@+id/scores_fragment"
+    android:name="edu.cnm.deepdive.teamle.controller.ScoresFragment"
+    android:label="@string/scores_label"/>
 
 </navigation>
