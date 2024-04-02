@@ -1,12 +1,8 @@
 package edu.cnm.deepdive.teamle.model;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
-import io.reactivex.rxjava3.core.SingleSource;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Handles all stats about a game
@@ -19,6 +15,7 @@ public class Game {
 
   /**
    * Sets the secret team
+   *
    * @param correctAnswer Team
    */
   public Game(Team correctAnswer) {
@@ -29,6 +26,7 @@ public class Game {
 
   /**
    * gets the list of guesses submitted.
+   *
    * @return List<Guesses>
    */
   public List<Guess> getGuesses() {
@@ -37,6 +35,7 @@ public class Game {
 
   /**
    * Gets the start time of a game
+   *
    * @return Date
    */
   public Date getStart() {
@@ -45,6 +44,7 @@ public class Game {
 
   /**
    * Gets the correct answer for a game.
+   *
    * @return Team
    */
   public Team getCorrectAnswer() {
@@ -53,6 +53,7 @@ public class Game {
 
   /**
    * Checks if the game has been solved.
+   *
    * @return boolean
    */
   public boolean isSolved() {

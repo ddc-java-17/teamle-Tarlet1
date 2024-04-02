@@ -1,7 +1,6 @@
 package edu.cnm.deepdive.teamle.service;
 
 import androidx.lifecycle.LiveData;
-import dagger.hilt.android.qualifiers.ApplicationContext;
 import edu.cnm.deepdive.teamle.model.dao.GameResultDao;
 import edu.cnm.deepdive.teamle.model.entity.GameResult;
 import edu.cnm.deepdive.teamle.model.entity.User;
@@ -25,6 +24,7 @@ public class GameResultRepository {
 
   /**
    * Adds games results to List of game results
+   *
    * @param gameResult GameResult
    * @return gameResultDao
    */
@@ -36,18 +36,20 @@ public class GameResultRepository {
 
   /**
    * Gets all game results
+   *
    * @param correctTeam int
-   * @param user User
+   * @param user        User
    * @return ranked results
    */
   public LiveData<List<GameResult>> getAll(int correctTeam, User user) {
-    return (user !=null)
+    return (user != null)
         ? gameResultDao.getRankedResults(correctTeam, user.getId())
         : gameResultDao.getRankedResults(correctTeam);
   }
 
   /**
    * clears game results
+   *
    * @return gameResultDao
    */
   public Completable clear() {
@@ -58,6 +60,7 @@ public class GameResultRepository {
 
   /**
    * Gets all game results
+   *
    * @return gameResultDao
    */
   public LiveData<List<GameResult>> getall() {

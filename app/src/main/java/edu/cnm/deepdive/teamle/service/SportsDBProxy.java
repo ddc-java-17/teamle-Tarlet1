@@ -20,5 +20,5 @@ public interface SportsDBProxy {
   Single<LeagueResponse> getAllLeagues(@Path("api_key") String apiKey);
 
   @GET("{api_key}/lookup_all_teams.php")
-  Single<TeamResponse> getAllTeams(@Path("api_key") String apiKey,@Query("id") String leagueId);
+  Single<TeamResponse> getAllTeams(@Path("api_key") String apiKey, @Query("id") String leagueId);
 }

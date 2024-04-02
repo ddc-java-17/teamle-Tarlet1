@@ -8,11 +8,8 @@ import android.widget.ArrayAdapter;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import edu.cnm.deepdive.teamle.R;
-import edu.cnm.deepdive.teamle.controller.ScoresFragment;
-import edu.cnm.deepdive.teamle.databinding.FragmentScoresBinding;
 import edu.cnm.deepdive.teamle.databinding.ItemScoresBinding;
 import edu.cnm.deepdive.teamle.model.entity.GameResult;
-import java.text.DateFormat;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
@@ -30,8 +27,9 @@ public class ScoresAdapter extends ArrayAdapter<GameResult> {
 
   /**
    * This adapter inflates and formats the duration and timestamp on the scores page.
+   *
    * @param context context
-   * @param scores List<GameResult> scores
+   * @param scores  List<GameResult> scores
    */
   public ScoresAdapter(@NonNull Context context, List<GameResult> scores) {
     super(context, R.layout.fragment_scores, scores);

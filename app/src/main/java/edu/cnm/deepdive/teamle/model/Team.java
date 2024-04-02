@@ -23,15 +23,16 @@ public class Team {
   private final String primaryColor;
   @Expose
   @SerializedName("idTeam")
-private final String id;
+  private final String id;
 
   /**
    * Handles the team objects and the needed information for guesses.
-   * @param name String
-   * @param location String
-   * @param yearCreated int
+   *
+   * @param name         String
+   * @param location     String
+   * @param yearCreated  int
    * @param primaryColor String
-   * @param id String
+   * @param id           String
    */
   public Team(String name, String location, int yearCreated,
       String primaryColor, String id) {

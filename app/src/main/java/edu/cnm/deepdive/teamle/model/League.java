@@ -26,6 +26,7 @@ public class League {
 
   /**
    * Gets the league ID
+   *
    * @return String id
    */
   public String getId() {
@@ -34,6 +35,7 @@ public class League {
 
   /**
    * gets the selected sport
+   *
    * @return String sport
    */
   public String getSport() {
@@ -42,6 +44,7 @@ public class League {
 
   /**
    * Gets the league name.
+   *
    * @return String name
    */
   public String getName() {
@@ -50,6 +53,7 @@ public class League {
 
   /**
    * Gets all teams in selected league.
+   *
    * @return List<Team>
    */
   public List<Team> getTeams() {

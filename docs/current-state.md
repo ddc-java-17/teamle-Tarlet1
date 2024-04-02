@@ -21,6 +21,10 @@ order: 40
 
 > Sport and league selection have a bug that sometimes won't allow you to select a certain sport or league, must go select another sport or league and then go back to the desired league or sport to have it set as preference.
 
+> Sport and league preferences are reset to having nothing selected when phone is rotated. 
+
+> Auto complete text view covers whole screen when phone is rotated during gameplay. 
+
 > Certain teams do not have a primary team color attribute set in the API, so during game the primary team color column for those teams return empty when those teams are used for a guess.
 
 > The primary team color returns a written out "#000000" format of the color, not a literal color for you to see. Would play better if game returned a literal color.
@@ -44,6 +48,6 @@ order: 40
 > Samsung SM-N981U Samsung galaxy note 20 physical device.
 
 ## Technical requirements and dependencies 
-{ : menu="Dependencies" }
+{: menu="Dependencies"}
 
 > Target is Android API 34, can support anything android 9 or higher. 

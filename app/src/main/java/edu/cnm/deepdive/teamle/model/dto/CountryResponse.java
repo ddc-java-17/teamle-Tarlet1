@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- *This maps to a JSOn object containing a list of Country objects from the Sports DB API.
+ * This maps to a JSOn object containing a list of Country objects from the Sports DB API.
  */
 public class CountryResponse {
 
@@ -15,6 +15,7 @@ public class CountryResponse {
 
   /**
    * Gets a list of countries from the sport DB API
+   *
    * @return Liat<Country>
    */
   public List<Country> getCountries() {

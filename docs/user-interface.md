@@ -12,6 +12,6 @@ wireframe:
 
 ## Navigation
 
-Describe (at least) the top-level navigation scheme that will be employed in the app (e.g., navigation drawer, bottom navigation, tabbed navigation).
+The main navigation in my app comes from a Overflow menu. There is also a floating action button to navigate you to the scores screen. 
 
 {% include wireframe.md %}

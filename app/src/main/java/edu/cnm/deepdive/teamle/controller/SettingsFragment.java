@@ -12,10 +12,6 @@ import dagger.hilt.android.AndroidEntryPoint;
 import edu.cnm.deepdive.teamle.R;
 import edu.cnm.deepdive.teamle.model.League;
 import edu.cnm.deepdive.teamle.viewmodel.SportsDBViewModel;
-import java.util.List;
-import java.util.Map;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
 
 /**
@@ -45,7 +41,7 @@ public class SettingsFragment extends PreferenceFragmentCompat {
       prefs.setSummary(value.toString());
       preferredSport = value.toString();
       return true;
-    }) ;
+    });
     leaguePreference = findPreference(getString(R.string.league_key));
     leaguePreference.setOnPreferenceChangeListener((prefs, value) -> {
       String id = (String) value;
@@ -73,7 +69,8 @@ public class SettingsFragment extends PreferenceFragmentCompat {
     viewModel.getLeagues()
         .observe(getViewLifecycleOwner(), (leagues) -> {
           leaguePreference.setEntries(leagues.stream().map(League::getName).toArray(String[]::new));
-          leaguePreference.setEntryValues(leagues.stream().map(League::getId).toArray(String[]::new));
+          leaguePreference.setEntryValues(
+              leagues.stream().map(League::getId).toArray(String[]::new));
           leaguePreference.setValue(preferredLeague);
         });
     viewModel.getTeams()

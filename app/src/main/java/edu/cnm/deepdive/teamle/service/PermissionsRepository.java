@@ -36,12 +36,12 @@ import javax.inject.Singleton;
 /**
  * Implements a {@link LiveData}-based repository of permissions granted by the user, and handles
  * the low-level details of the permissions flow. Note that while this class is declared (using
- * {@link Singleton}) as a singleton, the {@link #checkPermissions(Activity, Set, Set)
- * checkPermissions(Activity, Set&lt;String&gt;, Set&lt;String&gt;)} and
- * {@link #handlePermissionsRequestResult(String[], int[])} methods are <em>not</em> thread-safe;
- * as a rule, those should be invoked only by an instance of
- * {@link edu.cnm.deepdive.teamle.viewmodel.PermissionsViewModel}, which should in turn be
- * scoped to the main activity of the app.
+ * {@link Singleton}) as a singleton, the
+ * {@link #checkPermissions(Activity, Set, Set) checkPermissions(Activity, Set&lt;String&gt;,
+ * Set&lt;String&gt;)} and {@link #handlePermissionsRequestResult(String[], int[])} methods are
+ * <em>not</em> thread-safe; as a rule, those should be invoked only by an instance of
+ * {@link edu.cnm.deepdive.teamle.viewmodel.PermissionsViewModel}, which should in turn be scoped to
+ * the main activity of the app.
  */
 @Singleton
 public class PermissionsRepository {

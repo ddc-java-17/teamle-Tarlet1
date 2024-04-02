@@ -2,8 +2,6 @@ package edu.cnm.deepdive.teamle.service;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import dagger.Module;
-import dagger.Provides;
 import dagger.hilt.android.qualifiers.ApplicationContext;
 import edu.cnm.deepdive.teamle.R;
 import edu.cnm.deepdive.teamle.model.Game;
@@ -25,11 +23,10 @@ import java.util.Random;
 import java.util.TreeMap;
 import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 import javax.inject.Inject;
 
 /**
- *This repository handles starting and playing a game.
+ * This repository handles starting and playing a game.
  */
 public class TeamleRepository {
 
@@ -46,11 +43,12 @@ public class TeamleRepository {
 
   /**
    * Handles all things needed for a game to be played
-   * @param proxy SportsDBProxy
+   *
+   * @param proxy            SportsDBProxy
    * @param resultRepository GameResultRepository
-   * @param userRepository UserRepository
-   * @param context Context
-   * @param rng Random
+   * @param userRepository   UserRepository
+   * @param context          Context
+   * @param rng              Random
    */
   @Inject
   public TeamleRepository(SportsDBProxy proxy, GameResultRepository resultRepository,
@@ -65,6 +63,7 @@ public class TeamleRepository {
 
   /**
    * Gets all leagues by sport
+   *
    * @return Leagues
    */
   public Single<? extends Map<String, List<League>>> getAllLeaguesBySport() {
@@ -80,6 +79,7 @@ public class TeamleRepository {
 
   /**
    * Gets all teams in a specific league
+   *
    * @param leagueId String
    * @return List<Teams>
    */
@@ -92,6 +92,7 @@ public class TeamleRepository {
 
   /**
    * Handles the team selected for a guess
+   *
    * @return Team
    */
   public Team pick() {
@@ -101,6 +102,7 @@ public class TeamleRepository {
 
   /**
    * Handles the start of a game
+   *
    * @return Game
    */
   public Game startGame() {
@@ -111,6 +113,7 @@ public class TeamleRepository {
 
   /**
    * Handles the submission of a guess
+   *
    * @param pick Team
    * @return Guess
    */
@@ -126,7 +129,8 @@ public class TeamleRepository {
       GameResult result = new GameResult();
       result.setSize(teams.size());
       result.setGuessCount(guesses.size());
-      result.setDuration(Duration.between(guesses.get(0).created(), guesses.get(guesses.size() - 1).created()));
+      result.setDuration(
+          Duration.between(guesses.get(0).created(), guesses.get(guesses.size() - 1).created()));
       resultRepository.add(result).subscribe();
     }
     return guess;
@@ -134,6 +138,7 @@ public class TeamleRepository {
 
   /**
    * Gets a game
+   *
    * @return Game
    */
   public Game getGame() {

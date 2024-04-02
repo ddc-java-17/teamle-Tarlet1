@@ -16,7 +16,6 @@
 package edu.cnm.deepdive.teamle.controller;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -36,7 +35,6 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import dagger.hilt.android.AndroidEntryPoint;
-import edu.cnm.deepdive.teamle.NavigationGraphDirections;
 import edu.cnm.deepdive.teamle.R;
 import edu.cnm.deepdive.teamle.adapter.GuessesAdapter;
 import edu.cnm.deepdive.teamle.databinding.FragmentGameBinding;
@@ -45,7 +43,6 @@ import edu.cnm.deepdive.teamle.viewmodel.LoginViewModel;
 import edu.cnm.deepdive.teamle.viewmodel.PermissionsViewModel;
 import edu.cnm.deepdive.teamle.viewmodel.PreferencesViewModel;
 import edu.cnm.deepdive.teamle.viewmodel.SportsDBViewModel;
-import edu.cnm.deepdive.teamle.viewmodel.SportsDBViewModel_Factory;
 import edu.cnm.deepdive.teamle.viewmodel.UserViewModel;
 
 /**
@@ -88,7 +85,8 @@ public class GameFragment extends Fragment implements MenuProvider {
       }
     });
     binding.showScores.setOnClickListener((v) ->
-        Navigation.findNavController(binding.getRoot()).navigate(GameFragmentDirections.navigateToFragmentScores()));
+        Navigation.findNavController(binding.getRoot())
+            .navigate(GameFragmentDirections.navigateToFragmentScores()));
     return binding.getRoot();
   }
 

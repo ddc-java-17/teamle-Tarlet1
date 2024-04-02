@@ -10,7 +10,7 @@ order: 30
 ## Build instructions
 {: menu="Build" }
 
-> First step would be to clone the git repository at 'https://github.com/ddc-java-17/teamle-Tarlet1'. You would then clone this project into the IDE of your choice as a gradle project. Finally, run the app build task.
+> First step would be to clone the git repository at 'https://github.com/ddc-java-17/teamle-Tarlet1'. You would then clone this project into Intellij as a gradle project. Finally, from the gradle tool window, run the app build task.
 
 
 ## User instructions

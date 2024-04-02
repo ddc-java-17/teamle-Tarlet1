@@ -24,6 +24,7 @@ public class Country {
 
   /**
    * gets name of selected country
+   *
    * @return String name
    */
   public String getName() {
@@ -32,6 +33,7 @@ public class Country {
 
   /**
    * Gets list of leagues in a specific country
+   *
    * @return List<Leagues>
    */
   public List<League> getLeagues() {

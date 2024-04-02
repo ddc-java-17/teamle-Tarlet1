@@ -41,7 +41,9 @@ import java.time.Instant;
 @TypeConverters({Converters.class})
 public abstract class TeamleDatabase extends RoomDatabase {
 
-  /**  Name of SQLite database file. */
+  /**
+   * Name of SQLite database file.
+   */
   private static final String NAME = "Teamle";
 
   TeamleDatabase() {
@@ -51,6 +53,7 @@ public abstract class TeamleDatabase extends RoomDatabase {
   public static String getName() {
     return NAME;
   }
+
   /**
    * Returns an instance of a {@link UserDao} implementation, providing persistence operations on
    * instances of the {@link User} entity class.
@@ -98,7 +101,7 @@ public abstract class TeamleDatabase extends RoomDatabase {
     @TypeConverter
     @Nullable
     public static Long toLong(@Nullable Duration value) {
-      return (value !=null) ? value.toMillis() : null;
+      return (value != null) ? value.toMillis() : null;
     }
 
     @TypeConverter

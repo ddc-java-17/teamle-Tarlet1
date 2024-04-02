@@ -9,7 +9,6 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
-import com.google.android.material.color.MaterialColors;
 import edu.cnm.deepdive.teamle.R;
 import edu.cnm.deepdive.teamle.databinding.ItemGuessesBinding;
 import edu.cnm.deepdive.teamle.model.Guess;
@@ -27,7 +26,9 @@ public class GuessesAdapter extends ArrayAdapter<Guess> {
   private final int incorrect;
 
   /**
-   * This adapter is used to change the background color of the hints for the team you guessed in a game.
+   * This adapter is used to change the background color of the hints for the team you guessed in a
+   * game.
+   *
    * @param context context
    * @param guesses List<guesses>
    */
@@ -56,7 +57,8 @@ public class GuessesAdapter extends ArrayAdapter<Guess> {
         guess.pick().getYearCreated() == guess.secret().getYearCreated() ? correct : incorrect);
     binding.kitColor.setText(guess.pick().getPrimaryColor());
     binding.kitColor.setBackgroundColor(
-        guess.pick().getPrimaryColor().equals(guess.secret().getPrimaryColor()) ? correct : incorrect);
+        guess.pick().getPrimaryColor().equals(guess.secret().getPrimaryColor()) ? correct
+            : incorrect);
     return binding.getRoot();
   }
 }

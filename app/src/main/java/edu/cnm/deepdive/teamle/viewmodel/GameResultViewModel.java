@@ -18,6 +18,7 @@ public class GameResultViewModel extends ViewModel {
 
   /**
    * holds game result objects
+   *
    * @param repository GameResultRepository
    */
   @Inject
@@ -27,6 +28,7 @@ public class GameResultViewModel extends ViewModel {
 
   /**
    * Gets all game results
+   *
    * @return List<GameResult>
    */
   public LiveData<List<GameResult>> getall() {

@@ -30,10 +30,10 @@ import javax.inject.Inject;
 /**
  * Provides access (for a UI controller or data-bound view) to the current permissions
  * state&mdash;that is, to the set of permissions which have been granted by the user. Additionally,
- * the {@link #checkPermissions(Activity, Set, Set)
- * checkPermissions(Activity, Set&lt;String&gt;, Set&lt;String&gt;)} and
- * {@link #handlePermissionsRequestResult(String[], int[])} methods are provided to offload those
- * portions of the permissions flow from the UI controller.
+ * the
+ * {@link #checkPermissions(Activity, Set, Set) checkPermissions(Activity, Set&lt;String&gt;,
+ * Set&lt;String&gt;)} and {@link #handlePermissionsRequestResult(String[], int[])} methods are
+ * provided to offload those portions of the permissions flow from the UI controller.
  */
 @HiltViewModel
 public class PermissionsViewModel extends ViewModel implements DefaultLifecycleObserver {

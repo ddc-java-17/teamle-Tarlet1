@@ -56,7 +56,8 @@ public class SportsDBViewModel extends ViewModel implements DefaultLifecycleObse
 
   /**
    * Handles view model object
-   * @param context Context
+   *
+   * @param context          Context
    * @param teamleRepository TeamleRepository
    */
   @Inject
@@ -104,6 +105,7 @@ public class SportsDBViewModel extends ViewModel implements DefaultLifecycleObse
 
   /**
    * Gets all teams in a specific league
+   *
    * @param leagueId String
    */
   public void fetchTeams(String leagueId) {
@@ -120,6 +122,7 @@ public class SportsDBViewModel extends ViewModel implements DefaultLifecycleObse
 
   /**
    * Gets all leagues by ID
+   *
    * @param id String
    * @return leagueId
    */
@@ -136,6 +139,7 @@ public class SportsDBViewModel extends ViewModel implements DefaultLifecycleObse
 
   /**
    * Submits a guess
+   *
    * @param team Team
    */
   public void submitGuess(Team team) {
@@ -146,6 +150,7 @@ public class SportsDBViewModel extends ViewModel implements DefaultLifecycleObse
 
   /**
    * Gets all sports
+   *
    * @return sports
    */
   public LiveData<Set<String>> getSports() {
@@ -154,6 +159,7 @@ public class SportsDBViewModel extends ViewModel implements DefaultLifecycleObse
 
   /**
    * Gets all leagues
+   *
    * @return leagues
    */
   public LiveData<List<League>> getLeagues() {
@@ -162,6 +168,7 @@ public class SportsDBViewModel extends ViewModel implements DefaultLifecycleObse
 
   /**
    * Gets all teams
+   *
    * @return teams
    */
   public LiveData<List<Team>> getTeams() {
@@ -170,6 +177,7 @@ public class SportsDBViewModel extends ViewModel implements DefaultLifecycleObse
 
   /**
    * Gets games
+   *
    * @return game
    */
   public LiveData<Game> getGame() {
@@ -178,6 +186,7 @@ public class SportsDBViewModel extends ViewModel implements DefaultLifecycleObse
 
   /**
    * Gets guess
+   *
    * @return guess
    */
   public LiveData<Guess> getGuess() {
@@ -186,6 +195,7 @@ public class SportsDBViewModel extends ViewModel implements DefaultLifecycleObse
 
   /**
    * gets a throwable
+   *
    * @return throwable
    */
   public LiveData<Throwable> getThrowable() {

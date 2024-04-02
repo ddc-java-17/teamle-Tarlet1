@@ -48,8 +48,10 @@ public class PreferencesRepository {
     preferences = new MutableLiveData<>(prefs);
     String sportKey = context.getString(R.string.sport_key);
     String leagueKey = context.getString(R.string.league_key);
-    sportPreference = Transformations.map(preferences, (prefs) -> this.prefs.getString(sportKey, ""));
-    leaguePreference = Transformations.map(preferences, (prefs) -> this.prefs.getString(leagueKey, ""));
+    sportPreference = Transformations.map(preferences,
+        (prefs) -> this.prefs.getString(sportKey, ""));
+    leaguePreference = Transformations.map(preferences,
+        (prefs) -> this.prefs.getString(leagueKey, ""));
     prefs.registerOnSharedPreferenceChangeListener((prefs, key) -> preferences.postValue(prefs));
   }
 
@@ -78,10 +80,11 @@ public class PreferencesRepository {
    * by key. The compiler will infer the type parameter {@code T} by examining the
    * {@code defaultValue} and the reference type of the assignment target (if any); if the inferred
    * type is not one supported as a Shared
+   *
    * @param key
    * @param defaultValue
-   * @return
    * @param <T>
+   * @return
    */
   public <T> T get(String key, T defaultValue) {
     //noinspection unchecked
