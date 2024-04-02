@@ -14,72 +14,149 @@
 <pre><span class="source-line-no">001</span><span id="line-1">package edu.cnm.deepdive.teamle.service;</span>
 <span class="source-line-no">002</span><span id="line-2"></span>
 <span class="source-line-no">003</span><span id="line-3">import android.annotation.SuppressLint;</span>
-<span class="source-line-no">004</span><span id="line-4">import edu.cnm.deepdive.teamle.model.Game;</span>
-<span class="source-line-no">005</span><span id="line-5">import edu.cnm.deepdive.teamle.model.Guess;</span>
-<span class="source-line-no">006</span><span id="line-6">import edu.cnm.deepdive.teamle.model.entity.GameResult;</span>
-<span class="source-line-no">007</span><span id="line-7">import edu.cnm.deepdive.teamle.model.entity.User;</span>
-<span class="source-line-no">008</span><span id="line-8">import io.reactivex.rxjava3.core.Scheduler;</span>
-<span class="source-line-no">009</span><span id="line-9">import io.reactivex.rxjava3.core.Single;</span>
-<span class="source-line-no">010</span><span id="line-10">import javax.inject.Inject;</span>
-<span class="source-line-no">011</span><span id="line-11"></span>
-<span class="source-line-no">012</span><span id="line-12">public class TeamleRepository {</span>
-<span class="source-line-no">013</span><span id="line-13"></span>
-<span class="source-line-no">014</span><span id="line-14">  private final TeamleServiceProxy proxy;</span>
-<span class="source-line-no">015</span><span id="line-15">  private final GameResultRepository resultRepository;</span>
-<span class="source-line-no">016</span><span id="line-16">  private final UserRepository userRepository;</span>
-<span class="source-line-no">017</span><span id="line-17">  private final GoogleSignInService signInService;</span>
-<span class="source-line-no">018</span><span id="line-18">  private final Scheduler scheduler;</span>
-<span class="source-line-no">019</span><span id="line-19"></span>
-<span class="source-line-no">020</span><span id="line-20">  private Game game;</span>
-<span class="source-line-no">021</span><span id="line-21"></span>
-<span class="source-line-no">022</span><span id="line-22">  @Inject</span>
-<span class="source-line-no">023</span><span id="line-23">  public TeamleRepository(TeamleServiceProxy proxy, GameResultRepository resultRepository,</span>
-<span class="source-line-no">024</span><span id="line-24">      UserRepository userRepository,</span>
-<span class="source-line-no">025</span><span id="line-25">      GoogleSignInService signInService, Scheduler scheduler) {</span>
-<span class="source-line-no">026</span><span id="line-26">    this.proxy = proxy;</span>
-<span class="source-line-no">027</span><span id="line-27">    this.resultRepository = resultRepository;</span>
-<span class="source-line-no">028</span><span id="line-28">    this.userRepository = userRepository;</span>
-<span class="source-line-no">029</span><span id="line-29">    this.signInService = signInService;</span>
-<span class="source-line-no">030</span><span id="line-30">    this.scheduler = scheduler;</span>
-<span class="source-line-no">031</span><span id="line-31">  }</span>
-<span class="source-line-no">032</span><span id="line-32"></span>
-<span class="source-line-no">033</span><span id="line-33">  public Single&lt;Game&gt; startGame(Game game) {</span>
-<span class="source-line-no">034</span><span id="line-34">    return signInService</span>
-<span class="source-line-no">035</span><span id="line-35">        .refreshBearerToken()</span>
-<span class="source-line-no">036</span><span id="line-36">        .observeOn(scheduler)</span>
-<span class="source-line-no">037</span><span id="line-37">        .flatMap((token) -&gt; proxy.startGame(game, token))</span>
-<span class="source-line-no">038</span><span id="line-38">        .doOnSuccess(this::setGame);</span>
-<span class="source-line-no">039</span><span id="line-39">  }</span>
-<span class="source-line-no">040</span><span id="line-40"></span>
-<span class="source-line-no">041</span><span id="line-41">  @SuppressLint("checkResult")</span>
-<span class="source-line-no">042</span><span id="line-42">  public Single&lt;Guess&gt; submitGuess(String text) {</span>
-<span class="source-line-no">043</span><span id="line-43">    return signInService</span>
-<span class="source-line-no">044</span><span id="line-44">        .refreshBearerToken()</span>
-<span class="source-line-no">045</span><span id="line-45">        .observeOn(scheduler)</span>
-<span class="source-line-no">046</span><span id="line-46">        .flatMap((token) -&gt; proxy.submitGuess(game.validate(text), token))</span>
-<span class="source-line-no">047</span><span id="line-47">        .flatMap((guess) -&gt; {</span>
-<span class="source-line-no">048</span><span id="line-48">          game.getGuesses().add(guess);</span>
-<span class="source-line-no">049</span><span id="line-49">          return game.isSolved()</span>
-<span class="source-line-no">050</span><span id="line-50">              ? userRepository</span>
-<span class="source-line-no">051</span><span id="line-51">              .getCurrent()</span>
-<span class="source-line-no">052</span><span id="line-52">              .map((user -&gt; toResult(game, user)))</span>
-<span class="source-line-no">053</span><span id="line-53">              .flatMap(resultRepository::add)</span>
-<span class="source-line-no">054</span><span id="line-54">              .map((result) -&gt; guess)</span>
-<span class="source-line-no">055</span><span id="line-55">              : Single.just(guess);</span>
-<span class="source-line-no">056</span><span id="line-56">        });</span>
-<span class="source-line-no">057</span><span id="line-57">  }</span>
-<span class="source-line-no">058</span><span id="line-58"></span>
-<span class="source-line-no">059</span><span id="line-59">  public Game getGame() {</span>
-<span class="source-line-no">060</span><span id="line-60">    return game;</span>
-<span class="source-line-no">061</span><span id="line-61">  }</span>
-<span class="source-line-no">062</span><span id="line-62"></span>
-<span class="source-line-no">063</span><span id="line-63">  private void setGame(Game game) {</span>
+<span class="source-line-no">004</span><span id="line-4">import android.content.Context;</span>
+<span class="source-line-no">005</span><span id="line-5">import dagger.Module;</span>
+<span class="source-line-no">006</span><span id="line-6">import dagger.Provides;</span>
+<span class="source-line-no">007</span><span id="line-7">import dagger.hilt.android.qualifiers.ApplicationContext;</span>
+<span class="source-line-no">008</span><span id="line-8">import edu.cnm.deepdive.teamle.R;</span>
+<span class="source-line-no">009</span><span id="line-9">import edu.cnm.deepdive.teamle.model.Game;</span>
+<span class="source-line-no">010</span><span id="line-10">import edu.cnm.deepdive.teamle.model.Guess;</span>
+<span class="source-line-no">011</span><span id="line-11">import edu.cnm.deepdive.teamle.model.League;</span>
+<span class="source-line-no">012</span><span id="line-12">import edu.cnm.deepdive.teamle.model.Team;</span>
+<span class="source-line-no">013</span><span id="line-13">import edu.cnm.deepdive.teamle.model.dto.LeagueResponse;</span>
+<span class="source-line-no">014</span><span id="line-14">import edu.cnm.deepdive.teamle.model.dto.TeamResponse;</span>
+<span class="source-line-no">015</span><span id="line-15">import edu.cnm.deepdive.teamle.model.entity.GameResult;</span>
+<span class="source-line-no">016</span><span id="line-16">import edu.cnm.deepdive.teamle.model.entity.User;</span>
+<span class="source-line-no">017</span><span id="line-17">import io.reactivex.rxjava3.core.Scheduler;</span>
+<span class="source-line-no">018</span><span id="line-18">import io.reactivex.rxjava3.core.Single;</span>
+<span class="source-line-no">019</span><span id="line-19">import io.reactivex.rxjava3.schedulers.Schedulers;</span>
+<span class="source-line-no">020</span><span id="line-20">import java.time.Duration;</span>
+<span class="source-line-no">021</span><span id="line-21">import java.util.Comparator;</span>
+<span class="source-line-no">022</span><span id="line-22">import java.util.List;</span>
+<span class="source-line-no">023</span><span id="line-23">import java.util.Map;</span>
+<span class="source-line-no">024</span><span id="line-24">import java.util.Random;</span>
+<span class="source-line-no">025</span><span id="line-25">import java.util.TreeMap;</span>
+<span class="source-line-no">026</span><span id="line-26">import java.util.concurrent.Executors;</span>
+<span class="source-line-no">027</span><span id="line-27">import java.util.stream.Collectors;</span>
+<span class="source-line-no">028</span><span id="line-28">import java.util.stream.Stream;</span>
+<span class="source-line-no">029</span><span id="line-29">import javax.inject.Inject;</span>
+<span class="source-line-no">030</span><span id="line-30"></span>
+<span class="source-line-no">031</span><span id="line-31">/**</span>
+<span class="source-line-no">032</span><span id="line-32"> *This repository handles starting and playing a game.</span>
+<span class="source-line-no">033</span><span id="line-33"> */</span>
+<span class="source-line-no">034</span><span id="line-34">public class TeamleRepository {</span>
+<span class="source-line-no">035</span><span id="line-35"></span>
+<span class="source-line-no">036</span><span id="line-36">  private final SportsDBProxy proxy;</span>
+<span class="source-line-no">037</span><span id="line-37">  private final GameResultRepository resultRepository;</span>
+<span class="source-line-no">038</span><span id="line-38">  private final UserRepository userRepository;</span>
+<span class="source-line-no">039</span><span id="line-39">  private final Scheduler scheduler;</span>
+<span class="source-line-no">040</span><span id="line-40">  private final String apiKey;</span>
+<span class="source-line-no">041</span><span id="line-41">  private final Random rng;</span>
+<span class="source-line-no">042</span><span id="line-42"></span>
+<span class="source-line-no">043</span><span id="line-43">  private List&lt;Team&gt; teams;</span>
+<span class="source-line-no">044</span><span id="line-44">  private Map&lt;String, List&lt;League&gt;&gt; leaguesBySport;</span>
+<span class="source-line-no">045</span><span id="line-45">  private Game game;</span>
+<span class="source-line-no">046</span><span id="line-46"></span>
+<span class="source-line-no">047</span><span id="line-47">  /**</span>
+<span class="source-line-no">048</span><span id="line-48">   * Handles all things needed for a game to be played</span>
+<span class="source-line-no">049</span><span id="line-49">   * @param proxy SportsDBProxy</span>
+<span class="source-line-no">050</span><span id="line-50">   * @param resultRepository GameResultRepository</span>
+<span class="source-line-no">051</span><span id="line-51">   * @param userRepository UserRepository</span>
+<span class="source-line-no">052</span><span id="line-52">   * @param context Context</span>
+<span class="source-line-no">053</span><span id="line-53">   * @param rng Random</span>
+<span class="source-line-no">054</span><span id="line-54">   */</span>
+<span class="source-line-no">055</span><span id="line-55">  @Inject</span>
+<span class="source-line-no">056</span><span id="line-56">  public TeamleRepository(SportsDBProxy proxy, GameResultRepository resultRepository,</span>
+<span class="source-line-no">057</span><span id="line-57">      UserRepository userRepository, @ApplicationContext Context context, Random rng) {</span>
+<span class="source-line-no">058</span><span id="line-58">    this.proxy = proxy;</span>
+<span class="source-line-no">059</span><span id="line-59">    this.resultRepository = resultRepository;</span>
+<span class="source-line-no">060</span><span id="line-60">    this.userRepository = userRepository;</span>
+<span class="source-line-no">061</span><span id="line-61">    this.rng = rng;</span>
+<span class="source-line-no">062</span><span id="line-62">    this.scheduler = Schedulers.from(Executors.newFixedThreadPool(4));</span>
+<span class="source-line-no">063</span><span id="line-63">    apiKey = context.getString(R.string.api_key);</span>
 <span class="source-line-no">064</span><span id="line-64">  }</span>
 <span class="source-line-no">065</span><span id="line-65"></span>
-<span class="source-line-no">066</span><span id="line-66">  private GameResult toResult(Game game, User user) {</span>
-<span class="source-line-no">067</span><span id="line-67">    return new GameResult();</span>
-<span class="source-line-no">068</span><span id="line-68">  }</span>
-<span class="source-line-no">069</span><span id="line-69">}</span>
+<span class="source-line-no">066</span><span id="line-66">  /**</span>
+<span class="source-line-no">067</span><span id="line-67">   * Gets all leagues by sport</span>
+<span class="source-line-no">068</span><span id="line-68">   * @return Leagues</span>
+<span class="source-line-no">069</span><span id="line-69">   */</span>
+<span class="source-line-no">070</span><span id="line-70">  public Single&lt;? extends Map&lt;String, List&lt;League&gt;&gt;&gt; getAllLeaguesBySport() {</span>
+<span class="source-line-no">071</span><span id="line-71">    return proxy.getAllLeagues(apiKey)</span>
+<span class="source-line-no">072</span><span id="line-72">        .map(LeagueResponse::getLeagues)</span>
+<span class="source-line-no">073</span><span id="line-73">        .map((leagues) -&gt; leagues.stream()</span>
+<span class="source-line-no">074</span><span id="line-74">            .collect(Collectors.groupingBy(League::getSport, TreeMap::new, Collectors.toList())))</span>
+<span class="source-line-no">075</span><span id="line-75">        .doOnSuccess((map) -&gt; map.values()</span>
+<span class="source-line-no">076</span><span id="line-76">            .forEach((leagues) -&gt; leagues.sort(Comparator.comparing(League::getName))))</span>
+<span class="source-line-no">077</span><span id="line-77">        .doOnSuccess((map) -&gt; leaguesBySport = map)</span>
+<span class="source-line-no">078</span><span id="line-78">        .subscribeOn(scheduler);</span>
+<span class="source-line-no">079</span><span id="line-79">  }</span>
+<span class="source-line-no">080</span><span id="line-80"></span>
+<span class="source-line-no">081</span><span id="line-81">  /**</span>
+<span class="source-line-no">082</span><span id="line-82">   * Gets all teams in a specific league</span>
+<span class="source-line-no">083</span><span id="line-83">   * @param leagueId String</span>
+<span class="source-line-no">084</span><span id="line-84">   * @return List&lt;Teams&gt;</span>
+<span class="source-line-no">085</span><span id="line-85">   */</span>
+<span class="source-line-no">086</span><span id="line-86">  public Single&lt;List&lt;Team&gt;&gt; getAllTeamsByLeague(String leagueId) {</span>
+<span class="source-line-no">087</span><span id="line-87">    return proxy.getAllTeams(apiKey, leagueId)</span>
+<span class="source-line-no">088</span><span id="line-88">        .map(TeamResponse::getTeams)</span>
+<span class="source-line-no">089</span><span id="line-89">        .doOnSuccess((teams) -&gt; this.teams = teams)</span>
+<span class="source-line-no">090</span><span id="line-90">        .subscribeOn(scheduler);</span>
+<span class="source-line-no">091</span><span id="line-91">  }</span>
+<span class="source-line-no">092</span><span id="line-92"></span>
+<span class="source-line-no">093</span><span id="line-93">  /**</span>
+<span class="source-line-no">094</span><span id="line-94">   * Handles the team selected for a guess</span>
+<span class="source-line-no">095</span><span id="line-95">   * @return Team</span>
+<span class="source-line-no">096</span><span id="line-96">   */</span>
+<span class="source-line-no">097</span><span id="line-97">  public Team pick() {</span>
+<span class="source-line-no">098</span><span id="line-98">    return teams.get(rng.nextInt(teams.size()));</span>
+<span class="source-line-no">099</span><span id="line-99"></span>
+<span class="source-line-no">100</span><span id="line-100">  }</span>
+<span class="source-line-no">101</span><span id="line-101"></span>
+<span class="source-line-no">102</span><span id="line-102">  /**</span>
+<span class="source-line-no">103</span><span id="line-103">   * Handles the start of a game</span>
+<span class="source-line-no">104</span><span id="line-104">   * @return Game</span>
+<span class="source-line-no">105</span><span id="line-105">   */</span>
+<span class="source-line-no">106</span><span id="line-106">  public Game startGame() {</span>
+<span class="source-line-no">107</span><span id="line-107">    Game game = new Game(pick());</span>
+<span class="source-line-no">108</span><span id="line-108">    this.game = game;</span>
+<span class="source-line-no">109</span><span id="line-109">    return game;</span>
+<span class="source-line-no">110</span><span id="line-110">  }</span>
+<span class="source-line-no">111</span><span id="line-111"></span>
+<span class="source-line-no">112</span><span id="line-112">  /**</span>
+<span class="source-line-no">113</span><span id="line-113">   * Handles the submission of a guess</span>
+<span class="source-line-no">114</span><span id="line-114">   * @param pick Team</span>
+<span class="source-line-no">115</span><span id="line-115">   * @return Guess</span>
+<span class="source-line-no">116</span><span id="line-116">   */</span>
+<span class="source-line-no">117</span><span id="line-117">  @SuppressLint("checkResult")</span>
+<span class="source-line-no">118</span><span id="line-118">  public Guess submitGuess(Team pick) {</span>
+<span class="source-line-no">119</span><span id="line-119">    if (game.isSolved()) {</span>
+<span class="source-line-no">120</span><span id="line-120">      throw new IllegalStateException();</span>
+<span class="source-line-no">121</span><span id="line-121">    }</span>
+<span class="source-line-no">122</span><span id="line-122">    Guess guess = new Guess(pick, game.getCorrectAnswer());</span>
+<span class="source-line-no">123</span><span id="line-123">    List&lt;Guess&gt; guesses = game.getGuesses();</span>
+<span class="source-line-no">124</span><span id="line-124">    guesses.add(guess);</span>
+<span class="source-line-no">125</span><span id="line-125">    if (guess.isCorrect()) {</span>
+<span class="source-line-no">126</span><span id="line-126">      GameResult result = new GameResult();</span>
+<span class="source-line-no">127</span><span id="line-127">      result.setSize(teams.size());</span>
+<span class="source-line-no">128</span><span id="line-128">      result.setGuessCount(guesses.size());</span>
+<span class="source-line-no">129</span><span id="line-129">      result.setDuration(Duration.between(guesses.get(0).created(), guesses.get(guesses.size() - 1).created()));</span>
+<span class="source-line-no">130</span><span id="line-130">      resultRepository.add(result).subscribe();</span>
+<span class="source-line-no">131</span><span id="line-131">    }</span>
+<span class="source-line-no">132</span><span id="line-132">    return guess;</span>
+<span class="source-line-no">133</span><span id="line-133">  }</span>
+<span class="source-line-no">134</span><span id="line-134"></span>
+<span class="source-line-no">135</span><span id="line-135">  /**</span>
+<span class="source-line-no">136</span><span id="line-136">   * Gets a game</span>
+<span class="source-line-no">137</span><span id="line-137">   * @return Game</span>
+<span class="source-line-no">138</span><span id="line-138">   */</span>
+<span class="source-line-no">139</span><span id="line-139">  public Game getGame() {</span>
+<span class="source-line-no">140</span><span id="line-140">    return game;</span>
+<span class="source-line-no">141</span><span id="line-141">  }</span>
+<span class="source-line-no">142</span><span id="line-142"></span>
+<span class="source-line-no">143</span><span id="line-143">  private GameResult toResult(Game game, User user) {</span>
+<span class="source-line-no">144</span><span id="line-144">    return new GameResult();</span>
+<span class="source-line-no">145</span><span id="line-145">  }</span>
+<span class="source-line-no">146</span><span id="line-146">}</span>
 
 
 

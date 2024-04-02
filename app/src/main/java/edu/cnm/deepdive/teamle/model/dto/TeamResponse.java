@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- *
+ * This maps to a JSON object containing a list of Team objects from the Sports DB API.
  */
 public class TeamResponse {
 
@@ -15,6 +15,7 @@ public class TeamResponse {
 
   /**
    * gets list of all teams in a specific league.
+   *
    * @return teams List<Team>
    */
   public List<Team> getTeams() {

@@ -89,8 +89,9 @@ loadScripts(document, 'script');</script>
 </div>
 <section class="class-description" id="class-description">
 <hr>
-<div class="type-signature"><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/model/Game.html#line-10">Game</a></span>
+<div class="type-signature"><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/model/Game.html#line-14">Game</a></span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+<div class="block">Handles all stats about a game</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -102,10 +103,10 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.util.List,edu.cnm.deepdive.teamle.model.Team,java.util.Date)" class="member-name-link">Game</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Guess.html" title="class in edu.cnm.deepdive.teamle.model">Guess</a>&gt;&nbsp;guesses,
- <a href="Team.html" title="class in edu.cnm.deepdive.teamle.model">Team</a>&nbsp;correctAnswer,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Date.html" title="class or interface in java.util" class="external-link">Date</a>&nbsp;start)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(edu.cnm.deepdive.teamle.model.Team)" class="member-name-link">Game</a><wbr>(<a href="Team.html" title="class in edu.cnm.deepdive.teamle.model">Team</a>&nbsp;correctAnswer)</code></div>
+<div class="col-last even-row-color">
+<div class="block">Sets the secret team</div>
+</div>
 </div>
 </section>
 </li>
@@ -120,18 +121,26 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="Guess.html" title="class in edu.cnm.deepdive.teamle.model">Guess</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getGuesses()" class="member-name-link">getGuesses</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Date.html" title="class or interface in java.util" class="external-link">Date</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getStart()" class="member-name-link">getStart</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isSolved()" class="member-name-link">isSolved</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Guess.html" title="class in edu.cnm.deepdive.teamle.model">Guess</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#validate(java.lang.String)" class="member-name-link">validate</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;content)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Team.html" title="class in edu.cnm.deepdive.teamle.model">Team</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCorrectAnswer()" class="member-name-link">getCorrectAnswer</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Gets the correct answer for a game.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="Guess.html" title="class in edu.cnm.deepdive.teamle.model">Guess</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getGuesses()" class="member-name-link">getGuesses</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">gets the list of guesses submitted.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Date.html" title="class or interface in java.util" class="external-link">Date</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getStart()" class="member-name-link">getStart</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Gets the start time of a game</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isSolved()" class="member-name-link">isSolved</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Checks if the game has been solved.</div>
+</div>
 </div>
 </div>
 </div>
@@ -150,11 +159,14 @@ loadScripts(document, 'script');</script>
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(java.util.List,edu.cnm.deepdive.teamle.model.Team,java.util.Date)">
+<section class="detail" id="&lt;init&gt;(edu.cnm.deepdive.teamle.model.Team)">
 <h3>Game</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/model/Game.html#line-18">Game</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Guess.html" title="class in edu.cnm.deepdive.teamle.model">Guess</a>&gt;&nbsp;guesses,
- <a href="Team.html" title="class in edu.cnm.deepdive.teamle.model">Team</a>&nbsp;correctAnswer,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Date.html" title="class or interface in java.util" class="external-link">Date</a>&nbsp;start)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/model/Game.html#line-24">Game</a></span><wbr><span class="parameters">(<a href="Team.html" title="class in edu.cnm.deepdive.teamle.model">Team</a>&nbsp;correctAnswer)</span></div>
+<div class="block">Sets the secret team</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>correctAnswer</code> - Team</dd>
+</dl>
 </section>
 </li>
 </ul>
@@ -168,25 +180,45 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getGuesses()">
 <h3>getGuesses</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Guess.html" title="class in edu.cnm.deepdive.teamle.model">Guess</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/model/Game.html#line-24">getGuesses</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Guess.html" title="class in edu.cnm.deepdive.teamle.model">Guess</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/model/Game.html#line-34">getGuesses</a></span>()</div>
+<div class="block">gets the list of guesses submitted.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>List<Guesses></dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="getStart()">
 <h3>getStart</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Date.html" title="class or interface in java.util" class="external-link">Date</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/model/Game.html#line-28">getStart</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Date.html" title="class or interface in java.util" class="external-link">Date</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/model/Game.html#line-42">getStart</a></span>()</div>
+<div class="block">Gets the start time of a game</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>Date</dd>
+</dl>
 </section>
 </li>
 <li>
-<section class="detail" id="validate(java.lang.String)">
-<h3>validate</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Guess.html" title="class in edu.cnm.deepdive.teamle.model">Guess</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/model/Game.html#line-32">validate</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;content)</span></div>
+<section class="detail" id="getCorrectAnswer()">
+<h3>getCorrectAnswer</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Team.html" title="class in edu.cnm.deepdive.teamle.model">Team</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/model/Game.html#line-50">getCorrectAnswer</a></span>()</div>
+<div class="block">Gets the correct answer for a game.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>Team</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="isSolved()">
 <h3>isSolved</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/model/Game.html#line-38">isSolved</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/model/Game.html#line-58">isSolved</a></span>()</div>
+<div class="block">Checks if the game has been solved.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>boolean</dd>
+</dl>
 </section>
 </li>
 </ul>

@@ -86,7 +86,8 @@ loadScripts(document, 'script');</script>
 </div>
 <section class="class-description" id="class-description">
 <hr>
-<div class="type-signature"><span class="modifiers">public interface </span><span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/service/SportsDBProxy.html#line-9">SportsDBProxy</a></span></div>
+<div class="type-signature"><span class="modifiers">public interface </span><span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/service/SportsDBProxy.html#line-14">SportsDBProxy</a></span></div>
+<div class="block">Used to get the API key to populate the game with needed information from the API</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -102,13 +103,14 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Single.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Single</a><wbr>&lt;<a href="../model/dto/CountryResponse.html" title="class in edu.cnm.deepdive.teamle.model.dto">CountryResponse</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getAllCountries()" class="member-name-link">getAllCountries</a>()</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getAllCountries(java.lang.String)" class="member-name-link">getAllCountries</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;apiKey)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Single.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Single</a><wbr>&lt;<a href="../model/dto/LeagueResponse.html" title="class in edu.cnm.deepdive.teamle.model.dto">LeagueResponse</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getAllLeagues()" class="member-name-link">getAllLeagues</a>()</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getAllLeagues(java.lang.String)" class="member-name-link">getAllLeagues</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;apiKey)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Single.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Single</a><wbr>&lt;<a href="../model/dto/TeamResponse.html" title="class in edu.cnm.deepdive.teamle.model.dto">TeamResponse</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getAllTeams()" class="member-name-link">getAllTeams</a>()</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getAllTeams(java.lang.String,java.lang.String)" class="member-name-link">getAllTeams</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;apiKey,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;leagueId)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
 </div>
 </div>
@@ -125,24 +127,29 @@ loadScripts(document, 'script');</script>
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="getAllCountries()">
+<section class="detail" id="getAllCountries(java.lang.String)">
 <h3>getAllCountries</h3>
-<div class="member-signature"><span class="annotations"><a href="https://square.github.io/retrofit/2.x/retrofit/retrofit2/http/GET.html" title="class or interface in retrofit2.http" class="external-link">@GET</a>("all_countries.php")
-</span><span class="return-type"><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Single.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Single</a>&lt;<a href="../model/dto/CountryResponse.html" title="class in edu.cnm.deepdive.teamle.model.dto">CountryResponse</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/service/SportsDBProxy.html#line-11">getAllCountries</a></span>()</div>
+<div class="member-signature"><span class="annotations"><a href="https://square.github.io/retrofit/2.x/retrofit/retrofit2/http/GET.html" title="class or interface in retrofit2.http" class="external-link">@GET</a>("{api_key}/all_countries.php")
+</span><span class="return-type"><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Single.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Single</a>&lt;<a href="../model/dto/CountryResponse.html" title="class in edu.cnm.deepdive.teamle.model.dto">CountryResponse</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/service/SportsDBProxy.html#line-16">getAllCountries</a></span><wbr><span class="parameters">(<a href="https://square.github.io/retrofit/2.x/retrofit/retrofit2/http/Path.html" title="class or interface in retrofit2.http" class="external-link">@Path</a>("api_key")
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;apiKey)</span></div>
 </section>
 </li>
 <li>
-<section class="detail" id="getAllLeagues()">
+<section class="detail" id="getAllLeagues(java.lang.String)">
 <h3>getAllLeagues</h3>
-<div class="member-signature"><span class="annotations"><a href="https://square.github.io/retrofit/2.x/retrofit/retrofit2/http/GET.html" title="class or interface in retrofit2.http" class="external-link">@GET</a>("all_leagues.php")
-</span><span class="return-type"><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Single.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Single</a>&lt;<a href="../model/dto/LeagueResponse.html" title="class in edu.cnm.deepdive.teamle.model.dto">LeagueResponse</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/service/SportsDBProxy.html#line-14">getAllLeagues</a></span>()</div>
+<div class="member-signature"><span class="annotations"><a href="https://square.github.io/retrofit/2.x/retrofit/retrofit2/http/GET.html" title="class or interface in retrofit2.http" class="external-link">@GET</a>("{api_key}/all_leagues.php")
+</span><span class="return-type"><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Single.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Single</a>&lt;<a href="../model/dto/LeagueResponse.html" title="class in edu.cnm.deepdive.teamle.model.dto">LeagueResponse</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/service/SportsDBProxy.html#line-19">getAllLeagues</a></span><wbr><span class="parameters">(<a href="https://square.github.io/retrofit/2.x/retrofit/retrofit2/http/Path.html" title="class or interface in retrofit2.http" class="external-link">@Path</a>("api_key")
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;apiKey)</span></div>
 </section>
 </li>
 <li>
-<section class="detail" id="getAllTeams()">
+<section class="detail" id="getAllTeams(java.lang.String,java.lang.String)">
 <h3>getAllTeams</h3>
-<div class="member-signature"><span class="annotations"><a href="https://square.github.io/retrofit/2.x/retrofit/retrofit2/http/GET.html" title="class or interface in retrofit2.http" class="external-link">@GET</a>("all_teams.php")
-</span><span class="return-type"><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Single.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Single</a>&lt;<a href="../model/dto/TeamResponse.html" title="class in edu.cnm.deepdive.teamle.model.dto">TeamResponse</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/service/SportsDBProxy.html#line-17">getAllTeams</a></span>()</div>
+<div class="member-signature"><span class="annotations"><a href="https://square.github.io/retrofit/2.x/retrofit/retrofit2/http/GET.html" title="class or interface in retrofit2.http" class="external-link">@GET</a>("{api_key}/lookup_all_teams.php")
+</span><span class="return-type"><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Single.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Single</a>&lt;<a href="../model/dto/TeamResponse.html" title="class in edu.cnm.deepdive.teamle.model.dto">TeamResponse</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/service/SportsDBProxy.html#line-22">getAllTeams</a></span><wbr><span class="parameters">(<a href="https://square.github.io/retrofit/2.x/retrofit/retrofit2/http/Path.html" title="class or interface in retrofit2.http" class="external-link">@Path</a>("api_key")
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;apiKey,
+ <a href="https://square.github.io/retrofit/2.x/retrofit/retrofit2/http/Query.html" title="class or interface in retrofit2.http" class="external-link">@Query</a>("id")
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;leagueId)</span></div>
 </section>
 </li>
 </ul>

@@ -90,12 +90,12 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <hr>
 <div class="type-signature"><span class="annotations">@Singleton
-</span><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/service/PreferencesRepository.html#line-34">PreferencesRepository</a></span>
+</span><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/service/PreferencesRepository.html#line-37">PreferencesRepository</a></span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
 <div class="block">Implements a <a href="https://developer.android.com/reference/androidx/lifecycle/LiveData.html" title="class or interface in androidx.lifecycle" class="external-link"><code>LiveData</code></a>-based repository of preferences. It does not provide any preference
  mutation methods, and is of most use when all preferences are being modified through user
  interaction with an instance of a <a href="https://developer.android.com/reference/androidx/preference/PreferenceFragmentCompat.html" title="class or interface in androidx.preference" class="external-link"><code>PreferenceFragmentCompat</code></a> subclass
- (such as <a href="../controller/SettingsActivity.SettingsFragment.html" title="class in edu.cnm.deepdive.teamle.controller"><code>SettingsActivity.SettingsFragment</code></a>).</div>
+ (such as <a href="../controller/SettingsFragment.html" title="class in edu.cnm.deepdive.teamle.controller"><code>SettingsFragment</code></a>).</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -117,12 +117,18 @@ loadScripts(document, 'script');</script>
 <div class="block">Utility method to allow pass-through read access to the underlying <a href="https://developer.android.com/reference/android/content/SharedPreferences.html" title="class or interface in android.content" class="external-link"><code>SharedPreferences</code></a>,
  by key.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://developer.android.com/reference/androidx/lifecycle/LiveData.html" title="class or interface in androidx.lifecycle" class="external-link">LiveData</a><wbr>&lt;<a href="https://developer.android.com/reference/android/content/SharedPreferences.html" title="class or interface in android.content" class="external-link">SharedPreferences</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPreferences()" class="member-name-link">getPreferences</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://developer.android.com/reference/androidx/lifecycle/LiveData.html" title="class or interface in androidx.lifecycle" class="external-link">LiveData</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getLeaguePreference()" class="member-name-link">getLeaguePreference</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://developer.android.com/reference/androidx/lifecycle/LiveData.html" title="class or interface in androidx.lifecycle" class="external-link">LiveData</a><wbr>&lt;<a href="https://developer.android.com/reference/android/content/SharedPreferences.html" title="class or interface in android.content" class="external-link">SharedPreferences</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPreferences()" class="member-name-link">getPreferences</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns <a href="https://developer.android.com/reference/androidx/lifecycle/LiveData.html" title="class or interface in androidx.lifecycle" class="external-link"><code>LiveData</code></a> of all shared preferences that have been set in application code or by
  the user in a <a href="https://developer.android.com/reference/androidx/preference/PreferenceFragmentCompat.html" title="class or interface in androidx.preference" class="external-link"><code>PreferenceFragmentCompat</code></a> subclass instance.</div>
 </div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://developer.android.com/reference/androidx/lifecycle/LiveData.html" title="class or interface in androidx.lifecycle" class="external-link">LiveData</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSportPreference()" class="member-name-link">getSportPreference</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
 </div>
@@ -143,7 +149,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getPreferences()">
 <h3>getPreferences</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://developer.android.com/reference/androidx/lifecycle/LiveData.html" title="class or interface in androidx.lifecycle" class="external-link">LiveData</a>&lt;<a href="https://developer.android.com/reference/android/content/SharedPreferences.html" title="class or interface in android.content" class="external-link">SharedPreferences</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/service/PreferencesRepository.html#line-55">getPreferences</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://developer.android.com/reference/androidx/lifecycle/LiveData.html" title="class or interface in androidx.lifecycle" class="external-link">LiveData</a>&lt;<a href="https://developer.android.com/reference/android/content/SharedPreferences.html" title="class or interface in android.content" class="external-link">SharedPreferences</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/service/PreferencesRepository.html#line-64">getPreferences</a></span>()</div>
 <div class="block">Returns <a href="https://developer.android.com/reference/androidx/lifecycle/LiveData.html" title="class or interface in androidx.lifecycle" class="external-link"><code>LiveData</code></a> of all shared preferences that have been set in application code or by
  the user in a <a href="https://developer.android.com/reference/androidx/preference/PreferenceFragmentCompat.html" title="class or interface in androidx.preference" class="external-link"><code>PreferenceFragmentCompat</code></a> subclass instance. A
  viewmodel should then use <a href="https://developer.android.com/reference/androidx/lifecycle/Transformations.html#map-androidx.lifecycle.LiveData-kotlin.jvm.functions.Function1-" title="class or interface in androidx.lifecycle" class="external-link"><code>Transformations.map(LiveData, Function1)</code></a>
@@ -153,9 +159,21 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
+<section class="detail" id="getSportPreference()">
+<h3>getSportPreference</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://developer.android.com/reference/androidx/lifecycle/LiveData.html" title="class or interface in androidx.lifecycle" class="external-link">LiveData</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/service/PreferencesRepository.html#line-68">getSportPreference</a></span>()</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getLeaguePreference()">
+<h3>getLeaguePreference</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://developer.android.com/reference/androidx/lifecycle/LiveData.html" title="class or interface in androidx.lifecycle" class="external-link">LiveData</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/service/PreferencesRepository.html#line-72">getLeaguePreference</a></span>()</div>
+</section>
+</li>
+<li>
 <section class="detail" id="get(java.lang.String,T)">
 <h3 id="get(java.lang.String,java.lang.Object)">get</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/service/PreferencesRepository.html#line-69">get</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;key,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/service/PreferencesRepository.html#line-86">get</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;key,
  T&nbsp;defaultValue)</span></div>
 <div class="block">Utility method to allow pass-through read access to the underlying <a href="https://developer.android.com/reference/android/content/SharedPreferences.html" title="class or interface in android.content" class="external-link"><code>SharedPreferences</code></a>,
  by key. The compiler will infer the type parameter <code>T</code> by examining the

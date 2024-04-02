@@ -18,18 +18,23 @@
 <span class="source-line-no">005</span><span id="line-5">import edu.cnm.deepdive.teamle.model.dto.TeamResponse;</span>
 <span class="source-line-no">006</span><span id="line-6">import io.reactivex.rxjava3.core.Single;</span>
 <span class="source-line-no">007</span><span id="line-7">import retrofit2.http.GET;</span>
-<span class="source-line-no">008</span><span id="line-8"></span>
-<span class="source-line-no">009</span><span id="line-9">public interface SportsDBProxy {</span>
+<span class="source-line-no">008</span><span id="line-8">import retrofit2.http.Path;</span>
+<span class="source-line-no">009</span><span id="line-9">import retrofit2.http.Query;</span>
 <span class="source-line-no">010</span><span id="line-10"></span>
-<span class="source-line-no">011</span><span id="line-11">  @GET("all_countries.php")</span>
-<span class="source-line-no">012</span><span id="line-12">  Single&lt;CountryResponse&gt; getAllCountries();</span>
-<span class="source-line-no">013</span><span id="line-13"></span>
-<span class="source-line-no">014</span><span id="line-14">  @GET("all_leagues.php")</span>
-<span class="source-line-no">015</span><span id="line-15">  Single&lt;LeagueResponse&gt; getAllLeagues();</span>
-<span class="source-line-no">016</span><span id="line-16"></span>
-<span class="source-line-no">017</span><span id="line-17">  @GET("all_teams.php")</span>
-<span class="source-line-no">018</span><span id="line-18">  Single&lt;TeamResponse&gt; getAllTeams();</span>
-<span class="source-line-no">019</span><span id="line-19">}</span>
+<span class="source-line-no">011</span><span id="line-11">/**</span>
+<span class="source-line-no">012</span><span id="line-12"> * Used to get the API key to populate the game with needed information from the API</span>
+<span class="source-line-no">013</span><span id="line-13"> */</span>
+<span class="source-line-no">014</span><span id="line-14">public interface SportsDBProxy {</span>
+<span class="source-line-no">015</span><span id="line-15"></span>
+<span class="source-line-no">016</span><span id="line-16">  @GET("{api_key}/all_countries.php")</span>
+<span class="source-line-no">017</span><span id="line-17">  Single&lt;CountryResponse&gt; getAllCountries(@Path("api_key") String apiKey);</span>
+<span class="source-line-no">018</span><span id="line-18"></span>
+<span class="source-line-no">019</span><span id="line-19">  @GET("{api_key}/all_leagues.php")</span>
+<span class="source-line-no">020</span><span id="line-20">  Single&lt;LeagueResponse&gt; getAllLeagues(@Path("api_key") String apiKey);</span>
+<span class="source-line-no">021</span><span id="line-21"></span>
+<span class="source-line-no">022</span><span id="line-22">  @GET("{api_key}/lookup_all_teams.php")</span>
+<span class="source-line-no">023</span><span id="line-23">  Single&lt;TeamResponse&gt; getAllTeams(@Path("api_key") String apiKey,@Query("id") String leagueId);</span>
+<span class="source-line-no">024</span><span id="line-24">}</span>
 
 
 

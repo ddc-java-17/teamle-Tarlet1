@@ -89,8 +89,9 @@ loadScripts(document, 'script');</script>
 </div>
 <section class="class-description" id="class-description">
 <hr>
-<div class="type-signature"><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/service/TeamleRepository.html#line-12">TeamleRepository</a></span>
+<div class="type-signature"><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/service/TeamleRepository.html#line-34">TeamleRepository</a></span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+<div class="block">This repository handles starting and playing a game.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -102,12 +103,14 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(edu.cnm.deepdive.teamle.service.TeamleServiceProxy,edu.cnm.deepdive.teamle.service.GameResultRepository,edu.cnm.deepdive.teamle.service.UserRepository,edu.cnm.deepdive.teamle.service.GoogleSignInService,io.reactivex.rxjava3.core.Scheduler)" class="member-name-link">TeamleRepository</a><wbr>(<a href="TeamleServiceProxy.html" title="interface in edu.cnm.deepdive.teamle.service">TeamleServiceProxy</a>&nbsp;proxy,
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(edu.cnm.deepdive.teamle.service.SportsDBProxy,edu.cnm.deepdive.teamle.service.GameResultRepository,edu.cnm.deepdive.teamle.service.UserRepository,android.content.Context,java.util.Random)" class="member-name-link">TeamleRepository</a><wbr>(<a href="SportsDBProxy.html" title="interface in edu.cnm.deepdive.teamle.service">SportsDBProxy</a>&nbsp;proxy,
  <a href="GameResultRepository.html" title="class in edu.cnm.deepdive.teamle.service">GameResultRepository</a>&nbsp;resultRepository,
  <a href="UserRepository.html" title="class in edu.cnm.deepdive.teamle.service">UserRepository</a>&nbsp;userRepository,
- <a href="GoogleSignInService.html" title="class in edu.cnm.deepdive.teamle.service">GoogleSignInService</a>&nbsp;signInService,
- <a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Scheduler.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Scheduler</a>&nbsp;scheduler)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+ <a href="https://developer.android.com/reference/android/content/Context.html" title="class or interface in android.content" class="external-link">Context</a>&nbsp;context,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Random.html" title="class or interface in java.util" class="external-link">Random</a>&nbsp;rng)</code></div>
+<div class="col-last even-row-color">
+<div class="block">Handles all things needed for a game to be played</div>
+</div>
 </div>
 </section>
 </li>
@@ -122,15 +125,36 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Single.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Single</a><wbr>&lt;? extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../model/League.html" title="class in edu.cnm.deepdive.teamle.model">League</a>&gt;&gt;&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getAllLeaguesBySport()" class="member-name-link">getAllLeaguesBySport</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Gets all leagues by sport</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Single.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Single</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../model/Team.html" title="class in edu.cnm.deepdive.teamle.model">Team</a>&gt;&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getAllTeamsByLeague(java.lang.String)" class="member-name-link">getAllTeamsByLeague</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;leagueId)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Gets all teams in a specific league</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../model/Game.html" title="class in edu.cnm.deepdive.teamle.model">Game</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getGame()" class="member-name-link">getGame</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Single.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Single</a><wbr>&lt;<a href="../model/Game.html" title="class in edu.cnm.deepdive.teamle.model">Game</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#startGame(edu.cnm.deepdive.teamle.model.Game)" class="member-name-link">startGame</a><wbr>(<a href="../model/Game.html" title="class in edu.cnm.deepdive.teamle.model">Game</a>&nbsp;game)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Single.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Single</a><wbr>&lt;<a href="../model/Guess.html" title="class in edu.cnm.deepdive.teamle.model">Guess</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#submitGuess(java.lang.String)" class="member-name-link">submitGuess</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;text)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Gets a game</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../model/Team.html" title="class in edu.cnm.deepdive.teamle.model">Team</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#pick()" class="member-name-link">pick</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Handles the team selected for a guess</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../model/Game.html" title="class in edu.cnm.deepdive.teamle.model">Game</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#startGame()" class="member-name-link">startGame</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Handles the start of a game</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../model/Guess.html" title="class in edu.cnm.deepdive.teamle.model">Guess</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#submitGuess(edu.cnm.deepdive.teamle.model.Team)" class="member-name-link">submitGuess</a><wbr>(<a href="../model/Team.html" title="class in edu.cnm.deepdive.teamle.model">Team</a>&nbsp;pick)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Handles the submission of a guess</div>
+</div>
 </div>
 </div>
 </div>
@@ -149,14 +173,23 @@ loadScripts(document, 'script');</script>
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(edu.cnm.deepdive.teamle.service.TeamleServiceProxy,edu.cnm.deepdive.teamle.service.GameResultRepository,edu.cnm.deepdive.teamle.service.UserRepository,edu.cnm.deepdive.teamle.service.GoogleSignInService,io.reactivex.rxjava3.core.Scheduler)">
+<section class="detail" id="&lt;init&gt;(edu.cnm.deepdive.teamle.service.SportsDBProxy,edu.cnm.deepdive.teamle.service.GameResultRepository,edu.cnm.deepdive.teamle.service.UserRepository,android.content.Context,java.util.Random)">
 <h3>TeamleRepository</h3>
 <div class="member-signature"><span class="annotations">@Inject
-</span><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/service/TeamleRepository.html#line-22">TeamleRepository</a></span><wbr><span class="parameters">(<a href="TeamleServiceProxy.html" title="interface in edu.cnm.deepdive.teamle.service">TeamleServiceProxy</a>&nbsp;proxy,
+</span><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/service/TeamleRepository.html#line-55">TeamleRepository</a></span><wbr><span class="parameters">(<a href="SportsDBProxy.html" title="interface in edu.cnm.deepdive.teamle.service">SportsDBProxy</a>&nbsp;proxy,
  <a href="GameResultRepository.html" title="class in edu.cnm.deepdive.teamle.service">GameResultRepository</a>&nbsp;resultRepository,
  <a href="UserRepository.html" title="class in edu.cnm.deepdive.teamle.service">UserRepository</a>&nbsp;userRepository,
- <a href="GoogleSignInService.html" title="class in edu.cnm.deepdive.teamle.service">GoogleSignInService</a>&nbsp;signInService,
- <a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Scheduler.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Scheduler</a>&nbsp;scheduler)</span></div>
+ <a href="https://developer.android.com/reference/android/content/Context.html" title="class or interface in android.content" class="external-link">Context</a>&nbsp;context,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Random.html" title="class or interface in java.util" class="external-link">Random</a>&nbsp;rng)</span></div>
+<div class="block">Handles all things needed for a game to be played</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>proxy</code> - SportsDBProxy</dd>
+<dd><code>resultRepository</code> - GameResultRepository</dd>
+<dd><code>userRepository</code> - UserRepository</dd>
+<dd><code>context</code> - Context</dd>
+<dd><code>rng</code> - Random</dd>
+</dl>
 </section>
 </li>
 </ul>
@@ -168,21 +201,73 @@ loadScripts(document, 'script');</script>
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="startGame(edu.cnm.deepdive.teamle.model.Game)">
-<h3>startGame</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Single.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Single</a>&lt;<a href="../model/Game.html" title="class in edu.cnm.deepdive.teamle.model">Game</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/service/TeamleRepository.html#line-33">startGame</a></span><wbr><span class="parameters">(<a href="../model/Game.html" title="class in edu.cnm.deepdive.teamle.model">Game</a>&nbsp;game)</span></div>
+<section class="detail" id="getAllLeaguesBySport()">
+<h3>getAllLeaguesBySport</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Single.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Single</a>&lt;? extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../model/League.html" title="class in edu.cnm.deepdive.teamle.model">League</a>&gt;&gt;&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/service/TeamleRepository.html#line-70">getAllLeaguesBySport</a></span>()</div>
+<div class="block">Gets all leagues by sport</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>Leagues</dd>
+</dl>
 </section>
 </li>
 <li>
-<section class="detail" id="submitGuess(java.lang.String)">
+<section class="detail" id="getAllTeamsByLeague(java.lang.String)">
+<h3>getAllTeamsByLeague</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Single.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Single</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../model/Team.html" title="class in edu.cnm.deepdive.teamle.model">Team</a>&gt;&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/service/TeamleRepository.html#line-86">getAllTeamsByLeague</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;leagueId)</span></div>
+<div class="block">Gets all teams in a specific league</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>leagueId</code> - String</dd>
+<dt>Returns:</dt>
+<dd>List<Teams></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="pick()">
+<h3>pick</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../model/Team.html" title="class in edu.cnm.deepdive.teamle.model">Team</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/service/TeamleRepository.html#line-97">pick</a></span>()</div>
+<div class="block">Handles the team selected for a guess</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>Team</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="startGame()">
+<h3>startGame</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../model/Game.html" title="class in edu.cnm.deepdive.teamle.model">Game</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/service/TeamleRepository.html#line-106">startGame</a></span>()</div>
+<div class="block">Handles the start of a game</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>Game</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="submitGuess(edu.cnm.deepdive.teamle.model.Team)">
 <h3>submitGuess</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Single.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Single</a>&lt;<a href="../model/Guess.html" title="class in edu.cnm.deepdive.teamle.model">Guess</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/service/TeamleRepository.html#line-41">submitGuess</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;text)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../model/Guess.html" title="class in edu.cnm.deepdive.teamle.model">Guess</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/service/TeamleRepository.html#line-117">submitGuess</a></span><wbr><span class="parameters">(<a href="../model/Team.html" title="class in edu.cnm.deepdive.teamle.model">Team</a>&nbsp;pick)</span></div>
+<div class="block">Handles the submission of a guess</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>pick</code> - Team</dd>
+<dt>Returns:</dt>
+<dd>Guess</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="getGame()">
 <h3>getGame</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../model/Game.html" title="class in edu.cnm.deepdive.teamle.model">Game</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/service/TeamleRepository.html#line-59">getGame</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../model/Game.html" title="class in edu.cnm.deepdive.teamle.model">Game</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/service/TeamleRepository.html#line-139">getGame</a></span>()</div>
+<div class="block">Gets a game</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>Game</dd>
+</dl>
 </section>
 </li>
 </ul>

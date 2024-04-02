@@ -1,4 +1,5 @@
 edu.cnm.deepdive.teamle
+edu.cnm.deepdive.teamle.adapter
 edu.cnm.deepdive.teamle.controller
 edu.cnm.deepdive.teamle.hilt
 edu.cnm.deepdive.teamle.model

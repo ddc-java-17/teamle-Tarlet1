@@ -89,8 +89,9 @@ loadScripts(document, 'script');</script>
 </div>
 <section class="class-description" id="class-description">
 <hr>
-<div class="type-signature"><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/service/GameResultRepository.html#line-14">GameResultRepository</a></span>
+<div class="type-signature"><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/service/GameResultRepository.html#line-17">GameResultRepository</a></span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+<div class="block">This repository holds all game results.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -120,14 +121,25 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Single.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Single</a><wbr>&lt;<a href="../model/entity/GameResult.html" title="class in edu.cnm.deepdive.teamle.model.entity">GameResult</a>&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#add(edu.cnm.deepdive.teamle.model.entity.GameResult)" class="member-name-link">add</a><wbr>(<a href="../model/entity/GameResult.html" title="class in edu.cnm.deepdive.teamle.model.entity">GameResult</a>&nbsp;gameResult)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Adds games results to List of game results</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Completable.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Completable</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#clear()" class="member-name-link">clear</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">clears game results</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://developer.android.com/reference/androidx/lifecycle/LiveData.html" title="class or interface in androidx.lifecycle" class="external-link">LiveData</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../model/entity/GameResult.html" title="class in edu.cnm.deepdive.teamle.model.entity">GameResult</a>&gt;&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getAll(int,edu.cnm.deepdive.teamle.model.entity.User)" class="member-name-link">getAll</a><wbr>(int&nbsp;correctTeam,
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getall()" class="member-name-link">getall</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Gets all game results</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://developer.android.com/reference/androidx/lifecycle/LiveData.html" title="class or interface in androidx.lifecycle" class="external-link">LiveData</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../model/entity/GameResult.html" title="class in edu.cnm.deepdive.teamle.model.entity">GameResult</a>&gt;&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getAll(int,edu.cnm.deepdive.teamle.model.entity.User)" class="member-name-link">getAll</a><wbr>(int&nbsp;correctTeam,
  <a href="../model/entity/User.html" title="class in edu.cnm.deepdive.teamle.model.entity">User</a>&nbsp;user)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Gets all game results</div>
+</div>
 </div>
 </div>
 </div>
@@ -149,7 +161,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="&lt;init&gt;(edu.cnm.deepdive.teamle.model.dao.GameResultDao)">
 <h3>GameResultRepository</h3>
 <div class="member-signature"><span class="annotations">@Inject
-</span><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/service/GameResultRepository.html#line-18">GameResultRepository</a></span><wbr><span class="parameters">(<a href="../model/dao/GameResultDao.html" title="interface in edu.cnm.deepdive.teamle.model.dao">GameResultDao</a>&nbsp;gameResultDao)</span></div>
+</span><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/service/GameResultRepository.html#line-21">GameResultRepository</a></span><wbr><span class="parameters">(<a href="../model/dao/GameResultDao.html" title="interface in edu.cnm.deepdive.teamle.model.dao">GameResultDao</a>&nbsp;gameResultDao)</span></div>
 </section>
 </li>
 </ul>
@@ -163,20 +175,51 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="add(edu.cnm.deepdive.teamle.model.entity.GameResult)">
 <h3>add</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Single.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Single</a>&lt;<a href="../model/entity/GameResult.html" title="class in edu.cnm.deepdive.teamle.model.entity">GameResult</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/service/GameResultRepository.html#line-23">add</a></span><wbr><span class="parameters">(<a href="../model/entity/GameResult.html" title="class in edu.cnm.deepdive.teamle.model.entity">GameResult</a>&nbsp;gameResult)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Single.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Single</a>&lt;<a href="../model/entity/GameResult.html" title="class in edu.cnm.deepdive.teamle.model.entity">GameResult</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/service/GameResultRepository.html#line-31">add</a></span><wbr><span class="parameters">(<a href="../model/entity/GameResult.html" title="class in edu.cnm.deepdive.teamle.model.entity">GameResult</a>&nbsp;gameResult)</span></div>
+<div class="block">Adds games results to List of game results</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>gameResult</code> - GameResult</dd>
+<dt>Returns:</dt>
+<dd>gameResultDao</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="getAll(int,edu.cnm.deepdive.teamle.model.entity.User)">
 <h3>getAll</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://developer.android.com/reference/androidx/lifecycle/LiveData.html" title="class or interface in androidx.lifecycle" class="external-link">LiveData</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../model/entity/GameResult.html" title="class in edu.cnm.deepdive.teamle.model.entity">GameResult</a>&gt;&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/service/GameResultRepository.html#line-29">getAll</a></span><wbr><span class="parameters">(int&nbsp;correctTeam,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://developer.android.com/reference/androidx/lifecycle/LiveData.html" title="class or interface in androidx.lifecycle" class="external-link">LiveData</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../model/entity/GameResult.html" title="class in edu.cnm.deepdive.teamle.model.entity">GameResult</a>&gt;&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/service/GameResultRepository.html#line-43">getAll</a></span><wbr><span class="parameters">(int&nbsp;correctTeam,
  <a href="../model/entity/User.html" title="class in edu.cnm.deepdive.teamle.model.entity">User</a>&nbsp;user)</span></div>
+<div class="block">Gets all game results</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>correctTeam</code> - int</dd>
+<dd><code>user</code> - User</dd>
+<dt>Returns:</dt>
+<dd>ranked results</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="clear()">
 <h3>clear</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Completable.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Completable</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/service/GameResultRepository.html#line-35">clear</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Completable.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Completable</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/service/GameResultRepository.html#line-53">clear</a></span>()</div>
+<div class="block">clears game results</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>gameResultDao</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getall()">
+<h3>getall</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://developer.android.com/reference/androidx/lifecycle/LiveData.html" title="class or interface in androidx.lifecycle" class="external-link">LiveData</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../model/entity/GameResult.html" title="class in edu.cnm.deepdive.teamle.model.entity">GameResult</a>&gt;&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/teamle/service/GameResultRepository.html#line-63">getall</a></span>()</div>
+<div class="block">Gets all game results</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>gameResultDao</dd>
+</dl>
 </section>
 </li>
 </ul>

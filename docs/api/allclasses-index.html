@@ -50,45 +50,77 @@ loadScripts(document, 'script');</script>
 <h1 title="All Classes and Interfaces" class="title">All Classes and Interfaces</h1>
 </div>
 <div id="all-classes-table">
-<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="all-classes-table-tab0" role="tab" aria-selected="true" aria-controls="all-classes-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('all-classes-table', 'all-classes-table', 2)" class="active-table-tab">All Classes and Interfaces</button><button id="all-classes-table-tab1" role="tab" aria-selected="false" aria-controls="all-classes-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('all-classes-table', 'all-classes-table-tab1', 2)" class="table-tab">Interfaces</button><button id="all-classes-table-tab2" role="tab" aria-selected="false" aria-controls="all-classes-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('all-classes-table', 'all-classes-table-tab2', 2)" class="table-tab">Classes</button><button id="all-classes-table-tab3" role="tab" aria-selected="false" aria-controls="all-classes-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('all-classes-table', 'all-classes-table-tab3', 2)" class="table-tab">Enum Classes</button></div>
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="all-classes-table-tab0" role="tab" aria-selected="true" aria-controls="all-classes-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('all-classes-table', 'all-classes-table', 2)" class="active-table-tab">All Classes and Interfaces</button><button id="all-classes-table-tab1" role="tab" aria-selected="false" aria-controls="all-classes-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('all-classes-table', 'all-classes-table-tab1', 2)" class="table-tab">Interfaces</button><button id="all-classes-table-tab2" role="tab" aria-selected="false" aria-controls="all-classes-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('all-classes-table', 'all-classes-table-tab2', 2)" class="table-tab">Classes</button><button id="all-classes-table-tab3" role="tab" aria-selected="false" aria-controls="all-classes-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('all-classes-table', 'all-classes-table-tab3', 2)" class="table-tab">Enum Classes</button><button id="all-classes-table-tab4" role="tab" aria-selected="false" aria-controls="all-classes-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('all-classes-table', 'all-classes-table-tab4', 2)" class="table-tab">Record Classes</button></div>
 <div id="all-classes-table.tabpanel" role="tabpanel">
 <div class="summary-table two-column-summary" aria-labelledby="all-classes-table-tab0">
 <div class="table-header col-first">Class</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/model/Country.html" title="class in edu.cnm.deepdive.teamle.model">Country</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab2">&nbsp;</div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/model/dto/CountryResponse.html" title="class in edu.cnm.deepdive.teamle.model.dto">CountryResponse</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">&nbsp;</div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/hilt/DatabaseModule.html" title="class in edu.cnm.deepdive.teamle.hilt">DatabaseModule</a></div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/hilt/ComponentsModule.html" title="class in edu.cnm.deepdive.teamle.hilt">ComponentsModule</a></div>
 <div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="block">Provides and returns a random secret team from selected preferences.</div>
+</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/model/Country.html" title="class in edu.cnm.deepdive.teamle.model">Country</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="block">Gets all sports/ leagues from a specific country.</div>
+</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/model/dto/CountryResponse.html" title="class in edu.cnm.deepdive.teamle.model.dto">CountryResponse</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="block">This maps to a JSOn object containing a list of Country objects from the Sports DB API.</div>
+</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/hilt/DatabaseModule.html" title="class in edu.cnm.deepdive.teamle.hilt">DatabaseModule</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Uses Dagger <a href="https://javadoc.io/doc/com.google.dagger/dagger/2.50/dagger/Provides.html" title="class or interface in dagger" class="external-link"><code>@Provides</code></a>-annotated methods to satisfy dependencies on concrete
  implementations of <a href="edu/cnm/deepdive/teamle/service/TeamleDatabase.html" title="class in edu.cnm.deepdive.teamle.service"><code>TeamleDatabase</code></a> and <a href="edu/cnm/deepdive/teamle/model/dao/UserDao.html" title="interface in edu.cnm.deepdive.teamle.model.dao"><code>UserDao</code></a>.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/controller/DemoFragment.html" title="class in edu.cnm.deepdive.teamle.controller">DemoFragment</a></div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/controller/EndGameFragment.html" title="class in edu.cnm.deepdive.teamle.controller">EndGameFragment</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="block">This Fragment is used to inflate the end of game message screen when a game is completed.</div>
+</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/model/Game.html" title="class in edu.cnm.deepdive.teamle.model">Game</a></div>
 <div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="block">Handles all stats about a game</div>
+</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/controller/GameFragment.html" title="class in edu.cnm.deepdive.teamle.controller">GameFragment</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Demonstrates access to and observation of <a href="https://developer.android.com/reference/androidx/lifecycle/LiveData.html" title="class or interface in androidx.lifecycle" class="external-link"><code>LiveData</code></a> elements in
  <a href="edu/cnm/deepdive/teamle/viewmodel/LoginViewModel.html" title="class in edu.cnm.deepdive.teamle.viewmodel"><code>LoginViewModel</code></a>, <a href="edu/cnm/deepdive/teamle/viewmodel/UserViewModel.html" title="class in edu.cnm.deepdive.teamle.viewmodel"><code>UserViewModel</code></a>, <a href="edu/cnm/deepdive/teamle/viewmodel/PermissionsViewModel.html" title="class in edu.cnm.deepdive.teamle.viewmodel"><code>PermissionsViewModel</code></a>, and
  <a href="edu/cnm/deepdive/teamle/viewmodel/PreferencesViewModel.html" title="class in edu.cnm.deepdive.teamle.viewmodel"><code>PreferencesViewModel</code></a>, as well as acting as a navigation placeholder.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/model/Game.html" title="class in edu.cnm.deepdive.teamle.model">Game</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab2">&nbsp;</div>
 <div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/model/entity/GameResult.html" title="class in edu.cnm.deepdive.teamle.model.entity">GameResult</a></div>
 <div class="col-last odd-row-color all-classes-table all-classes-table-tab2">&nbsp;</div>
 <div class="col-first even-row-color all-classes-table all-classes-table-tab1"><a href="edu/cnm/deepdive/teamle/model/dao/GameResultDao.html" title="interface in edu.cnm.deepdive.teamle.model.dao">GameResultDao</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab1">&nbsp;</div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab1">
+<div class="block">Queries stats from games played for scores screen.</div>
+</div>
 <div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/service/GameResultRepository.html" title="class in edu.cnm.deepdive.teamle.service">GameResultRepository</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">&nbsp;</div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/service/GoogleSignInService.html" title="class in edu.cnm.deepdive.teamle.service">GoogleSignInService</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="block">This repository holds all game results.</div>
+</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/viewmodel/GameResultViewModel.html" title="class in edu.cnm.deepdive.teamle.viewmodel">GameResultViewModel</a></div>
 <div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="block">Handles all game results</div>
+</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/service/GoogleSignInService.html" title="class in edu.cnm.deepdive.teamle.service">GoogleSignInService</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Provides ReactiveX-integrated Google Sign In client flows for signing in, refreshing the bearer
  token, and signing out.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/model/Guess.html" title="class in edu.cnm.deepdive.teamle.model">Guess</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">&nbsp;</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab4"><a href="edu/cnm/deepdive/teamle/model/Guess.html" title="class in edu.cnm.deepdive.teamle.model">Guess</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab4">
+<div class="block">Holds all guesses for a game.</div>
+</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/adapter/GuessesAdapter.html" title="class in edu.cnm.deepdive.teamle.adapter">GuessesAdapter</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="block">Public class that extends ArrayAdapter and works as a GuessesAdapter.</div>
+</div>
 <div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/model/League.html" title="class in edu.cnm.deepdive.teamle.model">League</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab2">&nbsp;</div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="block">Handles all league objects.</div>
+</div>
 <div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/model/dto/LeagueResponse.html" title="class in edu.cnm.deepdive.teamle.model.dto">LeagueResponse</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">&nbsp;</div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="block">This maps to a JSON object containing a list of league objects from the Sports DB API.</div>
+</div>
 <div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/controller/LoginActivity.html" title="class in edu.cnm.deepdive.teamle.controller">LoginActivity</a></div>
 <div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Presents a simple login screen, which is bypassed if a silent refresh/sign-in attempt succeeds.</div>
@@ -100,103 +132,107 @@ loadScripts(document, 'script');</script>
 </div>
 <div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/controller/MainActivity.html" title="class in edu.cnm.deepdive.teamle.controller">MainActivity</a></div>
 <div class="col-last even-row-color all-classes-table all-classes-table-tab2">
-<div class="block">Serves as a basic container activity&mdash;that is, it presents no UI elements of its own (apart
- from an options menu), but hosts a <a href="https://developer.android.com/reference/androidx/navigation/fragment/NavHostFragment.html" title="class or interface in androidx.navigation.fragment" class="external-link"><code>NavHostFragment</code></a> for
- presentation of one or more <a href="https://developer.android.com/reference/androidx/fragment/app/Fragment.html" title="class or interface in androidx.fragment.app" class="external-link"><code>Fragment</code></a> instances, associated with a
- navigation graph.</div>
+<div class="block">Used to control the main screen activity and navigation between screens.</div>
 </div>
 <div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/NavigationGraphDirections.html" title="class in edu.cnm.deepdive.teamle">NavigationGraphDirections</a></div>
 <div class="col-last odd-row-color all-classes-table all-classes-table-tab2">&nbsp;</div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/NavigationGraphDirections.ExplainPermissions.html" title="class in edu.cnm.deepdive.teamle">NavigationGraphDirections.ExplainPermissions</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab2">&nbsp;</div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/controller/PermissionsExplanationFragment.html" title="class in edu.cnm.deepdive.teamle.controller">PermissionsExplanationFragment</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
-<div class="block">Presents a modal dialog of rationales for permissions requested by this app.</div>
-</div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab1"><a href="edu/cnm/deepdive/teamle/controller/PermissionsExplanationFragment.OnAcknowledgeListener.html" title="interface in edu.cnm.deepdive.teamle.controller">PermissionsExplanationFragment.OnAcknowledgeListener</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab1">
-<div class="block">Declares the <a href="edu/cnm/deepdive/teamle/controller/PermissionsExplanationFragment.OnAcknowledgeListener.html#onAcknowledge(java.lang.String%5B%5D)"><code>PermissionsExplanationFragment.OnAcknowledgeListener.onAcknowledge(String[])</code></a> method to be implemented by the host activity
- (typically using a lambda), to resume the permissions flow after display of the permission
- rationales/explanations.</div>
-</div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/service/PermissionsRepository.html" title="class in edu.cnm.deepdive.teamle.service">PermissionsRepository</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/service/PermissionsRepository.html" title="class in edu.cnm.deepdive.teamle.service">PermissionsRepository</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Implements a <a href="https://developer.android.com/reference/androidx/lifecycle/LiveData.html" title="class or interface in androidx.lifecycle" class="external-link"><code>LiveData</code></a>-based repository of permissions granted by the user, and handles
  the low-level details of the permissions flow.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/viewmodel/PermissionsViewModel.html" title="class in edu.cnm.deepdive.teamle.viewmodel">PermissionsViewModel</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/viewmodel/PermissionsViewModel.html" title="class in edu.cnm.deepdive.teamle.viewmodel">PermissionsViewModel</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Provides access (for a UI controller or data-bound view) to the current permissions
  state&mdash;that is, to the set of permissions which have been granted by the user.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/service/PreferencesRepository.html" title="class in edu.cnm.deepdive.teamle.service">PreferencesRepository</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/service/PreferencesRepository.html" title="class in edu.cnm.deepdive.teamle.service">PreferencesRepository</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Implements a <a href="https://developer.android.com/reference/androidx/lifecycle/LiveData.html" title="class or interface in androidx.lifecycle" class="external-link"><code>LiveData</code></a>-based repository of preferences.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/viewmodel/PreferencesViewModel.html" title="class in edu.cnm.deepdive.teamle.viewmodel">PreferencesViewModel</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/viewmodel/PreferencesViewModel.html" title="class in edu.cnm.deepdive.teamle.viewmodel">PreferencesViewModel</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Provides access (for a UI controller or data-bound view) to some subset of the current
  preferences state.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/controller/SettingsActivity.html" title="class in edu.cnm.deepdive.teamle.controller">SettingsActivity</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
-<div class="block">Hosts an instance of <a href="edu/cnm/deepdive/teamle/controller/SettingsActivity.SettingsFragment.html" title="class in edu.cnm.deepdive.teamle.controller"><code>SettingsActivity.SettingsFragment</code></a> to present a settings screen without any additional
- UI elements (such as options menu).</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/adapter/ScoresAdapter.html" title="class in edu.cnm.deepdive.teamle.adapter">ScoresAdapter</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="block">This class is an adapter for scores and extends ArrayAdapter</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/controller/SettingsActivity.SettingsFragment.html" title="class in edu.cnm.deepdive.teamle.controller">SettingsActivity.SettingsFragment</a></div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/controller/ScoresFragment.html" title="class in edu.cnm.deepdive.teamle.controller">ScoresFragment</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="block">Handles and inflates the scores screen.</div>
+</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/controller/SettingsFragment.html" title="class in edu.cnm.deepdive.teamle.controller">SettingsFragment</a></div>
 <div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Presents a standard settings screen, populated from the
  <a href="https://developer.android.com/reference/androidx/preference/PreferenceScreen.html" title="class or interface in androidx.preference" class="external-link"><code>PreferenceScreen</code></a> declared in <code>res/xml/settings.xml</code>.</div>
 </div>
 <div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/hilt/SportsDBModule.html" title="class in edu.cnm.deepdive.teamle.hilt">SportsDBModule</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">&nbsp;</div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab1"><a href="edu/cnm/deepdive/teamle/service/SportsDBProxy.html" title="interface in edu.cnm.deepdive.teamle.service">SportsDBProxy</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab1">&nbsp;</div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/model/Team.html" title="class in edu.cnm.deepdive.teamle.model">Team</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">&nbsp;</div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab3"><a href="edu/cnm/deepdive/teamle/model/Team.Result.html" title="enum class in edu.cnm.deepdive.teamle.model">Team.Result</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab3">&nbsp;</div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/TeamleApplication.html" title="class in edu.cnm.deepdive.teamle">TeamleApplication</a></div>
 <div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="block">Gets the information from theSportsDB API the app needs to play the game.</div>
+</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab1"><a href="edu/cnm/deepdive/teamle/service/SportsDBProxy.html" title="interface in edu.cnm.deepdive.teamle.service">SportsDBProxy</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab1">
+<div class="block">Used to get the API key to populate the game with needed information from the API</div>
+</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/viewmodel/SportsDBViewModel.html" title="class in edu.cnm.deepdive.teamle.viewmodel">SportsDBViewModel</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="block">Handles everything needed from the API for a game</div>
+</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/model/Team.html" title="class in edu.cnm.deepdive.teamle.model">Team</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="block">Handles all teams in a selected league.</div>
+</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab3"><a href="edu/cnm/deepdive/teamle/model/Team.Result.html" title="enum class in edu.cnm.deepdive.teamle.model">Team.Result</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/TeamleApplication.html" title="class in edu.cnm.deepdive.teamle">TeamleApplication</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Initializes (in the <a href="edu/cnm/deepdive/teamle/TeamleApplication.html#onCreate()"><code>TeamleApplication.onCreate()</code></a> method) application-level resources that cannot be
  handled with Hilt dependency injection.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/service/TeamleDatabase.html" title="class in edu.cnm.deepdive.teamle.service">TeamleDatabase</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/service/TeamleDatabase.html" title="class in edu.cnm.deepdive.teamle.service">TeamleDatabase</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Defines a connection to a local Room/SQLite database, All database reads/writes are performed
  using data-access object (DAO) instances obtained from the singleton instance of this class.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/service/TeamleDatabase.Callback.html" title="class in edu.cnm.deepdive.teamle.service">TeamleDatabase.Callback</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/service/TeamleDatabase.Callback.html" title="class in edu.cnm.deepdive.teamle.service">TeamleDatabase.Callback</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Implements methods to be invoked on key database events.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/service/TeamleDatabase.Converters.html" title="class in edu.cnm.deepdive.teamle.service">TeamleDatabase.Converters</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/service/TeamleDatabase.Converters.html" title="class in edu.cnm.deepdive.teamle.service">TeamleDatabase.Converters</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Defines converters for otherwise unsupported types (initially, just <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Instant.html" title="class or interface in java.time" class="external-link"><code>Instant</code></a>) to one of
  those supported by Room/SQLite.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/service/TeamleRepository.html" title="class in edu.cnm.deepdive.teamle.service">TeamleRepository</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">&nbsp;</div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab1"><a href="edu/cnm/deepdive/teamle/service/TeamleServiceProxy.html" title="interface in edu.cnm.deepdive.teamle.service">TeamleServiceProxy</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab1">&nbsp;</div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/model/dto/TeamResponse.html" title="class in edu.cnm.deepdive.teamle.model.dto">TeamResponse</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">&nbsp;</div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/model/entity/User.html" title="class in edu.cnm.deepdive.teamle.model.entity">User</a></div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/service/TeamleRepository.html" title="class in edu.cnm.deepdive.teamle.service">TeamleRepository</a></div>
 <div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="block">This repository handles starting and playing a game.</div>
+</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab1"><a href="edu/cnm/deepdive/teamle/service/TeamleServiceProxy.html" title="interface in edu.cnm.deepdive.teamle.service">TeamleServiceProxy</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab1">
+<div class="block">Gets games, game ID's, and the list of guesses from a specific game</div>
+</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/model/dto/TeamResponse.html" title="class in edu.cnm.deepdive.teamle.model.dto">TeamResponse</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="block">This maps to a JSON object containing a list of Team objects from the Sports DB API.</div>
+</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/model/entity/User.html" title="class in edu.cnm.deepdive.teamle.model.entity">User</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Encapsulates the data elements maintained for a signed-in user in the app's Room/SQLite-based
  persistent data store.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab1"><a href="edu/cnm/deepdive/teamle/model/dao/UserDao.html" title="interface in edu.cnm.deepdive.teamle.model.dao">UserDao</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab1">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab1"><a href="edu/cnm/deepdive/teamle/model/dao/UserDao.html" title="interface in edu.cnm.deepdive.teamle.model.dao">UserDao</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab1">
 <div class="block">Provides CRUD operations on <a href="edu/cnm/deepdive/teamle/model/entity/User.html" title="class in edu.cnm.deepdive.teamle.model.entity"><code>User</code></a> entity instances.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/service/UserRepository.html" title="class in edu.cnm.deepdive.teamle.service">UserRepository</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/service/UserRepository.html" title="class in edu.cnm.deepdive.teamle.service">UserRepository</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Provides high-level operations on a repository of <a href="edu/cnm/deepdive/teamle/model/entity/User.html" title="class in edu.cnm.deepdive.teamle.model.entity"><code>User</code></a> instances, backed by a SQLite
  database, in turn accessed via <a href="edu/cnm/deepdive/teamle/service/TeamleDatabase.html" title="class in edu.cnm.deepdive.teamle.service"><code>TeamleDatabase</code></a>.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/viewmodel/UserViewModel.html" title="class in edu.cnm.deepdive.teamle.viewmodel">UserViewModel</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="edu/cnm/deepdive/teamle/viewmodel/UserViewModel.html" title="class in edu.cnm.deepdive.teamle.viewmodel">UserViewModel</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Provides access (for a UI controller or data-bound view) to the <a href="edu/cnm/deepdive/teamle/model/entity/User.html" title="class in edu.cnm.deepdive.teamle.model.entity"><code>User</code></a> entity instance
  corresponding to the current signed-in user, a user specified by its unique identifier (primary
  key value), and the full collection of users who have signed in to the app.</div>
