@@ -16,9 +16,13 @@ order: 40
 {: menu="Deficiencies" }
 
 > Certain listed sports don't populate drop down list, works only for team-based sports.
+
 > Game crashes if new game is selected before going to settings screen to set preferences first, sometime still crashes if settings are not gone to first even if preferences were set before.
+
 > Sport and league selection have a bug that sometimes won't allow you to select a certain sport or league, must go select another sport or league and then go back to the desired league or sport to have it set as preference.
+
 > Certain teams do not have a primary team color attribute set in the API, so during game the primary team color column for those teams return empty when those teams are used for a guess.
+
 > The primary team color returns a written out "#000000" format of the color, not a literal color for you to see. Would play better if game returned a literal color.
 
 
@@ -26,4 +30,5 @@ order: 40
 {: menu="Environments" }
 
 > Google Pixel 7 API 34 emulator 
+
 > Samsung SM-N981U Samsung galaxy note 20 physical device.
