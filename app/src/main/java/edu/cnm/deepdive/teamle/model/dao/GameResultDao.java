@@ -9,6 +9,9 @@ import io.reactivex.rxjava3.core.Completable;
 import io.reactivex.rxjava3.core.Single;
 import java.util.List;
 
+/**
+ * Queries stats from games played for scores screen.
+ */
 @Dao
 public interface GameResultDao {
 

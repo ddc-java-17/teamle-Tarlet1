@@ -32,7 +32,9 @@ import edu.cnm.deepdive.teamle.NavigationGraphDirections;
 import edu.cnm.deepdive.teamle.R;
 import edu.cnm.deepdive.teamle.viewmodel.LoginViewModel;
 
-
+/**
+ * Used to control the main screen activity and navigation between screens.
+ */
 @AndroidEntryPoint
 public class MainActivity extends AppCompatActivity {
 

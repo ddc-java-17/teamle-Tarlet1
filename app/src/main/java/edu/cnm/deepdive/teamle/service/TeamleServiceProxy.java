@@ -9,6 +9,9 @@ import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 
+/**
+ * Gets games, game ID's, and the list of guesses from a specific game
+ */
 public interface TeamleServiceProxy {
 
   @POST("games")

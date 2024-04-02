@@ -10,8 +10,20 @@ order: 40
 ## Completion state
 {: menu="Completion" }
 
+> The app currently runs a game based on the sport and league you choose, allowing you to submit guesses from a drop-list of all teams in a selected league, and provides data on the location, the year the team was formed, and the primary color of the team you picked. If the team you selected does not have one of those categories in common with the secret team, that column on the guess list will be red. If the team you picked has one of those categories in common with the secret team, that column on the guess list will turn green. You make guesses using the provided hints until you correctly guess the secret team. A success message then pops up. You can then click off and start a new game, go to the setting to change your sport or league preference, or go to the scoreboard to see a list of all the games you've played ranked based on amount of teams in that league, amount of guesses taken to correctly guess the secret team, the duration of the game, and a timestamp of when the game was played.
+
 ## Known deficiencies
 {: menu="Deficiencies" }
 
+> Certain listed sports don't populate drop down list, works only for team-based sports.
+> Game crashes if new game is selected before going to settings screen to set preferences first, sometime still crashes if settings are not gone to first even if preferences were set before.
+> Sport and league selection have a bug that sometimes won't allow you to select a certain sport or league, must go select another sport or league and then go back to the desired league or sport to have it set as preference.
+> Certain teams do not have a primary team color attribute set in the API, so during game the primary team color column for those teams return empty when those teams are used for a guess.
+> The primary team color returns a written out "#000000" format of the color, not a literal color for you to see. Would play better if game returned a literal color.
+
+
 ## Test environments used
 {: menu="Environments" }
+
+> Google Pixel 7 API 34 emulator 
+> Samsung SM-N981U Samsung galaxy note 20 physical device.

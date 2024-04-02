@@ -8,6 +8,9 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
+/**
+ * Used to get the API key to populate the game with needed information from the API
+ */
 public interface SportsDBProxy {
 
   @GET("{api_key}/all_countries.php")

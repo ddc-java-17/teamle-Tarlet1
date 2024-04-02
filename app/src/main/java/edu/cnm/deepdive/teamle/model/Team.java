@@ -4,6 +4,9 @@ import androidx.annotation.NonNull;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * Handles all teams in a selected league.
+ */
 public class Team {
 
   @Expose
@@ -22,6 +25,14 @@ public class Team {
   @SerializedName("idTeam")
 private final String id;
 
+  /**
+   * Handles the team objects and the needed information for guesses.
+   * @param name String
+   * @param location String
+   * @param yearCreated int
+   * @param primaryColor String
+   * @param id String
+   */
   public Team(String name, String location, int yearCreated,
       String primaryColor, String id) {
     this.name = name;

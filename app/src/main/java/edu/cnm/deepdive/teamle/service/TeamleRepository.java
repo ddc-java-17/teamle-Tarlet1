@@ -28,6 +28,9 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import javax.inject.Inject;
 
+/**
+ *This repository handles starting and playing a game.
+ */
 public class TeamleRepository {
 
   private final SportsDBProxy proxy;
@@ -41,7 +44,14 @@ public class TeamleRepository {
   private Map<String, List<League>> leaguesBySport;
   private Game game;
 
-
+  /**
+   * Handles all things needed for a game to be played
+   * @param proxy SportsDBProxy
+   * @param resultRepository GameResultRepository
+   * @param userRepository UserRepository
+   * @param context Context
+   * @param rng Random
+   */
   @Inject
   public TeamleRepository(SportsDBProxy proxy, GameResultRepository resultRepository,
       UserRepository userRepository, @ApplicationContext Context context, Random rng) {
@@ -53,6 +63,10 @@ public class TeamleRepository {
     apiKey = context.getString(R.string.api_key);
   }
 
+  /**
+   * Gets all leagues by sport
+   * @return Leagues
+   */
   public Single<? extends Map<String, List<League>>> getAllLeaguesBySport() {
     return proxy.getAllLeagues(apiKey)
         .map(LeagueResponse::getLeagues)
@@ -64,6 +78,11 @@ public class TeamleRepository {
         .subscribeOn(scheduler);
   }
 
+  /**
+   * Gets all teams in a specific league
+   * @param leagueId String
+   * @return List<Teams>
+   */
   public Single<List<Team>> getAllTeamsByLeague(String leagueId) {
     return proxy.getAllTeams(apiKey, leagueId)
         .map(TeamResponse::getTeams)
@@ -71,17 +90,30 @@ public class TeamleRepository {
         .subscribeOn(scheduler);
   }
 
+  /**
+   * Handles the team selected for a guess
+   * @return Team
+   */
   public Team pick() {
     return teams.get(rng.nextInt(teams.size()));
 
   }
 
+  /**
+   * Handles the start of a game
+   * @return Game
+   */
   public Game startGame() {
     Game game = new Game(pick());
     this.game = game;
     return game;
   }
 
+  /**
+   * Handles the submission of a guess
+   * @param pick Team
+   * @return Guess
+   */
   @SuppressLint("checkResult")
   public Guess submitGuess(Team pick) {
     if (game.isSolved()) {
@@ -100,6 +132,10 @@ public class TeamleRepository {
     return guess;
   }
 
+  /**
+   * Gets a game
+   * @return Game
+   */
   public Game getGame() {
     return game;
   }

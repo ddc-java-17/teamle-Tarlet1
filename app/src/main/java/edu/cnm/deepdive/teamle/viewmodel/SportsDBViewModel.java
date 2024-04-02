@@ -31,6 +31,9 @@ import java.util.stream.Collectors;
 import javax.inject.Inject;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * Handles everything needed from the API for a game
+ */
 @HiltViewModel
 public class SportsDBViewModel extends ViewModel implements DefaultLifecycleObserver,
     OnSharedPreferenceChangeListener {
@@ -51,7 +54,11 @@ public class SportsDBViewModel extends ViewModel implements DefaultLifecycleObse
   private final String sportKey;
   private final String leagueKey;
 
-
+  /**
+   * Handles view model object
+   * @param context Context
+   * @param teamleRepository TeamleRepository
+   */
   @Inject
   public SportsDBViewModel(@ApplicationContext Context context, TeamleRepository teamleRepository) {
     this.teamleRepository = teamleRepository;
@@ -78,6 +85,9 @@ public class SportsDBViewModel extends ViewModel implements DefaultLifecycleObse
 
   }
 
+  /**
+   * Gets all leagues in a specific sport
+   */
   public void fetchLeagues() {
     teamleRepository.getAllLeaguesBySport()
         .subscribe(
@@ -92,6 +102,10 @@ public class SportsDBViewModel extends ViewModel implements DefaultLifecycleObse
         );
   }
 
+  /**
+   * Gets all teams in a specific league
+   * @param leagueId String
+   */
   public void fetchTeams(String leagueId) {
     if (leagueId != null) {
       teamleRepository.getAllTeamsByLeague(leagueId)
@@ -104,40 +118,76 @@ public class SportsDBViewModel extends ViewModel implements DefaultLifecycleObse
 
   }
 
+  /**
+   * Gets all leagues by ID
+   * @param id String
+   * @return leagueId
+   */
   public League getLeagueById(String id) {
     return idToLeague.get(id);
   }
 
+  /**
+   * Starts a game
+   */
   public void startGame() {
     game.postValue(teamleRepository.startGame());
   }
 
+  /**
+   * Submits a guess
+   * @param team Team
+   */
   public void submitGuess(Team team) {
     Log.d(TAG, team.toString());
     teamleRepository.submitGuess(team);
     game.postValue(game.getValue());
   }
 
+  /**
+   * Gets all sports
+   * @return sports
+   */
   public LiveData<Set<String>> getSports() {
     return sports;
   }
 
+  /**
+   * Gets all leagues
+   * @return leagues
+   */
   public LiveData<List<League>> getLeagues() {
     return leagues;
   }
 
+  /**
+   * Gets all teams
+   * @return teams
+   */
   public LiveData<List<Team>> getTeams() {
     return teams;
   }
 
+  /**
+   * Gets games
+   * @return game
+   */
   public LiveData<Game> getGame() {
     return game;
   }
 
+  /**
+   * Gets guess
+   * @return guess
+   */
   public LiveData<Guess> getGuess() {
     return guess;
   }
 
+  /**
+   * gets a throwable
+   * @return throwable
+   */
   public LiveData<Throwable> getThrowable() {
     return throwable;
   }

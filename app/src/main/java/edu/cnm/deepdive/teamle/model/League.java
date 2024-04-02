@@ -5,6 +5,9 @@ import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Handles all league objects.
+ */
 public class League {
 
   @Expose
@@ -21,18 +24,34 @@ public class League {
 
   private final List<Team> teams = new ArrayList<>();
 
+  /**
+   * Gets the league ID
+   * @return String id
+   */
   public String getId() {
     return id;
   }
 
+  /**
+   * gets the selected sport
+   * @return String sport
+   */
   public String getSport() {
     return sport;
   }
 
+  /**
+   * Gets the league name.
+   * @return String name
+   */
   public String getName() {
     return name;
   }
 
+  /**
+   * Gets all teams in selected league.
+   * @return List<Team>
+   */
   public List<Team> getTeams() {
     return teams;
   }

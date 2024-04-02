@@ -18,6 +18,9 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+/**
+ * Gets the information from theSportsDB API the app needs to play the game.
+ */
 @Module
 @InstallIn(SingletonComponent.class)
 public class SportsDBModule {

@@ -13,6 +13,9 @@ import dagger.hilt.android.AndroidEntryPoint;
 import edu.cnm.deepdive.teamle.adapter.ScoresAdapter;
 import edu.cnm.deepdive.teamle.viewmodel.GameResultViewModel;
 
+/**
+ * Handles and inflates the scores screen.
+ */
 @AndroidEntryPoint
 public class ScoresFragment extends Fragment {
 

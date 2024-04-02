@@ -5,6 +5,9 @@ import edu.cnm.deepdive.teamle.model.Country;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ *
+ */
 public class CountryResponse {
 
   @Expose

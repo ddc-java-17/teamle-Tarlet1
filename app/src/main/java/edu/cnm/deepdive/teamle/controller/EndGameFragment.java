@@ -9,6 +9,9 @@ import androidx.fragment.app.DialogFragment;
 import dagger.hilt.android.AndroidEntryPoint;
 import edu.cnm.deepdive.teamle.R;
 
+/**
+ * This Fragment is used to inflate the end of game message screen when a game is completed.
+ */
 @AndroidEntryPoint
 public class EndGameFragment extends DialogFragment {
 
