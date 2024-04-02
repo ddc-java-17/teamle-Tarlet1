@@ -25,6 +25,16 @@ order: 40
 
 > The primary team color returns a written out "#000000" format of the color, not a literal color for you to see. Would play better if game returned a literal color.
 
+## Stretch goals and possible enhancements
+{: menu="Stretch goals" }
+
+> Have primary team color return a literal color swatch, rather than a "#000000" code.
+
+> Add more/ better hints for each guessed team to make it easier to figure out the secret team.
+
+> Filter list of sports and leagues to only include sports and teams that are team-based and will populate the auto complete text view.
+
+> Implement messaging to be able to send friends your scores and challenge them to beat it.
 
 ## Test environments used
 {: menu="Environments" }
@@ -32,3 +42,8 @@ order: 40
 > Google Pixel 7 API 34 emulator 
 
 > Samsung SM-N981U Samsung galaxy note 20 physical device.
+
+## Technical requirements and dependencies 
+{ : menu="Dependencies" }
+
+> Target is Android API 34, can support anything android 9 or higher. 

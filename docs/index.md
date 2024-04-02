@@ -75,13 +75,4 @@ This continues until the user gets the team right, then a successful pop-up will
   
     > Provides the information for the guess field categories for secret team and all guessed teams.   
 
-## Stretch goals and possible enhancements 
-{: menu="Stretch goals" }
 
-> Have primary team color return a literal color swatch, rather than a "#000000" code.
-
-> Add more/ better hints for each guessed team to make it easier to figure out the secret team.
-
-> Filter list of sports and leagues to only include sports and teams that are team-based and will populate the auto complete text view.
-
-> Implement messaging to be able to send friends your scores and challenge them to beat it.

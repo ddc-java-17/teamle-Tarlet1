@@ -1,6 +1,6 @@
 ---
 title: License notice
-description: "Project build instructions and user instructions for the app."
+description: "Licenses and notices for everything used by the app."
 menu: License
 order: 50
 ---
@@ -43,6 +43,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 
 ---
+
 {: menu="Android Standard Library"}
 ## Android standard libraries, support libraries, Material components, Google Play
 
