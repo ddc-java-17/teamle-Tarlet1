@@ -23,7 +23,7 @@ order: 40
 
 * Sport and league preferences are reset to having nothing selected when phone is rotated. 
 
-* Auto complete text view covers whole screen when phone is rotated during gameplay, blocking list of guesses unless you back out of the list/ keyboard. 
+* Auto complete text view covers whole screen when phone is rotated during gameplay, blocking list of guesses unless you back out of the text view/ keyboard. 
 
 * Certain teams do not have a primary team color attribute set in the API, so during a game the primary team color column for those teams returns empty when those teams are used for a guess.
 
@@ -34,9 +34,11 @@ order: 40
 
 * Have primary team color return a literal color swatch, rather than a "#000000" code.
 
-* Add more/ better hints for each guessed team to make it easier to figure out the secret team.
+* Add more/better hints/guess categories for each guessed team to make it easier to figure out the secret team.
 
-* Filter list of sports and leagues to only include sports and teams that are team-based and will populate the auto complete text view.
+* Filter list of sports and leagues to only include sports and leagues that are team-based and will populate the auto complete text view.
+
+* Implement the ability to choose multiple leagues at once, allowing the pool to contain all teams from multiple leagues, not just one.
 
 * Implement messaging to be able to send friends your scores and challenge them to beat it.
 
