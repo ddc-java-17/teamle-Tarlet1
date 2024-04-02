@@ -15,39 +15,39 @@ order: 40
 ## Known deficiencies
 {: menu="Deficiencies" }
 
-> Certain listed sports don't populate drop down list, works only for team-based sports.
+* Certain listed sports don't populate drop down list, works only for team-based sports.
 
-> Game crashes if new game is selected before going to settings screen to set preferences first, sometime still crashes if settings are not gone to first even if preferences were set before.
+* Game crashes if new game is selected before going to settings screen to set preferences first, sometime still crashes if settings are not gone to first even if preferences were set before.
 
-> Sport and league selection have a bug that sometimes won't allow you to select a certain sport or league, must go select another sport or league and then go back to the desired league or sport to have it set as preference.
+* Sport and league selection have a bug that sometimes won't allow you to select a certain sport or league, must go select another sport or league and then go back to the desired league or sport to have it set as preference.
 
-> Sport and league preferences are reset to having nothing selected when phone is rotated. 
+* Sport and league preferences are reset to having nothing selected when phone is rotated. 
 
-> Auto complete text view covers whole screen when phone is rotated during gameplay. 
+* Auto complete text view covers whole screen when phone is rotated during gameplay. 
 
-> Certain teams do not have a primary team color attribute set in the API, so during game the primary team color column for those teams return empty when those teams are used for a guess.
+* Certain teams do not have a primary team color attribute set in the API, so during game the primary team color column for those teams return empty when those teams are used for a guess.
 
-> The primary team color returns a written out "#000000" format of the color, not a literal color for you to see. Would play better if game returned a literal color.
+* The primary team color returns a written out "#000000" format of the color, not a literal color for you to see. Would play better if game returned a literal color.
 
 ## Stretch goals and possible enhancements
 {: menu="Stretch goals" }
 
-> Have primary team color return a literal color swatch, rather than a "#000000" code.
+* Have primary team color return a literal color swatch, rather than a "#000000" code.
 
-> Add more/ better hints for each guessed team to make it easier to figure out the secret team.
+* Add more/ better hints for each guessed team to make it easier to figure out the secret team.
 
-> Filter list of sports and leagues to only include sports and teams that are team-based and will populate the auto complete text view.
+* Filter list of sports and leagues to only include sports and teams that are team-based and will populate the auto complete text view.
 
-> Implement messaging to be able to send friends your scores and challenge them to beat it.
+* Implement messaging to be able to send friends your scores and challenge them to beat it.
 
 ## Test environments used
 {: menu="Environments" }
 
-> Google Pixel 7 API 34 emulator 
+* Google Pixel 7 API 34 emulator 
 
-> Samsung SM-N981U Samsung galaxy note 20 physical device.
+* Samsung SM-N981U Samsung galaxy note 20 physical device.
 
 ## Technical requirements and dependencies 
 {: menu="Dependencies"}
 
-> Target is Android API 34, can support anything android 9 or higher. 
+* Target is Android API 34, can support anything android 9 or higher. 

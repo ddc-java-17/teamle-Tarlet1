@@ -12,6 +12,6 @@ wireframe:
 
 ## Navigation
 
-The main navigation in my app comes from a Overflow menu. There is also a floating action button to navigate you to the scores screen. 
+The main navigation in the app comes from a Overflow menu. There is also a floating action button to navigate you to the scores screen. 
 
 {% include wireframe.md %}
